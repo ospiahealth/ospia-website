@@ -3,377 +3,454 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Ospia HMS is the AI-native hospital management system for Indian hospitals: 17 autonomous agents, an ambient AI scribe, a digital twin, and a human signature on every action.">
+<meta name="description" content="Ospia HOS is an AI-native Hospital Operating System: intent over navigation, events over coupling, configuration over code, and an autonomy ladder from manual to autonomous — with every AI decision explainable and replayable.">
 <link rel="canonical" href="https://ospia.in/">
-<meta property="og:title" content="Ospia HMS — The AI-native Hospital Management System">
-<meta property="og:description" content="An AI workforce for your hospital. A human signature on every action. Built for Indian hospitals — ABDM, DPDP, NMC, GST and NABH, by mechanism.">
+<meta property="og:title" content="Ospia HOS — the Hospital Operating System">
+<meta property="og:description" content="Not another hospital management system. A platform: tasks instead of screens, a permanent event store instead of a database of last known state, configuration instead of code, and AI that has to explain itself.">
 <meta property="og:url" content="https://ospia.in/">
 <meta property="og:type" content="website">
+<meta name="theme-color" content="#0E8C6D">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='9' fill='%230E8C6D'/%3E%3Cpath d='M10 38h11l5-14 9 24 6-14h13' stroke='%23F3FBF8' stroke-width='5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
-<title>Ospia HMS — The AI-native Hospital Management System</title>
+<title>Ospia HOS — the Hospital Operating System</title>
 <style>
-  /* ============ tokens ============ */
+  /* ═══════════════ tokens ═══════════════ */
   :root{
-    --bg:#F4F7F5;
+    --bg:#F6F5F1;
     --surface:#FFFFFF;
-    --surface-2:#EBF1EE;
-    --ink:#12251F;
-    --muted:#54675F;
-    --line:#D7E1DB;
+    --surface-2:#EDEFEA;
+    --ink:#141F1B;
+    --muted:#5A6863;
+    --faint:#68756F;
+    --line:#DCDED6;
+    --line-soft:#E7E9E2;
     --accent:#0E8C6D;
     --accent-strong:#0B6E56;
     --on-accent:#F3FBF8;
-    --amber:#B97E14;
-    --amber-bg:#F6EBD4;
-    --green-bg:#DDF0E7;
-    --trace:#12A57F;
-    --shadow:0 1px 2px rgba(18,37,31,.06),0 12px 32px -16px rgba(18,37,31,.18);
-    --serif:"Charter","Bitstream Charter","Sitka Text",Cambria,Georgia,serif;
-    --sans:"Segoe UI","SF Pro Text",system-ui,-apple-system,sans-serif;
+    --accent-wash:#E2F0EA;
+    --amber:#A8720F;
+    --amber-wash:#F4EAD3;
+    --violet:#5B4B9E;
+    --violet-wash:#E9E5F5;
+    --shadow:0 1px 2px rgba(20,31,27,.05),0 14px 36px -20px rgba(20,31,27,.22);
+    --shadow-lift:0 1px 2px rgba(20,31,27,.06),0 26px 60px -28px rgba(20,31,27,.34);
+    --serif:"Charter","Bitstream Charter","Sitka Text",Cambria,Georgia,"Times New Roman",serif;
+    --sans:"Inter","Segoe UI","SF Pro Text",system-ui,-apple-system,sans-serif;
     --mono:"Cascadia Code","SF Mono","JetBrains Mono",Consolas,ui-monospace,monospace;
   }
   @media (prefers-color-scheme: dark){
     :root{
-      --bg:#0B1613;
-      --surface:#10201B;
-      --surface-2:#152822;
-      --ink:#E4EEE9;
-      --muted:#8FA69E;
-      --line:#223730;
+      --bg:#0A0F0D;
+      --surface:#101815;
+      --surface-2:#16211D;
+      --ink:#E6ECE8;
+      --muted:#94A29B;
+      --faint:#7D8C85;
+      --line:#22302A;
+      --line-soft:#1B2621;
       --accent:#2CC593;
-      --accent-strong:#43D6A6;
-      --on-accent:#07231A;
-      --amber:#E3A63F;
-      --amber-bg:#2C2313;
-      --green-bg:#12382C;
-      --trace:#2CC593;
-      --shadow:0 1px 2px rgba(0,0,0,.3),0 16px 40px -20px rgba(0,0,0,.55);
+      --accent-strong:#4BD9AC;
+      --on-accent:#052017;
+      --accent-wash:#0F2E25;
+      --amber:#DFA845;
+      --amber-wash:#2A2214;
+      --violet:#A99BE8;
+      --violet-wash:#1F1B33;
+      --shadow:0 1px 2px rgba(0,0,0,.4),0 18px 44px -24px rgba(0,0,0,.7);
+      --shadow-lift:0 1px 2px rgba(0,0,0,.5),0 30px 70px -30px rgba(0,0,0,.8);
     }
   }
   :root[data-theme="light"]{
-    --bg:#F4F7F5; --surface:#FFFFFF; --surface-2:#EBF1EE; --ink:#12251F;
-    --muted:#54675F; --line:#D7E1DB; --accent:#0E8C6D; --accent-strong:#0B6E56;
-    --on-accent:#F3FBF8; --amber:#B97E14; --amber-bg:#F6EBD4; --green-bg:#DDF0E7;
-    --trace:#12A57F;
-    --shadow:0 1px 2px rgba(18,37,31,.06),0 12px 32px -16px rgba(18,37,31,.18);
+    --bg:#F6F5F1;--surface:#FFFFFF;--surface-2:#EDEFEA;--ink:#141F1B;--muted:#5A6863;
+    --faint:#68756F;--line:#DCDED6;--line-soft:#E7E9E2;--accent:#0E8C6D;--accent-strong:#0B6E56;
+    --on-accent:#F3FBF8;--accent-wash:#E2F0EA;--amber:#A8720F;--amber-wash:#F4EAD3;
+    --violet:#5B4B9E;--violet-wash:#E9E5F5;
+    --shadow:0 1px 2px rgba(20,31,27,.05),0 14px 36px -20px rgba(20,31,27,.22);
+    --shadow-lift:0 1px 2px rgba(20,31,27,.06),0 26px 60px -28px rgba(20,31,27,.34);
   }
   :root[data-theme="dark"]{
-    --bg:#0B1613; --surface:#10201B; --surface-2:#152822; --ink:#E4EEE9;
-    --muted:#8FA69E; --line:#223730; --accent:#2CC593; --accent-strong:#43D6A6;
-    --on-accent:#07231A; --amber:#E3A63F; --amber-bg:#2C2313; --green-bg:#12382C;
-    --trace:#2CC593;
-    --shadow:0 1px 2px rgba(0,0,0,.3),0 16px 40px -20px rgba(0,0,0,.55);
+    --bg:#0A0F0D;--surface:#101815;--surface-2:#16211D;--ink:#E6ECE8;--muted:#94A29B;
+    --faint:#7D8C85;--line:#22302A;--line-soft:#1B2621;--accent:#2CC593;--accent-strong:#4BD9AC;
+    --on-accent:#052017;--accent-wash:#0F2E25;--amber:#DFA845;--amber-wash:#2A2214;
+    --violet:#A99BE8;--violet-wash:#1F1B33;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 18px 44px -24px rgba(0,0,0,.7);
+    --shadow-lift:0 1px 2px rgba(0,0,0,.5),0 30px 70px -30px rgba(0,0,0,.8);
   }
 
-  /* ============ base ============ */
+  /* ═══════════════ base ═══════════════ */
   *{box-sizing:border-box}
-  html{scroll-behavior:smooth}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
   @media (prefers-reduced-motion: reduce){
     html{scroll-behavior:auto}
     *,*::before,*::after{animation:none!important;transition:none!important}
   }
   body{
     margin:0;background:var(--bg);color:var(--ink);
-    font-family:var(--sans);font-size:17px;line-height:1.6;
-    -webkit-font-smoothing:antialiased;
+    font-family:var(--sans);font-size:17px;line-height:1.62;
+    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
   }
-  h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.12;text-wrap:balance;margin:0}
+  h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.1;text-wrap:balance;margin:0;letter-spacing:-.008em}
   p{margin:0}
   a{color:inherit}
-  a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
-  .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
-  .eyebrow{
-    font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;
-    color:var(--accent-strong);display:flex;align-items:center;gap:12px;margin-bottom:20px;
-  }
-  .eyebrow::before{content:"";width:26px;height:1px;background:var(--accent-strong);flex:none}
-  .section{padding:104px 0}
-  .section-head{max-width:640px;margin-bottom:56px}
-  .section-head h2{font-size:clamp(30px,4vw,42px);margin-bottom:16px}
-  .section-head p{color:var(--muted);font-size:18px}
+  a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+  ::selection{background:var(--accent-wash);color:var(--ink)}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+  .section{padding:112px 0}
+  @media (max-width:760px){.section{padding:76px 0}}
   .visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
-  /* ============ nav ============ */
+  /* section marker — spec-document motif */
+  .marker{
+    font-family:var(--mono);font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--accent-strong);display:flex;align-items:center;gap:12px;margin-bottom:22px;
+  }
+  .marker .no{color:var(--faint)}
+  .marker::after{content:"";height:1px;background:var(--line);flex:1;max-width:120px}
+  .section-head{max-width:660px;margin-bottom:56px}
+  .section-head h2{font-size:clamp(31px,4.1vw,44px);margin-bottom:18px}
+  .section-head p{color:var(--muted);font-size:18px}
+  .lead-note{color:var(--muted);font-size:16px;max-width:62ch;margin-top:32px}
+  .lead-note b{color:var(--ink);font-weight:600}
+
+  /* ═══════════════ nav ═══════════════ */
   .nav{
-    position:sticky;top:0;z-index:50;
-    background:color-mix(in srgb,var(--bg) 82%,transparent);
-    backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+    position:sticky;top:0;z-index:60;
+    background:color-mix(in srgb,var(--bg) 84%,transparent);
+    backdrop-filter:blur(14px) saturate(1.4);-webkit-backdrop-filter:blur(14px) saturate(1.4);
     border-bottom:1px solid var(--line);
   }
-  .nav-inner{display:flex;align-items:center;gap:32px;height:62px}
-  .brand{display:flex;align-items:baseline;gap:8px;text-decoration:none;margin-right:auto}
-  .brand .word{font-family:var(--serif);font-size:21px;font-weight:700;letter-spacing:.01em}
-  .brand .tag{font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:var(--accent-strong)}
-  .nav-links{display:flex;gap:26px;align-items:center}
-  .nav-links a{
-    text-decoration:none;font-size:14.5px;color:var(--muted);
+  .nav-inner{display:flex;align-items:center;gap:30px;height:64px}
+  .brand{display:flex;align-items:baseline;gap:9px;text-decoration:none;margin-right:auto}
+  .brand .word{font-family:var(--serif);font-size:22px;font-weight:700;letter-spacing:.005em}
+  .brand .tag{
+    font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;color:var(--accent-strong);
+    border:1px solid var(--line);border-radius:2px;padding:2px 6px;position:relative;top:-2px;
   }
+  .nav-links{display:flex;gap:24px;align-items:center}
+  .nav-links a{text-decoration:none;font-size:14.5px;color:var(--muted);transition:color .15s}
   .nav-links a:hover{color:var(--ink)}
-  @media (max-width:760px){.nav-links a:not(.btn){display:none}}
+  @media (max-width:880px){.nav-links a:not(.btn){display:none}}
 
-  /* ============ buttons ============ */
+  /* ═══════════════ buttons ═══════════════ */
   .btn{
     display:inline-flex;align-items:center;gap:8px;
     font-family:var(--sans);font-size:15px;font-weight:600;
     padding:11px 22px;border-radius:2px;text-decoration:none;
-    border:1px solid transparent;cursor:pointer;
+    border:1px solid transparent;cursor:pointer;transition:background .15s,border-color .15s,color .15s;
   }
   .btn-primary{background:var(--accent);color:var(--on-accent)}
   .btn-primary:hover{background:var(--accent-strong)}
-  .btn-ghost{border-color:var(--line);color:var(--ink)}
+  .btn-ghost{border-color:var(--line);color:var(--ink);background:transparent}
   .btn-ghost:hover{border-color:var(--accent);color:var(--accent-strong)}
   .nav .btn{padding:8px 16px;font-size:14px}
 
-  /* ============ hero ============ */
-  .hero{padding:88px 0 0;border-bottom:1px solid var(--line);position:relative;overflow:hidden}
+  /* ═══════════════ hero ═══════════════ */
+  .hero{padding:92px 0 0;border-bottom:1px solid var(--line);position:relative;overflow:hidden}
   .hero-grid{
-    display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);
-    gap:64px;align-items:center;padding-bottom:72px;
+    display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+    gap:60px;align-items:center;padding-bottom:76px;
   }
-  @media (max-width:920px){.hero-grid{grid-template-columns:1fr;gap:48px}}
-  .hero h1{font-size:clamp(38px,5.4vw,60px);letter-spacing:-.01em;margin-bottom:24px}
+  @media (max-width:980px){.hero-grid{grid-template-columns:1fr;gap:52px}}
+  .hero h1{font-size:clamp(38px,5.6vw,62px);letter-spacing:-.018em;margin-bottom:24px}
   .hero h1 em{font-style:italic;color:var(--accent-strong)}
-  .hero .lede{font-size:19px;color:var(--muted);max-width:34em;margin-bottom:36px}
-  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
-  .hero-note{font-family:var(--mono);font-size:12.5px;color:var(--muted);margin-top:22px;letter-spacing:.02em}
+  .hero .lede{font-size:19px;color:var(--muted);max-width:35em;margin-bottom:34px}
+  .hero .lede b{color:var(--ink);font-weight:600}
+  .hero-ctas{display:flex;gap:13px;flex-wrap:wrap}
+  .hero-note{
+    font-family:var(--mono);font-size:12.5px;color:var(--faint);margin-top:24px;
+    letter-spacing:.02em;line-height:1.9;
+  }
 
-  /* agent console */
-  .console{
-    background:var(--surface);border:1px solid var(--line);border-radius:3px;
-    box-shadow:var(--shadow);font-size:14.5px;
+  /* — intent console — */
+  .intent{
+    background:var(--surface);border:1px solid var(--line);border-radius:4px;
+    box-shadow:var(--shadow-lift);overflow:hidden;
   }
-  .console-bar{
-    display:flex;justify-content:space-between;align-items:center;
-    padding:10px 18px;border-bottom:1px solid var(--line);
-    font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;
-    color:var(--muted);
-  }
-  .console-body{padding:22px 22px 20px}
-  .agent-line{
+  .intent-bar{
     display:flex;justify-content:space-between;align-items:center;gap:12px;
-    font-family:var(--mono);font-size:12.5px;color:var(--muted);margin-bottom:14px;
+    padding:9px 16px;border-bottom:1px solid var(--line);background:var(--surface-2);
+    font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);
   }
-  .agent-name{color:var(--accent-strong)}
-  .chip{
+  .intent-bar .kbd{
+    border:1px solid var(--line);border-radius:3px;padding:2px 7px;color:var(--muted);background:var(--surface);
+  }
+  .intent-input{
+    display:flex;align-items:center;gap:11px;padding:18px 20px;border-bottom:1px solid var(--line-soft);
+  }
+  .intent-input .caretline{
+    font-family:var(--sans);font-size:16.5px;color:var(--ink);min-height:1.6em;line-height:1.6;
+  }
+  .intent-input .prompt{color:var(--accent);font-family:var(--mono);font-size:15px;flex:none}
+  .caret{display:inline-block;width:2px;height:1.05em;background:var(--accent);vertical-align:-2px;margin-left:1px}
+  @keyframes blink{0%,45%{opacity:1}55%,100%{opacity:0}}
+  .caret{animation:blink 1.05s steps(1) infinite}
+
+  .resolve{
+    font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--faint);padding:11px 20px 0;display:flex;align-items:center;gap:9px;
+  }
+  .resolve .arrow{color:var(--accent)}
+  .task-card{padding:8px 20px 20px;opacity:0;transform:translateY(6px);transition:opacity .45s,transform .45s}
+  .task-card.on{opacity:1;transform:none}
+  .task-id{
+    font-family:var(--mono);font-size:14.5px;color:var(--accent-strong);
+    display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:4px;
+  }
+  .task-name{font-family:var(--serif);font-size:20px;font-weight:600;margin-bottom:14px;line-height:1.3}
+  .task-meta{display:grid;grid-template-columns:auto 1fr;gap:6px 16px;font-size:13px;margin-bottom:16px}
+  .task-meta dt{
     font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
-    padding:3px 9px;border-radius:2px;border:1px solid;white-space:nowrap;
+    color:var(--faint);white-space:nowrap;padding-top:2px;
   }
-  .chip-risk{border-color:var(--line);color:var(--muted)}
-  .chip-state{transition:background .3s,color .3s,border-color .3s}
-  .console.state-proposed .chip-state{background:var(--amber-bg);border-color:var(--amber);color:var(--amber)}
-  .console.state-approved .chip-state,
-  .console.state-executed .chip-state{background:var(--green-bg);border-color:var(--accent);color:var(--accent-strong)}
-  .proposal-title{font-family:var(--serif);font-size:21px;font-weight:600;line-height:1.25;margin-bottom:10px;min-height:2.5em}
-  .proposal-why{color:var(--muted);font-size:14px;margin-bottom:18px;min-height:3em}
-  .proposal-why b{color:var(--ink);font-weight:600}
-  .console-actions{display:flex;gap:10px;margin-bottom:16px}
-  .console-actions .btn{font-size:13.5px;padding:8px 16px}
-  .btn-approve{background:var(--accent);color:var(--on-accent);border:none}
-  .console.state-approved .btn-approve,
-  .console.state-executed .btn-approve{background:var(--green-bg);color:var(--accent-strong);border:1px solid var(--accent)}
-  .console-trail{
-    border-top:1px dashed var(--line);padding-top:14px;
-    font-family:var(--mono);font-size:12px;line-height:1.9;color:var(--muted);
+  .task-meta dd{margin:0;font-family:var(--mono);font-size:12.5px;color:var(--muted);line-height:1.7;word-break:break-word}
+  .task-meta dd .hl{color:var(--ink)}
+  .lvl{
+    display:inline-block;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;
+    padding:2px 8px;border-radius:2px;border:1px solid;
   }
-  .trail-line{opacity:0;transform:translateY(4px);transition:opacity .4s,transform .4s}
-  .console.state-approved .trail-sig,
-  .console.state-executed .trail-sig{opacity:1;transform:none}
-  .console.state-executed .trail-audit{opacity:1;transform:none}
-  .trail-line .ok{color:var(--accent-strong)}
+  .lvl-l1{color:var(--muted);border-color:var(--line);background:var(--surface-2)}
+  .lvl-l2{color:var(--violet);border-color:var(--violet);background:var(--violet-wash)}
+  .lvl-l3{color:var(--amber);border-color:var(--amber);background:var(--amber-wash)}
+  .lvl-l4{color:var(--accent-strong);border-color:var(--accent);background:var(--accent-wash)}
+  .invokers{
+    border-top:1px dashed var(--line);padding-top:13px;
+    display:flex;gap:7px;flex-wrap:wrap;align-items:center;
+  }
+  .invokers .lbl{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin-right:2px}
+  .invokers span.iv{
+    font-family:var(--mono);font-size:11px;padding:3px 8px;border:1px solid var(--line);
+    border-radius:2px;color:var(--muted);
+  }
+  .invokers span.iv.lit{border-color:var(--accent);color:var(--accent-strong);background:var(--accent-wash)}
 
-  .ecg-strip{height:88px;position:relative;border-top:1px solid var(--line)}
-  .ecg-strip canvas{position:absolute;inset:0;width:100%;height:100%;opacity:.8}
-  .ecg-label{
-    position:absolute;top:10px;right:24px;font-family:var(--mono);font-size:11px;
-    letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+  /* — event stream ribbon — */
+  .stream{
+    border-top:1px solid var(--line);background:var(--surface);
+    overflow:hidden;position:relative;height:46px;display:flex;align-items:center;
   }
+  .stream::before,.stream::after{
+    content:"";position:absolute;top:0;bottom:0;width:90px;z-index:2;pointer-events:none;
+  }
+  .stream::before{left:0;background:linear-gradient(90deg,var(--surface),transparent)}
+  .stream::after{right:0;background:linear-gradient(270deg,var(--surface),transparent)}
+  .stream-track{display:flex;gap:0;white-space:nowrap;will-change:transform;animation:slide 64s linear infinite}
+  @keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  .stream-track span{
+    font-family:var(--mono);font-size:11.5px;color:var(--faint);padding:0 20px;
+    border-right:1px solid var(--line-soft);letter-spacing:.03em;
+  }
+  .stream-track span b{color:var(--accent-strong);font-weight:400}
 
-  /* ============ stats ============ */
-  .stats{border-bottom:1px solid var(--line);background:var(--surface)}
-  .stats-row{
-    display:grid;grid-template-columns:repeat(5,1fr);gap:0;
+  /* ═══════════════ thesis strip ═══════════════ */
+  .thesis{background:var(--surface);border-bottom:1px solid var(--line)}
+  .thesis-row{display:grid;grid-template-columns:repeat(4,1fr)}
+  @media (max-width:880px){.thesis-row{grid-template-columns:repeat(2,1fr)}}
+  .th{padding:30px 26px;border-left:1px solid var(--line)}
+  .th:first-child{border-left:none;padding-left:0}
+  @media (max-width:880px){
+    .th{padding-left:26px;border-top:1px solid var(--line)}
+    .th:nth-child(odd){border-left:none;padding-left:0}
+    .th:nth-child(-n+2){border-top:none}
   }
-  @media (max-width:920px){.stats-row{grid-template-columns:repeat(2,1fr)}}
-  .stat{padding:34px 26px;border-left:1px solid var(--line)}
-  .stat:first-child{border-left:none;padding-left:0}
-  @media (max-width:920px){.stat{padding-left:0;border-left:none;border-top:1px solid var(--line)}
-    .stat:nth-child(-n+2){border-top:none}}
-  .stat .n{font-family:var(--serif);font-size:34px;font-weight:700;font-variant-numeric:tabular-nums}
-  .stat .l{font-size:13.5px;color:var(--muted);margin-top:2px}
+  .th .from{font-family:var(--mono);font-size:11.5px;color:var(--faint);text-decoration:line-through;text-decoration-thickness:1px}
+  .th .to{font-family:var(--serif);font-size:21px;font-weight:600;margin-top:5px;line-height:1.25}
 
-  /* ============ problem ============ */
-  .problem{background:var(--bg)}
-  .problem-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
-  @media (max-width:920px){.problem-grid{grid-template-columns:1fr}}
-  .problem-item h3{font-size:20px;margin-bottom:10px}
-  .problem-item p{color:var(--muted);font-size:15.5px}
-  .problem-item .k{
-    font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;
-    color:var(--amber);display:block;margin-bottom:14px;
+  /* ═══════════════ gap ═══════════════ */
+  .gap-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
+  @media (max-width:920px){.gap-grid{grid-template-columns:1fr;gap:34px}}
+  .gap-item .k{
+    font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--amber);display:block;margin-bottom:13px;
   }
+  .gap-item h3{font-size:20px;margin-bottom:10px}
+  .gap-item p{color:var(--muted);font-size:15.5px}
 
-  /* ============ roster ============ */
-  .roster-board{
-    background:var(--surface);border:1px solid var(--line);border-radius:3px;box-shadow:var(--shadow);
+  /* ═══════════════ pillars ═══════════════ */
+  .pillars{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .pillar-grid{
+    display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--line);
+    border:1px solid var(--line);
   }
-  .roster-head{
-    display:flex;justify-content:space-between;align-items:center;
-    padding:14px 24px;border-bottom:1px solid var(--line);
-    font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
-  }
-  .roster-head .live{display:flex;align-items:center;gap:8px;color:var(--accent-strong)}
-  .dot{width:7px;height:7px;border-radius:50%;background:var(--accent);flex:none}
-  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
-  .live .dot{animation:pulse 2.4s ease-in-out infinite}
-  .roster-rows{display:grid;grid-template-columns:1fr 1fr}
-  @media (max-width:920px){.roster-rows{grid-template-columns:1fr}}
-  .roster-row{
-    display:flex;gap:14px;align-items:baseline;
-    padding:18px 24px;border-top:1px solid var(--line);
-  }
-  .roster-row:nth-child(-n+2){border-top:none}
-  @media (max-width:920px){.roster-row:nth-child(2){border-top:1px solid var(--line)}}
-  .roster-row:nth-child(odd){border-right:1px solid var(--line)}
-  @media (max-width:920px){.roster-row:nth-child(odd){border-right:none}}
-  .roster-row .dot{position:relative;top:-2px}
-  .roster-row dt{
-    font-family:var(--mono);font-size:13px;color:var(--accent-strong);
-    min-width:196px;flex:none;
-  }
-  .roster-row dd{margin:0;font-size:14.5px;color:var(--muted)}
-  .roster-foot{
-    padding:14px 24px;border-top:1px solid var(--line);
-    font-family:var(--mono);font-size:12px;color:var(--muted);
-  }
-  .roster-claim{
-    margin-top:28px;max-width:620px;color:var(--muted);font-size:16px;
-  }
-  .roster-claim b{color:var(--ink)}
+  @media (max-width:1000px){.pillar-grid{grid-template-columns:repeat(3,1fr)}}
+  @media (max-width:680px){.pillar-grid{grid-template-columns:repeat(2,1fr)}}
+  .pil{background:var(--surface);padding:24px 20px;min-height:150px;transition:background .15s}
+  .pil:hover{background:var(--surface-2)}
+  .pil .n{font-family:var(--mono);font-size:11px;color:var(--faint);letter-spacing:.1em}
+  .pil h3{font-size:17px;margin:9px 0 8px;font-family:var(--sans);font-weight:650;letter-spacing:0}
+  .pil p{font-size:13.5px;color:var(--muted);line-height:1.55}
 
-  /* ============ capabilities ============ */
-  .caps{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-  .caps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
-  @media (max-width:980px){.caps-grid{grid-template-columns:repeat(2,1fr)}}
-  @media (max-width:660px){.caps-grid{grid-template-columns:1fr}}
-  .cap{background:var(--surface);padding:32px 28px;display:flex;flex-direction:column;gap:12px}
-  .cap:hover{background:var(--surface-2)}
-  .cap h3{font-size:22px}
-  .cap .hook{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-strong)}
-  .cap p{color:var(--muted);font-size:15px;flex:1}
-  .cap .spec{
-    font-family:var(--mono);font-size:12px;color:var(--muted);
-    border-top:1px dashed var(--line);padding-top:12px;line-height:1.8;
+  /* ═══════════════ generic feature grid ═══════════════ */
+  .fgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+  @media (max-width:1000px){.fgrid{grid-template-columns:repeat(2,1fr)}}
+  @media (max-width:680px){.fgrid{grid-template-columns:1fr}}
+  .fcell{background:var(--surface);padding:30px 26px;display:flex;flex-direction:column;gap:11px}
+  .fcell .hook{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-strong)}
+  .fcell h3{font-size:21px}
+  .fcell p{color:var(--muted);font-size:15px;flex:1}
+  .fcell .spec{
+    font-family:var(--mono);font-size:11.5px;color:var(--faint);
+    border-top:1px dashed var(--line);padding-top:11px;line-height:1.8;
   }
 
-  /* paper strip */
-  .paper-strip{padding:64px 0}
-  .paper-grid{display:grid;grid-template-columns:auto 1fr 1fr 1fr;gap:40px;align-items:start}
-  @media (max-width:980px){.paper-grid{grid-template-columns:1fr;gap:28px}}
-  .paper-grid h3{font-size:24px;max-width:7em}
-  .paper-item .k{
-    font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;
-    color:var(--accent-strong);display:block;margin-bottom:8px;
+  /* ═══════════════ autonomy ladder ═══════════════ */
+  .ladder{
+    display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:26px;
   }
-  .paper-item p{color:var(--muted);font-size:14.5px}
-  .eco{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-
-  /* ============ pricing ============ */
-  .pricing{border-top:1px solid var(--line)}
-  .tier-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-  @media (max-width:920px){.tier-grid{grid-template-columns:1fr}}
-  .tier{
+  @media (max-width:820px){.ladder{grid-template-columns:1fr 1fr}}
+  .rung{
     background:var(--surface);border:1px solid var(--line);border-radius:3px;
-    padding:30px 28px;display:flex;flex-direction:column;gap:14px;box-shadow:var(--shadow);
+    padding:16px 15px 18px;text-align:left;cursor:pointer;font:inherit;color:inherit;
+    display:flex;flex-direction:column;gap:7px;transition:border-color .18s,background .18s,transform .18s;
   }
-  .tier .for{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-strong)}
-  .tier h3{font-size:24px}
-  .tier ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:9px;flex:1}
-  .tier li{font-size:14px;color:var(--muted);padding-left:18px;position:relative}
-  .tier li::before{content:"✓";position:absolute;left:0;color:var(--accent-strong);font-size:12px}
-  .tier .btn{justify-content:center}
-  .tier-note{margin-top:28px;font-size:15px;color:var(--muted);max-width:640px}
-  .tier-note b{color:var(--ink)}
+  .rung:hover{border-color:var(--accent);transform:translateY(-2px)}
+  .rung[aria-selected="true"]{border-color:var(--accent);background:var(--accent-wash);box-shadow:var(--shadow)}
+  .rung .lv{font-family:var(--mono);font-size:12.5px;color:var(--accent-strong);letter-spacing:.1em}
+  .rung .nm{font-family:var(--sans);font-size:14.5px;font-weight:650;line-height:1.3}
+  .rung .bars{display:flex;gap:3px;margin-top:2px}
+  .rung .bars i{height:3px;flex:1;background:var(--line);border-radius:2px}
+  .rung .bars i.f{background:var(--accent)}
+  .rung-detail{
+    background:var(--surface);border:1px solid var(--line);border-radius:3px;
+    padding:26px 28px;box-shadow:var(--shadow);
+  }
+  .rung-detail h3{font-size:22px;margin-bottom:10px}
+  .rung-detail p{color:var(--muted);font-size:15.5px;max-width:70ch}
+  .rung-detail .eg{
+    font-family:var(--mono);font-size:12.5px;color:var(--faint);margin-top:14px;
+    border-top:1px dashed var(--line);padding-top:13px;line-height:1.8;
+  }
+  .rung-detail .eg b{color:var(--accent-strong);font-weight:400}
 
-  /* ============ faq ============ */
-  .faq{background:var(--surface);border-top:1px solid var(--line)}
-  .faq-list{max-width:760px;border-top:1px solid var(--line)}
+  /* ═══════════════ envelope ═══════════════ */
+  .env-split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:56px;align-items:start}
+  @media (max-width:980px){.env-split{grid-template-columns:1fr;gap:40px}}
+  .env-card{
+    background:var(--surface);border:1px solid var(--line);border-radius:4px;
+    box-shadow:var(--shadow);overflow:hidden;
+  }
+  .env-head{
+    padding:11px 18px;border-bottom:1px solid var(--line);background:var(--surface-2);
+    font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);
+    display:flex;justify-content:space-between;gap:12px;
+  }
+  .env-body{padding:6px 18px 18px}
+  .env-row{border-bottom:1px dashed var(--line-soft);padding:13px 0}
+  .env-row:last-child{border-bottom:none}
+  .env-row .q{
+    font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--accent-strong);margin-bottom:5px;
+  }
+  .env-row .a{font-size:14.5px;color:var(--muted);line-height:1.6}
+  .env-row .a b{color:var(--ink);font-weight:600}
+  .env-foot{
+    padding:12px 18px;border-top:1px solid var(--line);background:var(--surface-2);
+    font-family:var(--mono);font-size:11.5px;color:var(--faint);
+  }
+  .env-foot b{color:var(--accent-strong);font-weight:400}
+  .env-points{display:flex;flex-direction:column;gap:26px;margin-top:8px}
+  .env-point .k{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-strong);display:block;margin-bottom:7px}
+  .env-point h3{font-size:20px;margin-bottom:8px}
+  .env-point p{color:var(--muted);font-size:15px}
+
+  /* ═══════════════ architecture ═══════════════ */
+  .arch{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .arch-diagram{
+    border:1px solid var(--line);border-radius:4px;overflow:hidden;margin-bottom:40px;background:var(--bg);
+  }
+  .arch-layer{display:flex;align-items:stretch;border-bottom:1px solid var(--line)}
+  .arch-layer:last-child{border-bottom:none}
+  .arch-layer .lbl{
+    flex:none;width:150px;padding:16px 18px;border-right:1px solid var(--line);background:var(--surface);
+    font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-strong);
+    display:flex;align-items:center;
+  }
+  @media (max-width:760px){
+    .arch-layer{flex-direction:column}
+    .arch-layer .lbl{width:auto;border-right:none;border-bottom:1px solid var(--line)}
+  }
+  .arch-layer .cells{flex:1;display:flex;flex-wrap:wrap;gap:6px;padding:14px 16px;align-items:center}
+  .arch-layer .cells em{
+    font-style:normal;font-family:var(--mono);font-size:11.5px;padding:4px 9px;
+    border:1px solid var(--line);border-radius:2px;color:var(--muted);background:var(--surface);
+  }
+  .arch-layer .cells em.hot{border-color:var(--accent);color:var(--accent-strong);background:var(--accent-wash)}
+  .arch-layer .cells .note{font-family:var(--mono);font-size:11.5px;color:var(--faint)}
+  .gates{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+  @media (max-width:900px){.gates{grid-template-columns:1fr 1fr}}
+  @media (max-width:600px){.gates{grid-template-columns:1fr}}
+  .gate{border-top:2px solid var(--accent);padding-top:13px}
+  .gate h4{font-size:14.5px;margin:0 0 5px;font-weight:650;font-family:var(--sans)}
+  .gate p{font-size:13.5px;color:var(--muted)}
+
+  /* ═══════════════ india ═══════════════ */
+  .india-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+  @media (max-width:760px){.india-grid{grid-template-columns:1fr}}
+  .india-item{background:var(--surface);padding:24px 26px}
+  .india-item .ref{
+    font-family:var(--mono);font-size:11px;color:var(--accent-strong);
+    display:block;margin-bottom:9px;letter-spacing:.06em;
+  }
+  .india-item h3{font-size:17px;margin-bottom:7px;font-family:var(--sans);font-weight:650;letter-spacing:0}
+  .india-item p{font-size:14.5px;color:var(--muted)}
+
+  /* ═══════════════ status / roadmap ═══════════════ */
+  .status{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .now-panel{
+    display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:1px;
+    background:var(--line);border:1px solid var(--line);margin-bottom:44px;
+  }
+  @media (max-width:820px){.now-panel{grid-template-columns:1fr}}
+  .now-cell{background:var(--surface);padding:28px 28px}
+  .now-cell .badge{
+    display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;
+    letter-spacing:.12em;text-transform:uppercase;padding:3px 9px;border:1px solid;border-radius:2px;margin-bottom:14px;
+  }
+  .badge-live{color:var(--accent-strong);border-color:var(--accent);background:var(--accent-wash)}
+  .badge-build{color:var(--amber);border-color:var(--amber);background:var(--amber-wash)}
+  .dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex:none}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+  .badge-live .dot{animation:pulse 2.4s ease-in-out infinite}
+  .now-cell h3{font-size:21px;margin-bottom:10px}
+  .now-cell p{color:var(--muted);font-size:15px}
+  .now-cell .fine{font-family:var(--mono);font-size:12px;color:var(--faint);margin-top:14px;line-height:1.8}
+
+  .phases{border-top:1px solid var(--line)}
+  .phase{display:grid;grid-template-columns:64px 210px 1fr;gap:22px;padding:17px 0;border-bottom:1px solid var(--line);align-items:baseline}
+  @media (max-width:820px){.phase{grid-template-columns:56px 1fr;gap:8px 18px}
+    .phase .ph-body{grid-column:2}}
+  .phase .ph-n{font-family:var(--mono);font-size:12px;color:var(--faint);letter-spacing:.1em}
+  .phase .ph-t{font-family:var(--sans);font-size:15.5px;font-weight:650}
+  .phase .ph-body{color:var(--muted);font-size:14.5px}
+  .phase.done .ph-n{color:var(--accent-strong)}
+  .phase.done .ph-t::after{content:" ✓";color:var(--accent-strong);font-weight:400}
+
+  /* ═══════════════ faq ═══════════════ */
+  .faq-list{max-width:790px;border-top:1px solid var(--line)}
   .faq-list details{border-bottom:1px solid var(--line)}
   .faq-list summary{
-    cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:20px;align-items:baseline;
-    font-family:var(--serif);font-size:19px;font-weight:600;padding:20px 4px;
+    cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:22px;align-items:baseline;
+    font-family:var(--serif);font-size:19.5px;font-weight:600;padding:20px 4px;
   }
   .faq-list summary::-webkit-details-marker{display:none}
   .faq-list summary::after{content:"+";font-family:var(--mono);color:var(--accent-strong);font-size:18px;flex:none}
   .faq-list details[open] summary::after{content:"–"}
-  .faq-list .a{padding:0 4px 22px;color:var(--muted);font-size:15.5px;max-width:60ch}
+  .faq-list .a{padding:0 4px 24px;color:var(--muted);font-size:15.5px;max-width:64ch}
+  .faq-list .a + .a{padding-top:14px}
 
-  /* ============ safety ============ */
-  .safety{background:var(--bg)}
-  .pipeline{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:18px;align-items:stretch;margin-bottom:56px}
-  @media (max-width:920px){.pipeline{grid-template-columns:1fr;gap:12px}
-    .pipe-arrow{transform:rotate(90deg);justify-self:center}}
-  .pipe{
-    background:var(--surface);border:1px solid var(--line);border-radius:3px;
-    padding:26px 24px;box-shadow:var(--shadow);
-  }
-  .pipe .stage{
-    font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;
-    padding:3px 9px;border:1px solid;border-radius:2px;display:inline-block;margin-bottom:16px;
-  }
-  .pipe-1 .stage{color:var(--amber);border-color:var(--amber);background:var(--amber-bg)}
-  .pipe-2 .stage{color:var(--ink);border-color:var(--line);background:var(--surface-2)}
-  .pipe-3 .stage{color:var(--accent-strong);border-color:var(--accent);background:var(--green-bg)}
-  .pipe h3{font-size:19px;margin-bottom:10px}
-  .pipe p{font-size:14.5px;color:var(--muted)}
-  .pipe-arrow{align-self:center;color:var(--muted);font-size:20px}
-  .audit-ribbon{
-    font-family:var(--mono);font-size:12.5px;color:var(--muted);
-    background:var(--surface);border:1px solid var(--line);border-radius:3px;
-    padding:16px 22px;overflow-x:auto;white-space:nowrap;margin-bottom:56px;
-  }
-  .audit-ribbon .h{color:var(--accent-strong)}
-  .sec-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:28px}
-  @media (max-width:980px){.sec-grid{grid-template-columns:repeat(2,1fr)}}
-  .sec-item{border-top:2px solid var(--accent);padding-top:14px}
-  .sec-item h4{font-size:15px;margin:0 0 6px;font-weight:600;font-family:var(--sans)}
-  .sec-item p{font-size:13.5px;color:var(--muted)}
+  /* ═══════════════ cta ═══════════════ */
+  .cta{background:var(--surface);border-top:1px solid var(--line)}
+  .cta-inner{display:grid;grid-template-columns:1.15fr .85fr;gap:60px;align-items:center}
+  @media (max-width:920px){.cta-inner{grid-template-columns:1fr;gap:38px}}
+  .cta h2{font-size:clamp(32px,4.4vw,46px);margin-bottom:18px}
+  .cta h2 em{font-style:italic;color:var(--accent-strong)}
+  .cta p{color:var(--muted);font-size:18px;max-width:32em}
+  .cta-panel{border:1px solid var(--line);border-radius:4px;padding:30px;background:var(--bg)}
+  .cta-panel .btn{width:100%;justify-content:center;margin-bottom:11px}
+  .cta-panel .fine{font-family:var(--mono);font-size:11.5px;color:var(--faint);line-height:1.85;margin-top:12px}
 
-  /* ============ india ============ */
-  .india{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-  .india-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
-  @media (max-width:760px){.india-grid{grid-template-columns:1fr}}
-  .india-item{background:var(--surface);padding:26px 28px}
-  .india-item h3{font-size:18px;margin-bottom:8px;font-family:var(--sans);font-weight:600}
-  .india-item p{font-size:14.5px;color:var(--muted)}
-  .india-item .ref{
-    font-family:var(--mono);font-size:11.5px;color:var(--accent-strong);
-    display:block;margin-bottom:10px;letter-spacing:.06em;
-  }
-
-  /* ============ modules ============ */
-  .modules{padding:88px 0}
-  .chips{display:flex;flex-wrap:wrap;gap:10px;max-width:980px}
-  .chips span{
-    font-size:13.5px;padding:7px 14px;border:1px solid var(--line);border-radius:2px;
-    background:var(--surface);color:var(--muted);
-  }
-  .chips span.hot{border-color:var(--accent);color:var(--accent-strong);background:var(--green-bg)}
-
-  /* ============ cta ============ */
-  .cta{background:var(--surface);border-top:1px solid var(--line);text-align:left}
-  .cta-inner{display:grid;grid-template-columns:1.2fr .8fr;gap:64px;align-items:center}
-  @media (max-width:920px){.cta-inner{grid-template-columns:1fr;gap:36px}}
-  .cta h2{font-size:clamp(32px,4.4vw,48px);margin-bottom:18px}
-  .cta p{color:var(--muted);font-size:18px;max-width:30em}
-  .cta-panel{
-    border:1px solid var(--line);border-radius:3px;padding:32px;background:var(--bg);
-  }
-  .cta-panel .btn{width:100%;justify-content:center;margin-bottom:12px}
-  .cta-panel .fine{font-family:var(--mono);font-size:12px;color:var(--muted);line-height:1.8;margin-top:10px}
-
-  /* ============ footer ============ */
-  footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);font-size:13.5px}
+  /* ═══════════════ footer ═══════════════ */
+  footer{border-top:1px solid var(--line);padding:34px 0 46px;color:var(--faint);font-size:13.5px}
   .foot-row{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:baseline}
+  .foot-row strong{font-family:var(--serif);color:var(--ink);font-weight:700}
   .foot-row .mono{font-family:var(--mono);font-size:12px}
 </style>
 </head>
@@ -381,465 +458,591 @@
 
 <header class="nav">
   <div class="wrap nav-inner">
-    <a class="brand" href="#top" aria-label="Ospia HMS home">
-      <span class="word">Ospia</span><span class="tag">HMS</span>
+    <a class="brand" href="#top" aria-label="Ospia HOS home">
+      <span class="word">Ospia</span><span class="tag">HOS</span>
     </a>
     <nav class="nav-links" aria-label="Primary">
-      <a href="#staff">AI staff</a>
-      <a href="#capabilities">Capabilities</a>
-      <a href="#safety">Safety</a>
-      <a href="#india">India</a>
-      <a href="#pricing">Pricing</a>
-      <a href="#faq">FAQ</a>
-      <a class="btn btn-primary" href="#demo">Get demo access</a>
+      <a href="#platform">Platform</a>
+      <a href="#intent">Intent</a>
+      <a href="#autonomy">Autonomy</a>
+      <a href="#trust">Trust</a>
+      <a href="#architecture">Architecture</a>
+      <a href="#status">Status</a>
+      <a class="btn btn-primary" href="#talk">Talk to us</a>
     </nav>
   </div>
 </header>
 
 <main id="top">
 
-  <!-- ================= HERO ================= -->
+  <!-- ═════════ HERO ═════════ -->
   <section class="hero">
     <div class="wrap hero-grid">
       <div>
-        <p class="eyebrow">Ospia HMS · AI-native hospital management</p>
-        <h1>An AI workforce for your hospital. A human signature on <em>every</em> action.</h1>
+        <p class="marker"><span class="no">§00</span> Hospital Operating System</p>
+        <h1>Your hospital doesn't need more software. It needs an <em>operating system</em>.</h1>
         <p class="lede">
-          Ospia is the hospital management system built AI-native from the first line of code.
-          Seventeen autonomous agents watch your wards, pharmacy, revenue and compliance around
-          the clock — they draft, your people decide, and every step lands in a tamper-evident
-          audit chain.
+          Every hospital management system on the market is a filing cabinet with a login screen —
+          forty-five modules, four hundred screens, and a database that only remembers the last
+          thing that happened. <b>Ospia HOS is built the other way round:</b> intent instead of
+          navigation, a permanent event history instead of last-known-state, configuration instead
+          of code, and AI that is required to explain itself before anyone acts on it.
         </p>
         <div class="hero-ctas">
-          <a class="btn btn-primary" href="#demo">Explore a demo hospital</a>
-          <a class="btn btn-ghost" href="#safety">Read the safety model</a>
+          <a class="btn btn-primary" href="#talk">Talk to us</a>
+          <a class="btn btn-ghost" href="#platform">Read the platform thesis</a>
         </div>
-        <p class="hero-note">no black boxes · every proposal answers “why?” · propose → approve → execute</p>
+        <p class="hero-note">
+          tasks are permanent · screens are temporary<br>
+          every action an event · every event kept forever · every AI decision replayable
+        </p>
       </div>
 
       <div>
         <p class="visually-hidden">
-          Product demonstration: Ospia’s agent approval console. An AI agent proposes an action,
-          a named staff member approves it, and it executes with an audit-chain entry.
+          Illustration: Ospia's task bar. A person types an intent in plain English; the system
+          resolves it to a registered task with typed parameters, a required permission, a
+          configured autonomy level, an orchestration workflow, and the events it will publish.
+          The same task can be invoked from a screen, the command bar, voice, an AI agent, or the API.
         </p>
-        <div class="console state-proposed" id="console" aria-hidden="true">
-          <div class="console-bar">
-            <span>Approvals · today</span>
-            <span>autonomy queue</span>
+        <div class="intent" aria-hidden="true">
+          <div class="intent-bar">
+            <span>Task bar</span>
+            <span class="kbd">⌘K</span>
           </div>
-          <div class="console-body">
-            <div class="agent-line">
-              <span>AGENT&nbsp;·&nbsp;<span class="agent-name" id="c-agent">pharmacy-watchdog</span></span>
-              <span style="display:flex;gap:8px">
-                <span class="chip chip-risk" id="c-risk">risk: low</span>
-                <span class="chip chip-state" id="c-state">proposed</span>
-              </span>
-            </div>
-            <p class="proposal-title" id="c-title">Raise reorder level — Amoxicillin 500&nbsp;mg</p>
-            <p class="proposal-why" id="c-why"><b>Why?</b> 60-day consumption up 34% · 11 days of cover left at current threshold</p>
-            <div class="console-actions">
-              <span class="btn btn-approve" id="c-approve">Approve &amp; execute</span>
-              <span class="btn btn-ghost">Why?</span>
-            </div>
-            <div class="console-trail">
-              <div class="trail-line trail-sig" id="c-sig"><span class="ok">✓</span> approved — S. Mehta · Pharmacy lead</div>
-              <div class="trail-line trail-audit" id="c-audit"><span class="ok">⛓</span> executed · audit&nbsp;<span id="c-hash">#4a1f…9c2e</span> · chain verified</div>
+          <div class="intent-input">
+            <span class="prompt">›</span>
+            <span class="caretline"><span id="typed"></span><span class="caret"></span></span>
+          </div>
+          <p class="resolve"><span class="arrow">↳</span> resolved · task registry</p>
+          <div class="task-card" id="task">
+            <p class="task-id"><span id="t-id">ipd.admit-patient</span></p>
+            <p class="task-name" id="t-name">Admit patient</p>
+            <dl class="task-meta">
+              <dt>params</dt><dd id="t-params"></dd>
+              <dt>permission</dt><dd id="t-perm"></dd>
+              <dt>autonomy</dt><dd><span class="lvl" id="t-lvl"></span> <span id="t-lvltext"></span></dd>
+              <dt>emits</dt><dd id="t-emits"></dd>
+            </dl>
+            <div class="invokers">
+              <span class="lbl">invoked by</span>
+              <span class="iv" data-iv="screen">screen</span>
+              <span class="iv" data-iv="bar">⌘K</span>
+              <span class="iv" data-iv="voice">voice</span>
+              <span class="iv" data-iv="agent">agent</span>
+              <span class="iv" data-iv="api">API</span>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="ecg-strip" aria-hidden="true">
-      <canvas id="ecg"></canvas>
-      <span class="ecg-label">digital twin · live</span>
+
+    <div class="stream" aria-hidden="true">
+      <div class="stream-track" id="stream"></div>
     </div>
   </section>
 
-  <!-- ================= STATS ================= -->
-  <section class="stats">
-    <div class="wrap stats-row">
-      <div class="stat"><div class="n">17</div><div class="l">autonomous agents on duty, all propose-only</div></div>
-      <div class="stat"><div class="n">0</div><div class="l">AI writes to clinical data without human approval</div></div>
-      <div class="stat"><div class="n">25+</div><div class="l">modules on one record — OPD to blood bank</div></div>
-      <div class="stat"><div class="n">10</div><div class="l">Indian languages in the interface</div></div>
-      <div class="stat"><div class="n">237</div><div class="l">automated checks on every change (154 unit + 83 e2e)</div></div>
+  <!-- ═════════ THESIS STRIP ═════════ -->
+  <section class="thesis">
+    <div class="wrap thesis-row">
+      <div class="th"><span class="from">navigation</span><div class="to">Intent</div></div>
+      <div class="th"><span class="from">records</span><div class="to">Knowledge</div></div>
+      <div class="th"><span class="from">customization</span><div class="to">Configuration</div></div>
+      <div class="th"><span class="from">reporting</span><div class="to">Prediction</div></div>
     </div>
   </section>
 
-  <!-- ================= PROBLEM ================= -->
-  <section class="section problem">
+  <!-- ═════════ THE GAP ═════════ -->
+  <section class="section" id="gap">
     <div class="wrap">
       <div class="section-head">
-        <p class="eyebrow">The gap</p>
-        <h2>Legacy HMS software records what happened. It never notices anything.</h2>
-        <p>Every hospital already has a system of record. Almost none has a system that watches the record and acts on it.</p>
+        <p class="marker"><span class="no">§01</span> Why not another HMS</p>
+        <h2>An HMS records what happened. An operating system runs the place.</h2>
+        <p>We built one of the good ones first — and then went looking for the ceiling. We found three, and none of them could be patched out.</p>
       </div>
-      <div class="problem-grid">
-        <div class="problem-item">
-          <span class="k">After the OPD closes</span>
-          <h3>Clinicians become typists</h3>
-          <p>Notes, ICD codes and discharge summaries get written hours after the patient left — from memory, under fatigue, into a form with forty fields.</p>
+      <div class="gap-grid">
+        <div class="gap-item">
+          <span class="k">Ceiling one</span>
+          <h3>The screen is the product</h3>
+          <p>When capability lives in pages, every new channel — mobile, kiosk, voice, an agent, a partner's API — is a rebuild. The work is real but it is always the same work, done again in a new shape.</p>
         </div>
-        <div class="problem-item">
-          <span class="k">At the dispensing counter</span>
-          <h3>Stockouts announce themselves</h3>
-          <p>Reorder levels were set once, years ago. The first person to learn a drug ran out is the patient standing at pharmacy.</p>
+        <div class="gap-item">
+          <span class="k">Ceiling two</span>
+          <h3>The database forgets</h3>
+          <p>A row holds one truth: the current one. Ask what a chart looked like at the moment of the decision, or replay how a claim reached denial, and the honest answer is that nobody kept it.</p>
         </div>
-        <div class="problem-item">
-          <span class="k">At month-end</span>
-          <h3>Leakage is found, not prevented</h3>
-          <p>Aging invoices, stalled TPA preauths, unsigned summaries blocking record release — discovered in audit, weeks after they could have been fixed.</p>
+        <div class="gap-item">
+          <span class="k">Ceiling three</span>
+          <h3>Every hospital is a fork</h3>
+          <p>Numbering schemes, bed policies, discount matrices, approval chains — each hospital's rules end up in someone's code. Ten customers become ten codebases and a support burden that compounds.</p>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- ================= ROSTER ================= -->
-  <section class="section" id="staff">
-    <div class="wrap">
-      <div class="section-head">
-        <p class="eyebrow">The agent roster</p>
-        <h2>Meet the staff who never sleep</h2>
-        <p>Ospia ships with seventeen role-based agents — a leadership team in software. Each one watches its beat continuously and files proposals into the same approval queue your administrators already use.</p>
-      </div>
-
-      <div class="roster-board">
-        <div class="roster-head">
-          <span>Duty roster — all shifts</span>
-          <span class="live"><span class="dot"></span>on duty · 24×7</span>
-        </div>
-        <dl class="roster-rows">
-          <div class="roster-row"><span class="dot"></span><dt>medical-superintendent</dt><dd>Unsigned discharge summaries, ward overstays, OT backlog, death &amp; LAMA review</dd></div>
-          <div class="roster-row"><span class="dot"></span><dt>nursing-supervisor</dt><dd>Charting gaps; drafts shift assignments for uncovered occupied wards</dd></div>
-          <div class="roster-row"><span class="dot"></span><dt>pharmacy-watchdog</dt><dd>Expiry and FEFO breaks; restock drafts from live dispensing data</dd></div>
-          <div class="roster-row"><span class="dot"></span><dt>inventory-optimizer</dt><dd>Learns reorder levels from 60 days of real consumption — no hand-set thresholds</dd></div>
-          <div class="roster-row"><span class="dot"></span><dt>revenue-watchdog</dt><dd>Invoice aging, refund approval trail, collection follow-ups</dd></div>
-          <div class="roster-row"><span class="dot"></span><dt>infection-control</dt><dd>Blood-unit screening and expiry, long ICU stays flagged for review</dd></div>
-          <div class="roster-row"><span class="dot"></span><dt>quality-officer</dt><dd>Patient feedback, lab turnaround times, four-eyes verification backlog</dd></div>
-          <div class="roster-row"><span class="dot"></span><dt>compliance-officer</dt><dd>Telemedicine consent, AI-draft sign-off, the NMC 72-hour record-release clock</dd></div>
-          <div class="roster-row"><span class="dot"></span><dt>procurement-agent</dt><dd>Stuck purchase orders; consumable restock drafts ready to approve</dd></div>
-          <div class="roster-row"><span class="dot"></span><dt>ceo-briefing</dt><dd>Executive digest and capacity alerts on the morning dashboard</dd></div>
-        </dl>
-        <div class="roster-foot">+7 more on shift: hr · it-support · biomedical · reliability · kpi-telemetry · operations · nmc-registrations</div>
-      </div>
-
-      <p class="roster-claim">
-        Every agent is <b>propose-only by construction</b>. None of them can touch a domain table.
-        What they can do is notice — at 3 a.m., on a Sunday, during the festival rush — and have a
-        fully-reasoned proposal waiting when your team arrives.
+      <p class="lead-note">
+        Ospia HMS — the system that taught us this — is live, sold, and supported. <b>HOS is not its next
+        version; it is its successor architecture</b>, rebuilt greenfield so that the ceilings are absent
+        rather than worked around. What v1 proved about clinical breadth, safety and Indian compliance is
+        inherited wholesale. What it proved about platform mechanics is the reason for the rewrite.
       </p>
     </div>
   </section>
 
-  <!-- ================= CAPABILITIES ================= -->
-  <section class="section caps" id="capabilities">
+  <!-- ═════════ PILLARS ═════════ -->
+  <section class="section pillars" id="platform">
     <div class="wrap">
       <div class="section-head">
-        <p class="eyebrow">Native AI capabilities</p>
-        <h2>Native AI, not a bolt-on chatbot</h2>
-        <p>Most vendors added an assistant to a twenty-year-old system. Ospia was designed around the AI — with the guardrails a hospital actually requires.</p>
+        <p class="marker"><span class="no">§02</span> The platform map</p>
+        <h2>Ten platforms, not forty-five modules</h2>
+        <p>Modules are how work gets organised. Platforms are what the work compounds into. Everything Ospia ships lands in one of these ten, and each one is reusable by every other.</p>
       </div>
-
-      <div class="caps-grid">
-        <article class="cap">
-          <span class="hook">During the consult</span>
-          <h3>Ambient AI Scribe</h3>
-          <p>Speak through the consultation. Walk out with a structured SOAP note, ICD-10 suggestions and a draft prescription — with red-flag symptoms surfaced as you talk. Nothing enters the record without clinician sign-off.</p>
-          <div class="spec">voice → SOAP + ICD-10 + Rx draft · red-flag detection · offline parser fallback</div>
-        </article>
-
-        <article class="cap">
-          <span class="hook">For leadership</span>
-          <h3>Ask Ospia</h3>
-          <p>“Which departments had the longest lab turnaround last month?” Ask in English; get a governed answer. Questions compile to read-only SQL behind a five-layer guard and run under the asker’s own permissions — pin any answer as a live dashboard.</p>
-          <div class="spec">english → guarded read-only SQL · re-checked against the viewer, every run</div>
-        </article>
-
-        <article class="cap">
-          <span class="hook">Before you decide</span>
-          <h3>Digital twin &amp; simulation</h3>
-          <p>A real-time mirror of the hospital — ward heatmaps, OPD flow, theatres, fleet, duty coverage. Rehearse tomorrow before you live it: close a ward, add beds, absorb an OPD surge or a staff absence, and see the impact first.</p>
-          <div class="spec">what-if models over live data · read-only by construction · plain-English input</div>
-        </article>
-
-        <article class="cap">
-          <span class="hook">At prescribing time</span>
-          <h3>Clinical decision support</h3>
-          <p>Drug–drug interactions, allergy cross-reactivity, duplicate therapy, renal dosing and pregnancy checks — at the moment of ordering. Serious alerts block until the prescriber records an override reason, preserved for the medico-legal record.</p>
-          <div class="spec">blocking alerts · override reasons persisted · hospital-defined custom rules</div>
-        </article>
-
-        <article class="cap">
-          <span class="hook">For administrators</span>
-          <h3>Configure it in a sentence</h3>
-          <p>“Any invoice over ₹50,000 needs CFO sign-off.” One English sentence becomes a validated workflow, approval chain, intake form — or a whole department with wards, beds and services, set up in a single approved transaction.</p>
-          <div class="spec">english → workflows · forms · approval chains · department setup · human-approved</div>
-        </article>
-
-        <article class="cap">
-          <span class="hook">Ahead of the day</span>
-          <h3>Predictions that explain themselves</h3>
-          <p>No-show risk on every booking, bed-demand forecasts, self-tuning reorder levels — each prediction ships with its named factors, so the front desk and the stores team can see exactly why before they act on it.</p>
-          <div class="spec">no-show risk · bed-demand forecast · reorder learning · named factors, always</div>
-        </article>
+      <div class="pillar-grid">
+        <div class="pil"><span class="n">01</span><h3>Core</h3><p>Identity, authorization, tenancy, configuration, crypto, observability — the kernel, deliberately tiny, with zero business rules.</p></div>
+        <div class="pil"><span class="n">02</span><h3>Clinical</h3><p>Patient, EMR, orders, nursing, ICU, theatre, beds, emergency, lab, imaging, blood bank — one record, one timeline.</p></div>
+        <div class="pil"><span class="n">03</span><h3>Financial</h3><p>Billing and RCM, insurance and claims, and a real general ledger — statutory accounting, not an export.</p></div>
+        <div class="pil"><span class="n">04</span><h3>AI</h3><p>Agent runtime, memory, model router, decision ledger and governance — the intelligence layer, governed like staff.</p></div>
+        <div class="pil"><span class="n">05</span><h3>Integration</h3><p>FHIR, HL7, ABDM, DICOM, LIS/RIS, ERP, payments, messaging, devices — a connector catalog, configured not coded.</p></div>
+        <div class="pil"><span class="n">06</span><h3>Analytics</h3><p>Read-models built from events, a live digital twin, a prediction service, and an export path to a data lake.</p></div>
+        <div class="pil"><span class="n">07</span><h3>Automation</h3><p>Workflow engine with timers, SLAs, escalation and compensation — plus the rules engine everything routes through.</p></div>
+        <div class="pil"><span class="n">08</span><h3>Developer</h3><p>Typed contracts, generated OpenAPI and SDK, a published event catalog, documented extension points.</p></div>
+        <div class="pil"><span class="n">09</span><h3>Marketplace</h3><p>Every module is an installable package with a manifest. A store is a storefront over a mechanism that already exists.</p></div>
+        <div class="pil"><span class="n">10</span><h3>Experience</h3><p>A design system, role workspaces, the command bar, the operations wall — thin surfaces over a headless core.</p></div>
       </div>
+      <p class="lead-note">
+        The rule that keeps this honest: <b>platform before features.</b> Before anything is built we
+        answer eight questions — can another feature reuse it, can AI use it, can automation use it, can
+        workflows orchestrate it, can external systems integrate with it, can hospitals configure it,
+        does it add to institutional knowledge, will it still make sense in ten years. Any "no" sends the
+        design back. It is slower on any given Tuesday and it is the only reason the tenth capability
+        costs less than the first.
+      </p>
     </div>
   </section>
 
-  <!-- ================= PAPER ================= -->
-  <section class="paper-strip">
-    <div class="wrap paper-grid">
-      <h3>Paper meets its match</h3>
-      <div class="paper-item">
-        <span class="k">Scan to register</span>
-        <p>Photograph the paper registration form; AI transcribes and normalizes it for reception to verify. Aadhaar is reduced to last-4 at parse time and the image is never stored.</p>
-      </div>
-      <div class="paper-item">
-        <span class="k">Outside documents</span>
-        <p>Referral letters, old discharge summaries and lab reports are classified and parsed into the chart — diagnoses, medications, test values — for the clinician to confirm.</p>
-      </div>
-      <div class="paper-item">
-        <span class="k">Vitals from a photo</span>
-        <p>Snap the BP machine or pulse-ox; readings are extracted, unit-converted and range-checked, then queued for nurse review. No new hardware required.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= ECOSYSTEM ================= -->
-  <section class="paper-strip eco" id="ecosystem">
-    <div class="wrap paper-grid">
-      <h3>Open by default</h3>
-      <div class="paper-item">
-        <span class="k">Diagnostic AI, day one</span>
-        <p>Qure.ai-class vendors push chest X-ray, ECG and stroke findings over per-vendor HMAC-signed URLs — CDSCO-aligned provenance (model, version, confidence) on every result, and a mandatory clinician review queue in front of the chart.</p>
-      </div>
-      <div class="paper-item">
-        <span class="k">FHIR R4 · HL7 ADT</span>
-        <p>A FHIR R4 read/search API — Patient, Encounter, Condition, Observation, MedicationRequest — plus an outbound HL7 ADT feed, so your LIS, PACS and public-health reporting connect natively.</p>
-      </div>
-      <div class="paper-item">
-        <span class="k">Signed webhooks &amp; API clients</span>
-        <p>HMAC-signed webhooks fire on domain events with a full delivery log, and an OAuth-style client registry issues scoped tokens — integrations get exactly the access you grant, nothing more.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= SAFETY ================= -->
-  <section class="section safety" id="safety">
+  <!-- ═════════ INTENT ═════════ -->
+  <section class="section" id="intent">
     <div class="wrap">
       <div class="section-head">
-        <p class="eyebrow">The safety model</p>
-        <h2>Autonomy your board can sign off on</h2>
-        <p>Three invariants govern every AI capability in Ospia. They are enforced in the architecture, not the policy manual.</p>
+        <p class="marker"><span class="no">§03</span> Intent &amp; the task registry</p>
+        <h2>Tasks are permanent. Screens are temporary.</h2>
+        <p>The most consequential decision in the whole architecture, and the least visible one: capability does not live in pages.</p>
       </div>
 
-      <div class="pipeline">
-        <div class="pipe pipe-1">
-          <span class="stage">1 · Propose</span>
-          <h3>Agents can only propose</h3>
-          <p>No agent can write to a domain table. Proposals are deduplicated, carry a risk class, and answer “who, why, what, with which inputs” before anyone decides.</p>
-        </div>
-        <span class="pipe-arrow" aria-hidden="true">→</span>
-        <div class="pipe pipe-2">
-          <span class="stage">2 · Approve</span>
-          <h3>A named human decides</h3>
-          <p>Execution requires a staff member holding approval rights. Hospitals may opt in to auto-approval for low-risk actions only — and that policy is itself an approved, audited setting.</p>
-        </div>
-        <span class="pipe-arrow" aria-hidden="true">→</span>
-        <div class="pipe pipe-3">
-          <span class="stage">3 · Execute</span>
-          <h3>Whitelisted executors only</h3>
-          <p>Approved actions run through a fixed catalog of typed executors, re-validated against their schema at execution time, inside the caller’s tenancy — and captured by the audit trail.</p>
-        </div>
+      <div class="fgrid">
+        <article class="fcell">
+          <span class="hook">The registry</span>
+          <h3>Every capability is a declared task</h3>
+          <p>Register Patient. Admit Patient. Prepare Theatre. Dispense Medicine. Generate Claim. Book Follow-up. Each is registered by its module with typed parameters, the permission it demands, the workflow that orchestrates it, and the events it publishes.</p>
+          <div class="spec">typed params · required permission · orchestration · emitted events · autonomy level</div>
+        </article>
+        <article class="fcell">
+          <span class="hook">The consequence</span>
+          <h3>Six front doors, one implementation</h3>
+          <p>A screen, the ⌘K bar, a voice instruction, the AI copilot, an autonomous agent and a partner's API call are all <em>invokers of the same task</em>. Not six code paths that must be kept in agreement — one, with six ways in.</p>
+          <div class="spec">screen · command bar · voice · copilot · agent · external API</div>
+        </article>
+        <article class="fcell">
+          <span class="hook">The payoff</span>
+          <h3>Every screen eventually optional</h3>
+          <p>"Generate today's discharge bills" resolves to a task invocation, not a navigation path. New surfaces — kiosk, ward tablet, smart-TV wall, wearable, whatever 2032 brings — are thin clients over a registry that already exists.</p>
+          <div class="spec">intent is the interface · screens are one representation of it</div>
+        </article>
       </div>
 
-      <div class="audit-ribbon" aria-label="Hash-chained audit trail illustration">
-        audit chain&nbsp;&nbsp;<span class="h">#91be…</span> → <span class="h">#4a1f…</span> → <span class="h">#c77d…</span> → <span class="h">#0e2a…</span> → <span class="h">#f581…</span>&nbsp;&nbsp;each entry chains the last — edit one and the whole chain fails verification
+      <p class="lead-note">
+        This is also what makes the AI safe to expand. An agent is not given a browser and a login —
+        it is given <b>a permission-scoped subset of the same task registry your staff use</b>,
+        under the same authorization checks, producing the same audited events. There is no back door
+        because there is no second door.
+      </p>
+    </div>
+  </section>
+
+  <!-- ═════════ AUTONOMY ═════════ -->
+  <section class="section pillars" id="autonomy">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="marker"><span class="no">§04</span> The autonomy ladder</p>
+        <h2>Automation is a dial, and the hospital holds it</h2>
+        <p>Every task is designed to be capable of full autonomy, and every task ships set to whatever level you are actually comfortable with. Moving the dial is a configuration change — reviewed, approved and audited like any other.</p>
       </div>
 
-      <div class="sec-grid">
-        <div class="sec-item"><h4>Tamper-evident audit</h4><p>Every mutation hash-chained; the chain re-verifiable end to end.</p></div>
-        <div class="sec-item"><h4>Row-level security</h4><p>Postgres RLS scopes every query to hospital and user context.</p></div>
-        <div class="sec-item"><h4>Field-level encryption</h4><p>AES-256-GCM on personal data, separate keys for audit and PII.</p></div>
-        <div class="sec-item"><h4>Isolated patient portal</h4><p>Patients live on a separate identity plane — portal tokens are cryptographically useless on staff APIs.</p></div>
-        <div class="sec-item"><h4>One database per hospital</h4><p>Physical tenant isolation: your data never shares a database with anyone.</p></div>
+      <div class="ladder" role="tablist" aria-label="Autonomy maturity levels">
+        <button class="rung" role="tab" aria-selected="true" data-lv="0">
+          <span class="lv">L0</span><span class="nm">Manual</span>
+          <span class="bars"><i class="f"></i><i></i><i></i><i></i><i></i></span>
+        </button>
+        <button class="rung" role="tab" aria-selected="false" data-lv="1">
+          <span class="lv">L1</span><span class="nm">System-assisted</span>
+          <span class="bars"><i class="f"></i><i class="f"></i><i></i><i></i><i></i></span>
+        </button>
+        <button class="rung" role="tab" aria-selected="false" data-lv="2">
+          <span class="lv">L2</span><span class="nm">AI-recommended</span>
+          <span class="bars"><i class="f"></i><i class="f"></i><i class="f"></i><i></i><i></i></span>
+        </button>
+        <button class="rung" role="tab" aria-selected="false" data-lv="3">
+          <span class="lv">L3</span><span class="nm">Human-approved</span>
+          <span class="bars"><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i></i></span>
+        </button>
+        <button class="rung" role="tab" aria-selected="false" data-lv="4">
+          <span class="lv">L4</span><span class="nm">Autonomous in policy</span>
+          <span class="bars"><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i></span>
+        </button>
+      </div>
+
+      <div class="rung-detail" id="rung-detail" role="tabpanel">
+        <h3 id="rd-title">Manual</h3>
+        <p id="rd-body"></p>
+        <p class="eg" id="rd-eg"></p>
+      </div>
+
+      <p class="lead-note">
+        The dial is independent of risk. <b>Risk classifies the action; maturity configures how far
+        automation may currently go for that action, at your hospital.</b> A low-risk task may sit at L4
+        on the day you go live; a high-risk one may sit at L1 for two years and then move — because you
+        moved it, on evidence, with a signature attached. Nothing promotes itself.
+      </p>
+    </div>
+  </section>
+
+  <!-- ═════════ MEMORY / EVENTS ═════════ -->
+  <section class="section" id="memory">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="marker"><span class="no">§05</span> Events, time &amp; memory</p>
+        <h2>A hospital that remembers everything, and can prove it</h2>
+        <p>Every action publishes an event. Every event is kept — not for ninety days, not until the next archive job. Permanently. The event log <em>is</em> the hospital's history.</p>
+      </div>
+
+      <div class="fgrid">
+        <article class="fcell">
+          <span class="hook">Events over coupling</span>
+          <h3>One fact, many listeners</h3>
+          <p>Pharmacy publishes <em>MedicineDispensed</em> and knows nothing about who cares. Inventory decrements. Billing posts. Analytics counts. Audit chains. Adding an eleventh listener later changes nothing that already works.</p>
+          <div class="spec">durable outbox · at-least-once · idempotent consumers · versioned catalog</div>
+        </article>
+        <article class="fcell">
+          <span class="hook">Think in time</span>
+          <h3>As-of, not just as-is</h3>
+          <p>Clinically and financially significant records are versioned append-only — no destructive updates. So "what did this chart show when the drug was prescribed" and "what did the balance sheet say on the 31st" are queries, not archaeology.</p>
+          <div class="spec">append-only version history · as-of queries · full replay</div>
+        </article>
+        <article class="fcell">
+          <span class="hook">Hospital memory</span>
+          <h3>Context arrives before you ask</h3>
+          <p>Open a patient and the relevant past assembles itself: prior admissions, this doctor's preferences, similar cases and their outcomes, previous medications, billing and insurance history. Institutional knowledge, not a search box.</p>
+          <div class="spec">knowledge graph · memory stores · consent- and permission-gated</div>
+        </article>
+        <article class="fcell">
+          <span class="hook">Reversibility</span>
+          <h3>Nothing important is irreversible</h3>
+          <p>Undo on user actions. Rollback and compensation on workflows. Version history and recovery on records. Replay on AI decisions. A system people trust is one where a mistake is a Tuesday, not a catastrophe.</p>
+          <div class="spec">undo · rollback · compensation · recovery · time travel</div>
+        </article>
+        <article class="fcell">
+          <span class="hook">Configuration</span>
+          <h3>Your rules are data, not our code</h3>
+          <p>Numbering schemes, bed allocation, pricing and discounts, package rules, approval matrices, referral and insurance rules, consent requirements, clinical pathways, discharge criteria — versioned, tenant-scoped, evaluated by one engine.</p>
+          <div class="spec">target: 90% of hospital requirements met by configuration alone</div>
+        </article>
+        <article class="fcell">
+          <span class="hook">Intelligent objects</span>
+          <h3>Objects that know things</h3>
+          <p>A patient exposes risk, timeline, predictions and care gaps. A bed exposes occupancy, cleaning, maintenance and the equipment near it. A medicine exposes alternatives, interactions, demand and expiry. Behaviour and insight, not just columns.</p>
+          <div class="spec">insight surface on every contract · consumed by cards, twin, agents alike</div>
+        </article>
       </div>
     </div>
   </section>
 
-  <!-- ================= INDIA ================= -->
-  <section class="section india" id="india">
+  <!-- ═════════ TRUST ═════════ -->
+  <section class="section pillars" id="trust">
     <div class="wrap">
       <div class="section-head">
-        <p class="eyebrow">Built for India</p>
-        <h2>Compliant down to the IRN</h2>
-        <p>Not localized after the fact — Indian statute is in the data model. DPDP, ABDM, NMC and GST behaviors are enforced by the system, and watched by the agents.</p>
+        <p class="marker"><span class="no">§06</span> The trust layer</p>
+        <h2>AI that has to show its working</h2>
+        <p>Not a policy commitment — a response contract. Nothing reaches a clinician or an administrator without answering five questions, and nothing that ever happened stops being reconstructable.</p>
+      </div>
+
+      <div class="env-split">
+        <div class="env-card" aria-label="Example AI response envelope">
+          <div class="env-head"><span>AI response envelope</span><span>inventory · reorder policy</span></div>
+          <div class="env-body">
+            <div class="env-row">
+              <p class="q">Recommendation</p>
+              <p class="a">Raise the reorder level for <b>Amoxicillin 500 mg</b> from 400 to 620 units.</p>
+            </div>
+            <div class="env-row">
+              <p class="q">Why?</p>
+              <p class="a">Consumption over 60 days is up <b>34%</b>; at the current threshold cover falls to <b>11 days</b> before the next scheduled delivery window.</p>
+            </div>
+            <div class="env-row">
+              <p class="q">Evidence</p>
+              <p class="a">1,842 dispensing events · 3 supplier lead-time records (mean 6.2 days) · 2 stockouts in the last quarter.</p>
+            </div>
+            <div class="env-row">
+              <p class="q">Confidence</p>
+              <p class="a"><b>0.86</b> — lead-time variance is the dominant source of uncertainty.</p>
+            </div>
+            <div class="env-row">
+              <p class="q">Alternatives considered</p>
+              <p class="a">Hold at 400 and shorten the delivery cycle · raise to 520 with a weekly review.</p>
+            </div>
+            <div class="env-row">
+              <p class="q">Policy references</p>
+              <p class="a">Rules engine — <b>inventory.reorder.service-level = 0.98</b>, formulary class B.</p>
+            </div>
+            <div class="env-row">
+              <p class="q">Expected outcome</p>
+              <p class="a">Stockout probability falls from 0.19 to <b>0.02</b>; holding cost rises ~₹9,400 a quarter.</p>
+            </div>
+          </div>
+          <div class="env-foot">ledger <b>#4a1f…9c2e</b> · model, prompt version and inputs recorded · <b>replayable</b></div>
+        </div>
+
+        <div class="env-points">
+          <div class="env-point">
+            <span class="k">Decision ledger</span>
+            <h3>Every AI action is replayable</h3>
+            <p>Model, model version, prompt version, the exact inputs, the output, who approved it and what executed. Not a log line — a record complete enough to run the decision again and get the same answer. That is what makes an AI action auditable rather than merely logged.</p>
+          </div>
+          <div class="env-point">
+            <span class="k">Bring your own AI</span>
+            <h3>No provider is named in our code</h3>
+            <p>All model access goes through one router with a provider registry and a routing policy per task class — by cost, latency, language, data sensitivity and residency. Switching provider, or running a private model for sensitive classes, is configuration. Nothing in the platform knows or cares which vendor answered.</p>
+          </div>
+          <div class="env-point">
+            <span class="k">Governance</span>
+            <h3>Agents are staff, and staffed accordingly</h3>
+            <p>Each digital employee carries an identity, a defined scope of responsibility, permissions, tools, a schedule, KPIs, escalation rules and an audit trail. A model registry, versioned prompts, evaluation sets and performance monitoring sit behind them. Governed the way you would govern a new hire, because that is what they are.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═════════ ARCHITECTURE ═════════ -->
+  <section class="section arch" id="architecture">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="marker"><span class="no">§07</span> Architecture</p>
+        <h2>Boundaries a code review can't be talked out of</h2>
+        <p>A modular monolith: one deployment, one codebase, one database per hospital — divided internally into fully isolated domains, each owning its own schema. Any of them can be lifted into its own service later without changing a line anywhere else.</p>
+      </div>
+
+      <div class="arch-diagram" aria-label="Layer diagram: surfaces, tasks and contracts, modules, event backbone, kernel">
+        <div class="arch-layer">
+          <span class="lbl">Surfaces</span>
+          <span class="cells">
+            <em>web</em><em>mobile</em><em>kiosk</em><em>smart TV</em><em>voice</em><em>wearables</em><em>partner API</em>
+            <span class="note">— thin, replaceable, never a home for logic</span>
+          </span>
+        </div>
+        <div class="arch-layer">
+          <span class="lbl">Tasks &amp; contracts</span>
+          <span class="cells">
+            <em class="hot">task registry</em><em class="hot">service contracts</em><em class="hot">event catalog</em><em>permissions</em><em>AI tools</em><em>flags</em>
+          </span>
+        </div>
+        <div class="arch-layer">
+          <span class="lbl">Modules</span>
+          <span class="cells">
+            <em>patient</em><em>emr</em><em>orders</em><em>nursing</em><em>icu</em><em>ot</em><em>beds</em><em>emergency</em><em>lab</em><em>radiology</em><em>blood bank</em><em>pharmacy</em><em>inventory</em><em>billing</em><em>insurance</em><em>finance</em><em>hr</em><em>quality</em><em>portal</em><em>telemedicine</em><em>workflow</em><em>ai</em><em>search</em><em>analytics</em><em>interop</em><em>audit</em>
+            <span class="note">— one schema each; no module reads another's tables, ever</span>
+          </span>
+        </div>
+        <div class="arch-layer">
+          <span class="lbl">Event backbone</span>
+          <span class="cells">
+            <em class="hot">durable outbox</em><em>dispatcher</em><em>permanent retention</em><em>webhooks</em><em>streaming</em>
+          </span>
+        </div>
+        <div class="arch-layer">
+          <span class="lbl">Kernel</span>
+          <span class="cells">
+            <em>auth</em><em>RBAC + ABAC</em><em>tenancy</em><em>config &amp; flags</em><em>crypto</em><em>telemetry</em><em>HTTP conventions</em>
+            <span class="note">— zero business rules, by gate</span>
+          </span>
+        </div>
+      </div>
+
+      <div class="gates">
+        <div class="gate"><h4>Boundary gate</h4><p>A module may import itself, the contracts package, and the kernel. Anything else fails the build.</p></div>
+        <div class="gate"><h4>SQL ownership gate</h4><p>A repository referencing a table outside its own schema fails the build. No allow-list, no exceptions.</p></div>
+        <div class="gate"><h4>Layering gate</h4><p>Domain logic may not import infrastructure, presentation, or any I/O library. Purity is checked, not requested.</p></div>
+        <div class="gate"><h4>Kernel purity gate</h4><p>The kernel may not depend on any module or contract. A "utility" naming a domain noun belongs in that domain.</p></div>
+        <div class="gate"><h4>Contract discipline gate</h4><p>Contracts carry no runtime dependencies; breaking changes to types or event schemas are detected on every pull request.</p></div>
+        <div class="gate"><h4>Registry completeness gate</h4><p>A module ships with its tasks, permissions, events, AI tools, flags and seven documents registered — or it does not ship.</p></div>
+      </div>
+
+      <p class="lead-note">
+        Alongside these run the ordinary ones — strict types, both-ways migrations, coverage floors,
+        contract-versus-spec tests, an authorization matrix, accessibility scans, performance budgets,
+        dependency and secret scanning. <b>The ladder only ever grows.</b> Architecture written in a
+        document decays; architecture written in a pipeline holds.
+      </p>
+    </div>
+  </section>
+
+  <!-- ═════════ INDIA ═════════ -->
+  <section class="section" id="india">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="marker"><span class="no">§08</span> Built for India</p>
+        <h2>Statute in the data model, not in the brochure</h2>
+        <p>Inherited intact from Ospia HMS, where it runs in production today — and carried into HOS as configuration and rules rather than as conditionals scattered through code.</p>
       </div>
       <div class="india-grid">
         <div class="india-item">
           <span class="ref">ABDM · DPDP Act 2023</span>
-          <h3>ABHA-ready registration with a consent ledger</h3>
-          <p>Patient onboarding is ABHA-ready, and every use of personal data traces to recorded DPDP consent — in registration, the portal, and telemedicine.</p>
+          <h3>ABHA-ready, with a consent ledger</h3>
+          <p>Registration is ABHA-ready and every use of personal data traces to recorded consent — consulted before use, not attested after the fact.</p>
         </div>
         <div class="india-item">
-          <span class="ref">NMC Regs 1.3.2 / 1.4.2 / 1.5</span>
-          <h3>NMC compliance with an agent on the clock</h3>
-          <p>Generic-name prescribing in capitals, prescriber statutory identity on every document, serialized certificates — and the 72-hour record-release clock escalated automatically before it lapses.</p>
+          <span class="ref">NMC 1.3.2 / 1.4.2 / 1.5</span>
+          <h3>Enforced at write time</h3>
+          <p>Generic-name prescribing, prescriber statutory identity on every document, serialized certificates, and the 72-hour record-release clock escalated before it lapses.</p>
         </div>
         <div class="india-item">
           <span class="ref">GST · e-Invoice (IRP)</span>
           <h3>GST-native billing</h3>
-          <p>HSN/SAC on every line, CGST/SGST vs IGST split by place of supply, e-invoice payloads with deterministic IRN, and a TDS/TCS ledger — statutory accounting, not an export.</p>
+          <p>HSN/SAC per line, CGST/SGST versus IGST by place of supply, e-invoice payloads with deterministic IRN, and a TDS/TCS ledger.</p>
         </div>
         <div class="india-item">
-          <span class="ref">Telemedicine Practice Guidelines 2020</span>
-          <h3>Teleconsults with no per-minute fees</h3>
-          <p>Built-in WebRTC video — media never touches the server. Consent is gated before the call, Schedule-X drugs are hard-blocked in-call, and patients join via a WhatsApp code.</p>
-        </div>
-        <div class="india-item">
-          <span class="ref">10 languages · WhatsApp-first</span>
-          <h3>Made for your patients, not just your staff</h3>
-          <p>Interface in ten Indian languages, appointment and report notices over WhatsApp/SMS, a PII-free waiting-room token board, voice-first booking for low-literacy patients, and prescriptions explained in plain Hindi or English.</p>
-        </div>
-        <div class="india-item">
-          <span class="ref">TPA · Insurance</span>
-          <h3>Claims that move themselves along</h3>
-          <p>Policies, preauthorization and a full claim state machine — with the revenue agent chasing stalled preauths and aging invoices before month-end finds them.</p>
+          <span class="ref">Telemedicine Guidelines 2020</span>
+          <h3>Teleconsults without per-minute fees</h3>
+          <p>Peer-to-peer video — media never touches the server. Consent gated before the call, Schedule-X drugs hard-blocked in-call.</p>
         </div>
         <div class="india-item">
           <span class="ref">NABH</span>
-          <h3>NABH-ready quality &amp; infection control</h3>
-          <p>CAPA tracking, a live risk register, HAI surveillance and antimicrobial stewardship — the evidence trail assessors ask for, produced as a by-product of daily work, not a pre-audit scramble.</p>
+          <h3>Evidence as a by-product</h3>
+          <p>CAPA, live risk register, HAI surveillance and antimicrobial stewardship — the trail assessors ask for, produced by daily work rather than a pre-audit scramble.</p>
         </div>
         <div class="india-item">
-          <span class="ref">HR · Indian payroll</span>
-          <h3>Rosters, payroll and credentialing</h3>
-          <p>Attendance and duty rosters, Indian payroll structures, recruitment and medical-staff credentialing — with watchdogs that flag registration renewals before they lapse.</p>
+          <span class="ref">10 languages · WhatsApp-first</span>
+          <h3>For your patients, not only your staff</h3>
+          <p>Ten Indian languages, WhatsApp and SMS notices, a PII-free token board, voice-first booking, and prescriptions explained in plain language.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ================= MODULES ================= -->
-  <section class="modules" id="modules">
-    <div class="wrap">
-      <div class="section-head" style="margin-bottom:36px">
-        <p class="eyebrow">One record, whole hospital</p>
-        <h2>Every department. One system. No integration project.</h2>
-      </div>
-      <div class="chips">
-        <span>Patient registration</span><span>OPD &amp; token queue</span><span>EMR &amp; e-prescriptions</span>
-        <span>IPD · wards &amp; beds</span><span>Operation theatre</span><span>Laboratory</span>
-        <span>Radiology</span><span>Pharmacy · FEFO &amp; schedules</span><span>Inventory &amp; procurement</span>
-        <span>Billing &amp; GST</span><span>Insurance / TPA</span><span>HR · roster &amp; payroll</span>
-        <span>Blood bank</span><span>Ambulance dispatch</span><span>Telemedicine</span>
-        <span>Patient portal</span><span>Analytics &amp; BI</span><span>Quality &amp; infection control</span>
-        <span>Terminology · ICD-10 / SNOMED / LOINC</span><span>HL7 ADT feed</span><span class="hot">FHIR R4 API</span>
-        <span class="hot">HMAC-signed webhooks</span><span class="hot">Diagnostic-AI vendor ingest</span>
-        <span class="hot">AI scribe</span><span class="hot">Ask Ospia</span><span class="hot">Digital twin</span>
-        <span class="hot">17 autonomous agents</span><span class="hot">English-built workflows</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= PRICING ================= -->
-  <section class="section pricing" id="pricing">
+  <!-- ═════════ STATUS ═════════ -->
+  <section class="section status" id="status">
     <div class="wrap">
       <div class="section-head">
-        <p class="eyebrow">Packaging</p>
-        <h2>Priced by scale, never by features held back</h2>
-        <p>Every plan ships all 25+ modules, all 17 agents and the full safety model. Tiers differ in deployment and scale — not in which capabilities you're allowed to have.</p>
+        <p class="marker"><span class="no">§09</span> Where we actually are</p>
+        <h2>Two systems, told straight</h2>
+        <p>An architecture page is easy to write and hard to earn. So here is the honest position, with no tense games.</p>
       </div>
-      <div class="tier-grid">
-        <div class="tier">
-          <span class="for">Single facility</span>
-          <h3>Hospital</h3>
-          <ul>
-            <li>One facility, everything switched on</li>
-            <li>Self-hosted (Docker) or managed cloud</li>
-            <li>Your own physical database</li>
-            <li>Migration from your current HMS</li>
-          </ul>
-          <a class="btn btn-ghost" href="mailto:hello@ospia.in?subject=Ospia%20quote%20%E2%80%94%20single%20hospital">Get a quote</a>
+
+      <div class="now-panel">
+        <div class="now-cell">
+          <span class="badge badge-live"><span class="dot"></span>Live today</span>
+          <h3>Ospia HMS — v1</h3>
+          <p>The AI-native hospital management system running in production: 25+ modules on one record, a fleet of propose-only agents, an ambient scribe, clinical decision support, tamper-evident audit, and the full Indian compliance surface. This is what you can buy, deploy and run today.</p>
+          <p class="fine">self-hosted or managed cloud · one database per hospital · demo seeded with synthetic data</p>
         </div>
-        <div class="tier">
-          <span class="for">Multi-facility</span>
-          <h3>Hospital group</h3>
-          <ul>
-            <li>A subdomain per hospital</li>
-            <li>Physically isolated databases per facility</li>
-            <li>Group-wide policy templates &amp; rollout</li>
-            <li>Consolidated executive reporting</li>
-          </ul>
-          <a class="btn btn-ghost" href="mailto:hello@ospia.in?subject=Ospia%20quote%20%E2%80%94%20hospital%20group">Get a quote</a>
-        </div>
-        <div class="tier">
-          <span class="for">Enterprise</span>
-          <h3>Managed &amp; integrated</h3>
-          <ul>
-            <li>Managed cloud with SLAs</li>
-            <li>LIS / PACS integration over FHIR &amp; HL7</li>
-            <li>On-site training and onboarding</li>
-            <li>Priority support</li>
-          </ul>
-          <a class="btn btn-ghost" href="mailto:hello@ospia.in?subject=Ospia%20quote%20%E2%80%94%20enterprise">Talk to sales</a>
+        <div class="now-cell">
+          <span class="badge badge-build"><span class="dot"></span>In build</span>
+          <h3>Ospia HOS — v2</h3>
+          <p>The successor platform described on this page, built greenfield under a written charter and a gated session plan. It is not yet for sale and it will not be until it passes v1's own 565-check acceptance suite and a pilot hospital has run both systems in parallel, reconciled daily, for a clean fortnight.</p>
+          <p class="fine">clinical core in progress · cutover doctrine: full parity, then a 14-day shadow run</p>
         </div>
       </div>
-      <p class="tier-note"><b>No per-video-minute fees, no per-message AI charges.</b> Teleconsults run peer-to-peer, and deterministic fallbacks keep the whole system working even with no AI model configured.</p>
+
+      <div class="phases">
+        <div class="phase done">
+          <span class="ph-n">P0</span><span class="ph-t">Foundations</span>
+          <span class="ph-body">Kernel, module manifests, versioned HTTP contract, observability, data layer with per-module schemas, durable event backbone.</span>
+        </div>
+        <div class="phase done">
+          <span class="ph-n">P1</span><span class="ph-t">Platform spine</span>
+          <span class="ph-body">Authentication and passkeys, RBAC + ABAC policy engine, audit chain and field encryption, secrets and security events, the rules &amp; policy engine.</span>
+        </div>
+        <div class="phase">
+          <span class="ph-n">P2</span><span class="ph-t">Clinical core</span>
+          <span class="ph-body">Patient as the golden module, design system, app shell and task bar, appointments, EMR, orders, nursing, beds, ICU and theatre.</span>
+        </div>
+        <div class="phase">
+          <span class="ph-n">P3</span><span class="ph-t">Diagnostics &amp; revenue</span>
+          <span class="ph-body">Lab, imaging, pharmacy, supply chain, billing and RCM, insurance, finance, operations — to full parity with v1.</span>
+        </div>
+        <div class="phase">
+          <span class="ph-n">P4</span><span class="ph-t">Intelligence</span>
+          <span class="ph-body">Agent runtime with the autonomy ladder, memory and learning, the explainability envelope, workflow engine, conversational layer, trust layer.</span>
+        </div>
+        <div class="phase">
+          <span class="ph-n">P5</span><span class="ph-t">Experience</span>
+          <span class="ph-body">Operations centre, digital twin and knowledge graph surfaces, predictive UI, accessibility and language hardening, performance.</span>
+        </div>
+        <div class="phase">
+          <span class="ph-n">P6</span><span class="ph-t">Migration &amp; cutover</span>
+          <span class="ph-body">Migration tooling with checksums, parallel run against a shadow tenant, per-hospital cutover runbook with rollback.</span>
+        </div>
+        <div class="phase">
+          <span class="ph-n">P7</span><span class="ph-t">Platform expansion</span>
+          <span class="ph-body">Marketplace, AI Studio, low-code studio, data lake and research export, population health, mobile and kiosk front door, ambient clinical intelligence, connector catalog.</span>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- ================= FAQ ================= -->
-  <section class="section faq" id="faq">
+  <!-- ═════════ FAQ ═════════ -->
+  <section class="section" id="faq">
     <div class="wrap">
       <div class="section-head">
-        <p class="eyebrow">Straight answers</p>
-        <h2>What hospital committees ask us</h2>
+        <p class="marker"><span class="no">§10</span> Straight answers</p>
+        <h2>What committees actually ask</h2>
       </div>
       <div class="faq-list">
         <details>
+          <summary>Should we wait for HOS, or buy HMS now?</summary>
+          <p class="a">Buy now. HMS v1 is a complete, supported hospital management system and waiting costs you a year of the benefit. Migration to HOS is a first-class engineering programme on our side, not your problem to solve: tooling with checksum verification, a parallel run where both systems process the same days and get reconciled every morning, and a per-hospital cutover with a rollback path. We do not cut anyone over on optimism.</p>
+        </details>
+        <details>
           <summary>Who owns our data?</summary>
-          <p class="a">You do, in the plainest sense: each hospital runs on its own physical database, self-hosted if you prefer. Everything is exportable, and the FHIR R4 API means you're never locked in — leaving is as open as arriving.</p>
+          <p class="a">You do, in the plainest sense. Each hospital runs on its own physical database — self-hosted if you prefer. Everything is exportable, the FHIR R4 API is open to you, and the permanent event log is yours as much as the tables are. Leaving should be as open as arriving, or the promise is not worth much.</p>
         </details>
         <details>
           <summary>What can the AI never do?</summary>
-          <p class="a">Write to clinical data on its own. Agents can only file proposals; execution happens through a fixed catalog of typed, re-validated executors after a named human approves. Auto-approval exists only if you opt in, and only for low-risk actions. Nothing the AI drafts enters a patient record without clinician sign-off.</p>
+          <p class="a">Act outside the task registry, or act above the autonomy level you configured. Agents invoke the same permission-checked tasks your staff do, under the same authorization, producing the same audited events — there is no privileged path. Above L2, execution requires a named human. At L4, execution requires a policy you approved, and every run still lands in the decision ledger, replayable.</p>
+          <p class="a">There is also no silent promotion. Moving a task up the ladder is an audited configuration change with a signature attached.</p>
         </details>
         <details>
-          <summary>How is this different from an HMS with a chatbot added?</summary>
-          <p class="a">The AI here isn't a feature on the side — the propose-only agents, the whitelisted executors and the hash-chained audit trail are the architecture. A bolt-on assistant can answer questions; it can't watch your wards at 3 a.m. and have a reasoned, auditable proposal waiting at handover.</p>
+          <summary>What happens when the AI model is down — or you switch providers?</summary>
+          <p class="a">The hospital keeps running. Ospia is a complete system with no external AI configured at all: deterministic fallbacks cover the scribe, patient-facing explanations and the assistive paths. AI adds speed and foresight; it is never a dependency. And because no provider is named anywhere outside the model router, switching providers — or routing sensitive task classes to a private model — is a configuration change, validated by the evaluation sets.</p>
         </details>
         <details>
-          <summary>What happens if the internet — or the AI model — is down?</summary>
-          <p class="a">The hospital keeps running. Ospia is a complete HMS without any external AI: the scribe falls back to a deterministic clinical parser, patient-facing explanations use a template engine, and every core workflow is plain software. AI adds speed; it is never a dependency.</p>
+          <summary>How much of this is real versus roadmap?</summary>
+          <p class="a">Section nine answers that without hedging: v1 is live and sellable; v2 is in build with phases zero and one complete. The seams described here — the task registry, permanent event retention, persistence ports, the model router, the decision ledger, the rules engine, module manifests — are deliberately built first, because they are cheap now and impossible to retrofit. The surfaces they enable (marketplace, studio, data lake, ambient capture) are staged after cutover, and we say so rather than implying otherwise.</p>
         </details>
         <details>
-          <summary>How does compliance actually work — not just “we're compliant”?</summary>
-          <p class="a">By mechanism, not policy document: generic-name prescribing and prescriber identity are enforced at write time, the NMC 72-hour record-release clock is escalated by an agent, DPDP consent is a ledger consulted before use, Aadhaar is reduced to last-4 at capture, and every mutation lands in a hash-chained audit log you can re-verify end to end.</p>
+          <summary>We have unusual requirements. How much gets customised?</summary>
+          <p class="a">The target is that 90% of what a hospital asks for is configuration, not code — and we measure it rather than assert it: every pilot change request gets classified config-or-code, and a code answer is treated as a design failure to be examined. Numbering, allocation policies, pricing, approval matrices, pathways, consent rules and discharge criteria are versioned data evaluated by one engine, not conditionals in a fork of your own.</p>
         </details>
         <details>
-          <summary>Can we try it before committing?</summary>
-          <p class="a">Yes — we seed a full demo hospital with synthetic clinical data (patients, admissions, pharmacy stock, invoices) and put the agents on duty. Your team explores real workflows with zero real patient data.</p>
+          <summary>Can we integrate our LIS, PACS and ERP?</summary>
+          <p class="a">Yes, through a connector catalog rather than a project: FHIR R4 and HL7v2, DICOM/PACS, LIS/RIS, ERP and accounting, HRMS, government portals, payment gateways, WhatsApp/SMS/email, and device feeds. Each connector declares its own configuration schema, so onboarding one is a configuration exercise. Outbound, every domain event can be subscribed to as a signed webhook.</p>
         </details>
       </div>
     </div>
   </section>
 
-  <!-- ================= CTA ================= -->
-  <section class="section cta" id="demo">
+  <!-- ═════════ CTA ═════════ -->
+  <section class="section cta" id="talk">
     <div class="wrap cta-inner">
       <div>
-        <p class="eyebrow">Next step</p>
-        <h2>See it run <em style="color:var(--accent-strong)">your</em> numbers</h2>
-        <p>A walkthrough takes forty-five minutes: we seed a full demo hospital, put the agents on duty, and let your team ask Ospia the questions they ask their MIS today. Bring your hardest month-end.</p>
+        <p class="marker"><span class="no">§11</span> Next step</p>
+        <h2>Bring your <em>hardest</em> month-end</h2>
+        <p>A walkthrough takes forty-five minutes. We seed a full demo hospital with synthetic data, put the agents on duty, and let your team ask it the questions they ask their MIS today — then we show you the architecture underneath and you can decide whether the reasoning holds.</p>
       </div>
       <div class="cta-panel">
-        <a class="btn btn-primary" href="mailto:hello@ospia.in?subject=Ospia%20demo%20hospital%20access">Get demo access</a>
-        <a class="btn btn-ghost" href="mailto:hello@ospia.in?subject=Ospia%20HMS%20walkthrough">Book a walkthrough</a>
+        <a class="btn btn-primary" href="mailto:hello@ospia.in?subject=Ospia%20—%20demo%20hospital%20access">Get demo access</a>
+        <a class="btn btn-ghost" href="mailto:hello@ospia.in?subject=Ospia%20HOS%20—%20architecture%20walkthrough">Architecture walkthrough</a>
         <p class="fine">
-          demo seeded with synthetic data · zero real patients ·
-          self-hosted or managed cloud · one database per hospital ·
-          237 automated checks on every release
+          synthetic data · zero real patients<br>
+          self-hosted or managed cloud<br>
+          one database per hospital<br>
+          v1 live today · v2 in build, in the open
         </p>
       </div>
     </div>
@@ -848,132 +1051,177 @@
 
 <footer>
   <div class="wrap foot-row">
-    <span><strong style="font-family:var(--serif);color:var(--ink)">Ospia</strong> — the AI-native hospital management system.</span>
-    <span class="mono">AI proposes · humans approve · everything audited</span>
+    <span><strong>Ospia</strong> — the Hospital Operating System.</span>
+    <span class="mono">intent over navigation · events over coupling · configuration over code</span>
   </div>
 </footer>
 
 <script>
 (function(){
+  "use strict";
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* ---------- ECG trace ---------- */
-  var canvas = document.getElementById('ecg');
-  var ctx = canvas.getContext('2d');
-  var dpr = Math.min(window.devicePixelRatio || 1, 2);
-  var W = 0, H = 0;
-
-  function resize(){
-    W = canvas.clientWidth; H = canvas.clientHeight;
-    canvas.width = W * dpr; canvas.height = H * dpr;
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-  }
-  resize();
-  window.addEventListener('resize', function(){ resize(); if (reduce) drawStatic(); });
-
-  function g(t, c, w){ var d = t - c; return Math.exp(-(d*d)/(2*w*w)); }
-  function ecgY(t){ // t in [0,1), one beat
-    return 0.10*g(t,0.16,0.028)
-         - 0.06*g(t,0.285,0.012)
-         + 1.00*g(t,0.305,0.009)
-         - 0.16*g(t,0.325,0.012)
-         + 0.22*g(t,0.56,0.045);
-  }
-  function traceColor(){
-    return getComputedStyle(document.documentElement).getPropertyValue('--trace').trim() || '#12A57F';
-  }
-  var beatPx = 220;         // px per beat
-  var base = function(){ return H * 0.62; };
-  var amp  = function(){ return H * 0.42; };
-  function yAt(x){ var t = (x % beatPx) / beatPx; return base() - ecgY(t) * amp(); }
-
-  function drawStatic(){
-    ctx.clearRect(0,0,W,H);
-    ctx.strokeStyle = traceColor(); ctx.lineWidth = 1.6; ctx.beginPath();
-    for (var x = 0; x <= W; x += 2){
-      var y = yAt(x);
-      if (x === 0) ctx.moveTo(x,y); else ctx.lineTo(x,y);
-    }
-    ctx.stroke();
-  }
-
-  if (reduce){
-    drawStatic();
-  } else {
-    var penX = 0, prevY = null, color = traceColor(), speed = 2.2;
-    function frame(){
-      var nx = penX + speed;
-      if (nx >= W){ penX = 0; prevY = null; nx = speed; color = traceColor(); }
-      ctx.clearRect(nx + 1, 0, 42, H);            // moving gap ahead of the pen
-      var y = yAt(nx);
-      if (prevY !== null){
-        ctx.strokeStyle = color; ctx.lineWidth = 1.6;
-        ctx.beginPath(); ctx.moveTo(penX, prevY); ctx.lineTo(nx, y); ctx.stroke();
-      }
-      penX = nx; prevY = y;
-      requestAnimationFrame(frame);
-    }
-    requestAnimationFrame(frame);
-  }
-
-  /* ---------- approval console ---------- */
-  var scenarios = [
-    { agent:'pharmacy-watchdog', risk:'risk: low',
-      title:'Raise reorder level — Amoxicillin 500 mg',
-      why:'<b>Why?</b> 60-day consumption up 34% · 11 days of cover left at current threshold',
-      sig:'approved — S. Mehta · Pharmacy lead', hash:'#4a1f…9c2e' },
-    { agent:'nursing-supervisor', risk:'risk: medium',
-      title:'Assign night shift — Ward 3 uncovered',
-      why:'<b>Why?</b> Occupied ward, no RN rostered 22:00–06:00 · least-loaded eligible: N. Kaur',
-      sig:'approved — Matron R. Pillai', hash:'#77bd…03aa' },
-    { agent:'medical-superintendent', risk:'risk: low',
-      title:'Escalate 4 discharge summaries unsigned > 48 h',
-      why:'<b>Why?</b> NMC 72-hour record-release clock at risk on all four admissions',
-      sig:'approved — Dr. A. Bose · Med Supt', hash:'#c31e…88f0' },
-    { agent:'revenue-watchdog', risk:'risk: low',
-      title:'Follow up 12 invoices aging past 30 days',
-      why:'<b>Why?</b> ₹4.2 L outstanding · TPA preauth already complete on 9 of 12',
-      sig:'approved — K. Iyer · Billing head', hash:'#09de…41b7' }
+  /* ───────── event stream ribbon ───────── */
+  var events = [
+    'PatientRegistered','VisitOpened','AppointmentBooked','PatientTriaged','OrderPlaced',
+    'SampleCollected','ResultVerified','CriticalResultFlagged','PrescriptionSigned',
+    'MedicineDispensed','StockBelowReorder','PatientAdmitted','BedReleased','TransferCompleted',
+    'MedicationAdministered','SurgeryScheduled','SurgeryCompleted','UnitCrossMatched',
+    'EncounterClosed','InvoiceGenerated','PaymentReceived','PreauthDecided','ClaimSettled',
+    'JournalPosted','ShiftAssigned','ActionProposed','ActionExecuted','WorkflowCompleted',
+    'SLABreached','ConsentChanged','DocumentIngested','StudyReported'
   ];
-  var el = {
-    box: document.getElementById('console'),
-    agent: document.getElementById('c-agent'),
-    risk: document.getElementById('c-risk'),
-    state: document.getElementById('c-state'),
-    title: document.getElementById('c-title'),
-    why: document.getElementById('c-why'),
-    approve: document.getElementById('c-approve'),
-    sig: document.getElementById('c-sig'),
-    hash: document.getElementById('c-hash')
-  };
-  function load(s){
-    el.agent.textContent = s.agent;
-    el.risk.textContent = s.risk;
-    el.title.textContent = s.title;
-    el.why.innerHTML = s.why;
-    el.sig.innerHTML = '<span class="ok">✓</span> ' + s.sig;
-    el.hash.textContent = s.hash;
-  }
-  function setState(st){
-    el.box.className = 'console state-' + st;
-    el.state.textContent = st;
-    el.approve.textContent = (st === 'proposed') ? 'Approve & execute' : 'Approved ✓';
+  var track = document.getElementById('stream');
+  if (track){
+    var html = events.map(function(e, i){
+      var t = String(6 + ((i * 7) % 17)).padStart(2,'0') + ':' +
+              String((i * 23) % 60).padStart(2,'0');
+      return '<span>' + t + '&nbsp;&nbsp;<b>' + e + '</b></span>';
+    }).join('');
+    track.innerHTML = html + html;   /* doubled for a seamless -50% loop */
   }
 
-  if (reduce){
-    load(scenarios[0]); setState('executed');
-  } else {
-    var i = 0;
-    load(scenarios[0]); setState('proposed');
-    var steps = [
-      function(){ setState('approved'); return 2100; },
-      function(){ setState('executed'); return 2900; },
-      function(){ i = (i + 1) % scenarios.length; load(scenarios[i]); setState('proposed'); return 3000; }
-    ];
-    var k = 0;
-    function tick(){ var wait = steps[k](); k = (k + 1) % steps.length; setTimeout(tick, wait); }
-    setTimeout(tick, 3000);
+  /* ───────── intent → task console ───────── */
+  var scenarios = [
+    { intent:'admit the patient in bed 4B to the ICU',
+      id:'ipd.admit-patient', name:'Admit patient',
+      params:'patientId · wardId · <span class="hl">bedId</span> · admittingDoctorId · reason',
+      perm:'ipd:admit  <span class="hl">(+ ABAC: on-shift, assigned ward)</span>',
+      lvl:'L3', lvlText:'human-approved execution',
+      emits:'PatientAdmitted · BedReleased · TransferCompleted',
+      lit:'screen' },
+    { intent:'generate today’s discharge bills',
+      id:'billing.generate-invoice', name:'Generate discharge invoice',
+      params:'admissionId · <span class="hl">asOf</span> · packageId? · payerId?',
+      perm:'billing:invoice.create  <span class="hl">(idempotency key required)</span>',
+      lvl:'L4', lvlText:'autonomous within approved policy',
+      emits:'InvoiceGenerated · JournalPosted',
+      lit:'agent' },
+    { intent:'which summaries are unsigned past 48 hours?',
+      id:'emr.list-unsigned-summaries', name:'List unsigned discharge summaries',
+      params:'olderThanHours · departmentId? · <span class="hl">asOf</span>',
+      perm:'emr:encounter.read  <span class="hl">(results permission-trimmed)</span>',
+      lvl:'L1', lvlText:'system-assisted',
+      emits:'— (read task)',
+      lit:'bar' },
+    { intent:'restock amoxicillin before the weekend',
+      id:'inventory.raise-purchase-order', name:'Raise purchase order',
+      params:'itemId · quantity · supplierId · <span class="hl">requiredBy</span>',
+      perm:'inventory:po.create  <span class="hl">(approval matrix by value)</span>',
+      lvl:'L2', lvlText:'AI-recommended, human executes',
+      emits:'PurchaseOrderRaised · StockBelowReorder',
+      lit:'voice' },
+    { intent:'book her a follow-up in three weeks',
+      id:'appointment.book', name:'Book appointment',
+      params:'patientId · doctorId · slotId · <span class="hl">idempotencyKey</span>',
+      perm:'appointment:book',
+      lvl:'L3', lvlText:'human-approved execution',
+      emits:'AppointmentBooked · NotificationQueued',
+      lit:'api' }
+  ];
+
+  var typedEl = document.getElementById('typed');
+  var card = document.getElementById('task');
+  var f = {
+    id: document.getElementById('t-id'),
+    name: document.getElementById('t-name'),
+    params: document.getElementById('t-params'),
+    perm: document.getElementById('t-perm'),
+    lvl: document.getElementById('t-lvl'),
+    lvlText: document.getElementById('t-lvltext'),
+    emits: document.getElementById('t-emits')
+  };
+  var ivs = Array.prototype.slice.call(document.querySelectorAll('.invokers .iv'));
+
+  function paint(s){
+    f.id.textContent = s.id;
+    f.name.textContent = s.name;
+    f.params.innerHTML = s.params;
+    f.perm.innerHTML = s.perm;
+    f.lvl.textContent = s.lvl;
+    f.lvl.className = 'lvl lvl-' + s.lvl.toLowerCase();
+    f.lvlText.textContent = s.lvlText;
+    f.emits.textContent = s.emits;
+    ivs.forEach(function(el){
+      el.classList.toggle('lit', el.getAttribute('data-iv') === s.lit);
+    });
   }
+
+  if (typedEl && card){
+    if (reduce){
+      typedEl.textContent = scenarios[0].intent;
+      paint(scenarios[0]);
+      card.classList.add('on');
+    } else {
+      var si = 0, ci = 0, phase = 'type';
+      function step(){
+        var s = scenarios[si];
+        if (phase === 'type'){
+          ci++;
+          typedEl.textContent = s.intent.slice(0, ci);
+          if (ci >= s.intent.length){
+            phase = 'show';
+            setTimeout(function(){ paint(s); card.classList.add('on'); step(); }, 380);
+            return;
+          }
+          setTimeout(step, 34 + Math.random() * 46);
+        } else if (phase === 'show'){
+          phase = 'clear';
+          setTimeout(step, 4200);
+        } else {
+          card.classList.remove('on');
+          ci = 0; typedEl.textContent = '';
+          si = (si + 1) % scenarios.length;
+          phase = 'type';
+          setTimeout(step, 520);
+        }
+      }
+      setTimeout(step, 700);
+    }
+  }
+
+  /* ───────── autonomy ladder ───────── */
+  var levels = [
+    { t:'L0 — Manual',
+      b:'A person does the work; the system records it faithfully and gets out of the way. This is where every hospital management system on the market tops out, and where a task starts if that is where you want it.',
+      e:'the system remembers · <b>the person decides and acts</b>' },
+    { t:'L1 — System-assisted',
+      b:'The system prepares the ground: it surfaces what is relevant, pre-fills what it can prove, validates as you go, and refuses the impossible. Judgement and action stay entirely human.',
+      e:'context assembled · fields pre-filled · <b>the person still decides and acts</b>' },
+    { t:'L2 — AI-recommended',
+      b:'The AI forms a view and puts it in front of the right person with its full reasoning attached — why, on what evidence, how confident, what else it considered. A recommendation, never a fait accompli.',
+      e:'AI recommends with the envelope · <b>the person decides and acts</b>' },
+    { t:'L3 — Human-approved execution',
+      b:'The AI drafts the complete action, ready to run. A named human with the right permission approves it, and the system executes through the same task the person would have invoked. This is where most useful automation lives.',
+      e:'AI proposes and would execute · <b>a named human approves</b> · fully audited' },
+    { t:'L4 — Autonomous within policy',
+      b:'For tasks you have deliberately promoted, inside boundaries you wrote, the system acts on its own — and every run still produces a replayable ledger entry, an event trail, and a reversal path. Autonomy is not the absence of oversight; it is oversight moved from before the act to around it.',
+      e:'AI decides and executes inside <b>your approved policy</b> · replayable · reversible' }
+  ];
+  var rungs = Array.prototype.slice.call(document.querySelectorAll('.rung'));
+  var rdT = document.getElementById('rd-title'),
+      rdB = document.getElementById('rd-body'),
+      rdE = document.getElementById('rd-eg');
+
+  function selectLevel(n){
+    rungs.forEach(function(r){
+      r.setAttribute('aria-selected', String(Number(r.getAttribute('data-lv')) === n));
+    });
+    rdT.textContent = levels[n].t;
+    rdB.textContent = levels[n].b;
+    rdE.innerHTML = levels[n].e;
+  }
+  rungs.forEach(function(r){
+    r.addEventListener('click', function(){ selectLevel(Number(r.getAttribute('data-lv'))); });
+    r.addEventListener('keydown', function(ev){
+      if (ev.key !== 'ArrowRight' && ev.key !== 'ArrowLeft') return;
+      ev.preventDefault();
+      var n = Number(r.getAttribute('data-lv')) + (ev.key === 'ArrowRight' ? 1 : -1);
+      n = (n + rungs.length) % rungs.length;
+      selectLevel(n); rungs[n].focus();
+    });
+  });
+  if (rungs.length) selectLevel(0);
 })();
 </script>
 
