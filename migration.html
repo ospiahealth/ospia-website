@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Ospia migration method: complexity assessment, checksum-verified data migration, daily-reconciled parallel run, line-by-line verification, runbook cutover and rollback.">
+<link rel="canonical" href="https://ospia.in/migration.html">
+<meta property="og:title" content="Migration without disruption — Ospia">
+<meta property="og:description" content="Ospia migration method: complexity assessment, checksum-verified data migration, daily-reconciled parallel run, line-by-line verification, runbook cutover and rollback.">
+<meta property="og:url" content="https://ospia.in/migration.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ospia">
+<meta property="og:locale" content="en_IN">
+<meta property="og:image" content="https://ospia.in/og.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Migration without disruption — Ospia">
+<meta name="twitter:description" content="Ospia migration method: complexity assessment, checksum-verified data migration, daily-reconciled parallel run, line-by-line verification, runbook cutover and rollback.">
+<meta name="twitter:image" content="https://ospia.in/og.png">
+<meta name="theme-color" content="#0E8C6D">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/favicon.svg">
+<link rel="stylesheet" href="/assets/site.css">
+<title>Migration without disruption — Ospia</title>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="ospia-ring" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#12B886"/><stop offset="100%" stop-color="#0B6E52"/>
+    </linearGradient>
+  </defs>
+</svg>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="/" aria-label="Ospia home">
+      <svg class="mark" viewBox="0 0 512 512" aria-hidden="true" focusable="false">
+        <circle cx="256" cy="256" r="168" fill="none" stroke="url(#ospia-ring)" stroke-width="54"/>
+        <path d="M 66 256 L 170 256 L 212 168 L 288 344 L 330 256 L 446 256"
+              fill="none" stroke="currentColor" stroke-width="30"
+              stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span class="word">Ospia</span><span class="tag">HOS</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="/platform.html">Platform</a>
+      <a href="/ai-workforce.html">AI Workforce</a>
+      <a href="/industries.html">Industries</a>
+      <a href="/implementation.html">Implementation</a>
+      <a href="/customers.html">Customers</a>
+      <a href="/resources.html">Resources</a>
+      <a href="/company.html">Company</a>
+      <a class="btn btn-primary" href="/#demo">Book a demo</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="crumb"><a href="/">Home</a> / <a href="/implementation.html">Implementation</a> / Migration</p>
+      <h1>Migration without disruption</h1>
+      <p class="lede">Every hospital we speak to has either lived through a bad migration or heard about one. <b>The fear is rational</b> — so here is exactly how we de-risk it, including what happens when something goes wrong.</p>
+      <div class="page-ctas"><a class="btn btn-primary" href="/#demo">Book an executive demonstration</a><a class="btn btn-ghost" href="/platform.html">Explore the platform</a></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="marker ">The principle</p>
+        <h2>The legacy system stays authoritative until it doesn't need to be</h2>
+        <p>There is no moment where you are trusting the new system on faith. Authority transfers only after the evidence says it should.</p>
+      </div>
+      <div class="fgrid">
+        <article class="fcell" style="--accent-c:var(--brand-deep)">
+          <span class="hook">Verification</span>
+          <h3>Checksums at every stage</h3>
+          <p>Data is not "migrated and checked" — it is verified at each transformation, with counts, balances and hashes reconciled against source. Discrepancies surface during migration, not after go-live.</p>
+          <div class="spec">record counts · financial balances · content hashes</div>
+        </article>
+        <article class="fcell" style="--accent-c:var(--teal)">
+          <span class="hook">Parallel run</span>
+          <h3>Both systems, same days</h3>
+          <p>For an agreed period both systems process the same operational days, and every difference is investigated each morning until the delta is consistently zero.</p>
+          <div class="spec">daily reconciliation · variance trending to nil</div>
+        </article>
+        <article class="fcell" style="--accent-c:var(--rose)">
+          <span class="hook">Rollback</span>
+          <h3>A procedure, not an emergency</h3>
+          <p>Every cutover checkpoint has a defined rollback decision with a named owner. Until finance and clinical leads sign, the legacy system remains live and authoritative.</p>
+          <div class="spec">written, rehearsed, and owned by a named person</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section vs">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="marker m-teal">What moves</p>
+        <h2>What comes across, and what does not</h2>
+        <p>Being specific about this early prevents the most common late-stage argument in any migration.</p>
+      </div>
+      <div class="split-2">
+        <div class="split-cell" style="--accent-c:var(--brand)">
+          <h3>Migrated as standard</h3>
+          <ul>
+            <li>Patient master with identifier reconciliation and duplicate resolution.</li>
+            <li>Clinical history — encounters, diagnoses, prescriptions, results — mapped to structured fields where the source allows.</li>
+            <li>Financial position: outstanding balances, advances, deposits and open claims.</li>
+            <li>Master data: tariffs, formulary, service catalog, payers, suppliers, staff.</li>
+            <li>Stock positions with batch and expiry where the source records them.</li>
+          </ul>
+        </div>
+        <div class="split-cell" style="--accent-c:var(--amber)">
+          <h3>Requires a decision</h3>
+          <ul>
+            <li>Free-text clinical notes: migrated as documents, or parsed into structure at extra effort and some risk.</li>
+            <li>Deep historical detail: often better archived read-only than migrated, and cheaper to keep accessible that way.</li>
+            <li>Legacy customizations: each reviewed as configure, re-think, or retire — many exist only because the old system required them.</li>
+            <li>Historical audit logs: retained in the legacy system or imported as records, depending on your retention obligations.</li>
+          </ul>
+        </div>
+      </div>
+      <p class="lead-note">We will give you this assessment <b>before you sign, not after</b> — including an honest view of what will be difficult in your particular estate. <a href="mailto:hello@ospia.in?subject=Ospia%20—%20migration%20complexity%20assessment" style="color:var(--brand-deep)">Request a migration complexity assessment →</a></p>
+    </div>
+  </section>
+
+
+  <section class="section cta">
+    <div class="wrap cta-inner">
+      <div>
+        <p class="marker">Next step</p>
+        <h2>See your hospital <em>running</em> on Ospia</h2>
+        <p>An executive demonstration takes forty-five minutes. We seed a hospital with synthetic data shaped like yours, put the digital workforce on duty, and answer the hard questions with the architecture open.</p>
+      </div>
+      <div class="cta-panel">
+        <a class="btn btn-primary" href="mailto:hello@ospia.in?subject=Ospia%20—%20executive%20demonstration">Book an executive demonstration</a>
+        <a class="btn btn-ghost" href="mailto:hello@ospia.in?subject=Ospia%20—%20architecture%20deep-dive">Architecture deep-dive</a>
+        <p class="fine">
+          synthetic data · zero real patients<br>
+          self-hosted or managed cloud<br>
+          one database per hospital
+        </p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot-row">
+    <span class="foot-brand">
+      <svg class="mark" viewBox="0 0 512 512" aria-hidden="true" focusable="false">
+        <circle cx="256" cy="256" r="168" fill="none" stroke="url(#ospia-ring)" stroke-width="54"/>
+        <path d="M 66 256 L 170 256 L 212 168 L 288 344 L 330 256 L 446 256"
+              fill="none" stroke="currentColor" stroke-width="30"
+              stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <strong>Ospia</strong> — the Hospital Operating System.
+    </span>
+    <span class="mono">business value · operational excellence · technical proof</span>
+  </div>
+</footer>
+
+</body>
+</html>

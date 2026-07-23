@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Ospia's architecture: a modular monolith with fully isolated domains, per-module schemas, a durable event backbone, and six CI-enforced architectural gates.">
+<link rel="canonical" href="https://ospia.in/architecture.html">
+<meta property="og:title" content="Architecture — Ospia Hospital Operating System">
+<meta property="og:description" content="Ospia's architecture: a modular monolith with fully isolated domains, per-module schemas, a durable event backbone, and six CI-enforced architectural gates.">
+<meta property="og:url" content="https://ospia.in/architecture.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ospia">
+<meta property="og:locale" content="en_IN">
+<meta property="og:image" content="https://ospia.in/og.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Architecture — Ospia Hospital Operating System">
+<meta name="twitter:description" content="Ospia's architecture: a modular monolith with fully isolated domains, per-module schemas, a durable event backbone, and six CI-enforced architectural gates.">
+<meta name="twitter:image" content="https://ospia.in/og.png">
+<meta name="theme-color" content="#0E8C6D">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/favicon.svg">
+<link rel="stylesheet" href="/assets/site.css">
+<title>Architecture — Ospia Hospital Operating System</title>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="ospia-ring" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#12B886"/><stop offset="100%" stop-color="#0B6E52"/>
+    </linearGradient>
+  </defs>
+</svg>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="/" aria-label="Ospia home">
+      <svg class="mark" viewBox="0 0 512 512" aria-hidden="true" focusable="false">
+        <circle cx="256" cy="256" r="168" fill="none" stroke="url(#ospia-ring)" stroke-width="54"/>
+        <path d="M 66 256 L 170 256 L 212 168 L 288 344 L 330 256 L 446 256"
+              fill="none" stroke="currentColor" stroke-width="30"
+              stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span class="word">Ospia</span><span class="tag">HOS</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="/platform.html">Platform</a>
+      <a href="/ai-workforce.html">AI Workforce</a>
+      <a href="/industries.html">Industries</a>
+      <a href="/implementation.html">Implementation</a>
+      <a href="/customers.html">Customers</a>
+      <a href="/resources.html">Resources</a>
+      <a href="/company.html">Company</a>
+      <a class="btn btn-primary" href="/#demo">Book a demo</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="crumb"><a href="/">Home</a> / <a href="/platform.html">Platform</a> / Architecture</p>
+      <h1>Boundaries a code review can't be talked out of</h1>
+      <p class="lede">One deployment, one codebase, one database per hospital — divided internally into fully isolated domains, each owning its own data. <b>This is the part that keeps the promises true in year five.</b></p>
+      <div class="page-ctas"><a class="btn btn-primary" href="/#demo">Book an executive demonstration</a><a class="btn btn-ghost" href="/platform.html">Explore the platform</a></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="marker m-teal">The shape</p>
+        <h2>A modular monolith, extractable by construction</h2>
+        <p>Microservices are a deployment option we keep available, not a starting position. Every boundary rule exists so any module could later be lifted into its own service without changing a line anywhere else.</p>
+      </div>
+      <div class="arch-diagram">
+        <div class="arch-layer" style="--accent-c:var(--plum);--accent-w:var(--plum-wash)">
+          <span class="lbl">Surfaces</span>
+          <span class="cells"><em>web</em><em>mobile</em><em>kiosk</em><em>smart TV</em><em>voice</em><em>wearables</em><em>partner API</em><span class="note">— thin, replaceable, never a home for logic</span></span>
+        </div>
+        <div class="arch-layer" style="--accent-c:var(--indigo);--accent-w:var(--indigo-wash)">
+          <span class="lbl">Tasks &amp; contracts</span>
+          <span class="cells"><em class="hot">task registry</em><em class="hot">service contracts</em><em class="hot">event catalog</em><em>permissions</em><em>AI tools</em><em>flags</em></span>
+        </div>
+        <div class="arch-layer" style="--accent-c:var(--teal);--accent-w:var(--teal-wash)">
+          <span class="lbl">Modules</span>
+          <span class="cells"><em>patient</em><em>emr</em><em>orders</em><em>nursing</em><em>icu</em><em>ot</em><em>beds</em><em>emergency</em><em>lab</em><em>radiology</em><em>blood bank</em><em>pharmacy</em><em>inventory</em><em>billing</em><em>insurance</em><em>finance</em><em>hr</em><em>quality</em><em>portal</em><em>telemedicine</em><em>workflow</em><em>ai</em><em>search</em><em>analytics</em><em>interop</em><em>audit</em><span class="note">— one schema each; no module reads another's tables, ever</span></span>
+        </div>
+        <div class="arch-layer" style="--accent-c:var(--brand-deep);--accent-w:var(--brand-wash)">
+          <span class="lbl">Event backbone</span>
+          <span class="cells"><em class="hot">durable outbox</em><em>dispatcher</em><em>permanent retention</em><em>webhooks</em><em>streaming</em></span>
+        </div>
+        <div class="arch-layer" style="--accent-c:var(--amber);--accent-w:var(--amber-wash)">
+          <span class="lbl">Kernel</span>
+          <span class="cells"><em>auth</em><em>RBAC + ABAC</em><em>tenancy</em><em>config &amp; flags</em><em>crypto</em><em>telemetry</em><em>HTTP conventions</em><span class="note">— zero business rules, by gate</span></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section vs">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="marker ">Enforcement</p>
+        <h2>Six gates, run on every commit</h2>
+        <p>Rules that live in documents decay. These live in the build pipeline, and a change that violates one does not merge.</p>
+      </div>
+      <div class="gates">
+        <div class="gate" style="--accent-c:var(--brand)"><h4>Boundary gate</h4><p>A module may import itself, the contracts package, and the kernel. Anything else fails the build.</p></div>
+        <div class="gate" style="--accent-c:var(--teal)"><h4>SQL ownership gate</h4><p>A repository referencing a table outside its own schema fails the build. No allow-list, no exceptions.</p></div>
+        <div class="gate" style="--accent-c:var(--indigo)"><h4>Layering gate</h4><p>Domain logic may not import infrastructure, presentation, or any I/O library. Purity is checked, not requested.</p></div>
+        <div class="gate" style="--accent-c:var(--plum)"><h4>Kernel purity gate</h4><p>The kernel may not depend on any module or contract. A "utility" naming a domain noun belongs in that domain.</p></div>
+        <div class="gate" style="--accent-c:var(--amber)"><h4>Contract discipline gate</h4><p>Contracts carry no runtime dependencies; breaking changes to types or event schemas are caught on every pull request.</p></div>
+        <div class="gate" style="--accent-c:var(--rose)"><h4>Registry completeness gate</h4><p>A module ships with its tasks, permissions, events, AI tools, flags and seven documents registered — or it does not ship.</p></div>
+      </div>
+      <p class="lead-note">Alongside these run the ordinary ones — strict types, both-ways migrations, coverage floors, contract tests, an authorization matrix, accessibility scans, performance budgets, dependency and secret scanning. <b>The ladder only ever grows.</b> Ask any vendor to show you theirs.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="marker m-amber">Why it matters to you</p>
+        <h2>What these rules buy a hospital</h2>
+        <p>Architecture is only worth discussing if it changes what you experience. Here is the translation.</p>
+      </div>
+      <div class="fgrid">
+        <article class="fcell" style="--accent-c:var(--brand-deep)">
+          <span class="hook">Isolation</span>
+          <h3>One module's problem stays one module's problem</h3>
+          <p>Because no module can read another's tables, a defect or a bad deployment in billing cannot corrupt clinical data. Blast radius is a design property, not a hope.</p>
+          <div class="spec">one schema per module · enforced by CI, not convention</div>
+        </article>
+        <article class="fcell" style="--accent-c:var(--teal)">
+          <span class="hook">Longevity</span>
+          <h3>Capability is added, not migrated to</h3>
+          <p>New modules install against published contracts. That is why we can claim you will not face another hospital-wide replacement — the architecture is what makes it true.</p>
+          <div class="spec">module manifest · versioned contracts · additive by default</div>
+        </article>
+        <article class="fcell" style="--accent-c:var(--indigo)">
+          <span class="hook">Portability</span>
+          <h3>Your data stays yours</h3>
+          <p>One physical database per hospital, self-hosted if you prefer, with an open FHIR R4 API and a permanent event history that belongs to you.</p>
+          <div class="spec">export · FHIR R4 · event history · no lock-in by design</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section cta">
+    <div class="wrap cta-inner">
+      <div>
+        <p class="marker">Next step</p>
+        <h2>See your hospital <em>running</em> on Ospia</h2>
+        <p>An executive demonstration takes forty-five minutes. We seed a hospital with synthetic data shaped like yours, put the digital workforce on duty, and answer the hard questions with the architecture open.</p>
+      </div>
+      <div class="cta-panel">
+        <a class="btn btn-primary" href="mailto:hello@ospia.in?subject=Ospia%20—%20executive%20demonstration">Book an executive demonstration</a>
+        <a class="btn btn-ghost" href="mailto:hello@ospia.in?subject=Ospia%20—%20architecture%20deep-dive">Architecture deep-dive</a>
+        <p class="fine">
+          synthetic data · zero real patients<br>
+          self-hosted or managed cloud<br>
+          one database per hospital
+        </p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot-row">
+    <span class="foot-brand">
+      <svg class="mark" viewBox="0 0 512 512" aria-hidden="true" focusable="false">
+        <circle cx="256" cy="256" r="168" fill="none" stroke="url(#ospia-ring)" stroke-width="54"/>
+        <path d="M 66 256 L 170 256 L 212 168 L 288 344 L 330 256 L 446 256"
+              fill="none" stroke="currentColor" stroke-width="30"
+              stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <strong>Ospia</strong> — the Hospital Operating System.
+    </span>
+    <span class="mono">business value · operational excellence · technical proof</span>
+  </div>
+</footer>
+
+</body>
+</html>

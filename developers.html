@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Build on Ospia: versioned REST API with generated OpenAPI, typed SDK, published event catalog, signed webhooks, FHIR R4 and documented extension points.">
+<link rel="canonical" href="https://ospia.in/developers.html">
+<meta property="og:title" content="Developers — API, SDK, events and extension points | Ospia">
+<meta property="og:description" content="Build on Ospia: versioned REST API with generated OpenAPI, typed SDK, published event catalog, signed webhooks, FHIR R4 and documented extension points.">
+<meta property="og:url" content="https://ospia.in/developers.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ospia">
+<meta property="og:locale" content="en_IN">
+<meta property="og:image" content="https://ospia.in/og.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Developers — API, SDK, events and extension points | Ospia">
+<meta name="twitter:description" content="Build on Ospia: versioned REST API with generated OpenAPI, typed SDK, published event catalog, signed webhooks, FHIR R4 and documented extension points.">
+<meta name="twitter:image" content="https://ospia.in/og.png">
+<meta name="theme-color" content="#0E8C6D">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/favicon.svg">
+<link rel="stylesheet" href="/assets/site.css">
+<title>Developers — API, SDK, events and extension points | Ospia</title>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="ospia-ring" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#12B886"/><stop offset="100%" stop-color="#0B6E52"/>
+    </linearGradient>
+  </defs>
+</svg>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="/" aria-label="Ospia home">
+      <svg class="mark" viewBox="0 0 512 512" aria-hidden="true" focusable="false">
+        <circle cx="256" cy="256" r="168" fill="none" stroke="url(#ospia-ring)" stroke-width="54"/>
+        <path d="M 66 256 L 170 256 L 212 168 L 288 344 L 330 256 L 446 256"
+              fill="none" stroke="currentColor" stroke-width="30"
+              stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span class="word">Ospia</span><span class="tag">HOS</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="/platform.html">Platform</a>
+      <a href="/ai-workforce.html">AI Workforce</a>
+      <a href="/industries.html">Industries</a>
+      <a href="/implementation.html">Implementation</a>
+      <a href="/customers.html">Customers</a>
+      <a href="/resources.html">Resources</a>
+      <a href="/company.html">Company</a>
+      <a class="btn btn-primary" href="/#demo">Book a demo</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="crumb"><a href="/">Home</a> / <a href="/platform.html">Platform</a> / Developers</p>
+      <h1>Build on the same contracts we do</h1>
+      <p class="lede">The API is not a export hatch bolted onto the side. <b>It is the same contract layer the product itself is built on</b> — which is why it is complete, versioned, and does not lag the interface.</p>
+      <div class="page-ctas"><a class="btn btn-primary" href="/#demo">Book an executive demonstration</a><a class="btn btn-ghost" href="/platform.html">Explore the platform</a></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="marker ">Surface</p>
+        <h2>What you can build against</h2>
+        <p></p>
+      </div>
+      <div class="fgrid">
+        <article class="fcell" style="--accent-c:var(--brand-deep)">
+          <span class="hook">REST API</span>
+          <h3>Versioned, documented, generated</h3>
+          <p>Every route under /api/v1 with a standard error envelope, correlation IDs, cursor pagination and idempotency keys on mutating operations. OpenAPI generated from code, so it cannot drift from reality.</p>
+          <div class="spec">OpenAPI generated · CI fails on undocumented endpoints</div>
+        </article>
+        <article class="fcell" style="--accent-c:var(--teal)">
+          <span class="hook">Typed SDK</span>
+          <h3>Generated from the spec</h3>
+          <p>A TypeScript SDK generated from the same OpenAPI document, versioned alongside the API.</p>
+          <div class="spec">types that match the server, by construction</div>
+        </article>
+        <article class="fcell" style="--accent-c:var(--indigo)">
+          <span class="hook">Event catalog</span>
+          <h3>Subscribe to anything that happens</h3>
+          <p>A typed registry of every domain event — name, version, payload schema, owning module — exposed as HMAC-signed webhooks with a full delivery log.</p>
+          <div class="spec">at-least-once · signed · replayable delivery log</div>
+        </article>
+        <article class="fcell" style="--accent-c:var(--plum)">
+          <span class="hook">FHIR R4</span>
+          <h3>Standards-based clinical access</h3>
+          <p>Patient, Encounter, Condition, Observation, MedicationRequest and more, over a standard FHIR R4 read and search API.</p>
+          <div class="spec">plus HL7 v2 ADT for legacy integration</div>
+        </article>
+        <article class="fcell" style="--accent-c:var(--amber)">
+          <span class="hook">Extension points</span>
+          <h3>Documented, not discovered</h3>
+          <p>Modules declare their extension points explicitly. You build against a published contract rather than reverse-engineering internals.</p>
+          <div class="spec">additive by default · breaking changes version-bumped</div>
+        </article>
+        <article class="fcell" style="--accent-c:var(--rose)">
+          <span class="hook">Idempotency</span>
+          <h3>Safe retries on money and care</h3>
+          <p>Payments, billing, admissions, orders, claims and booking all require idempotency keys, so a retry cannot double-charge or double-admit.</p>
+          <div class="spec">enforced by middleware, not by convention</div>
+        </article>
+      </div>
+      <p class="lead-note">Full API documentation, the event catalog and the SDK are published as the corresponding modules complete — see the <a href="/company.html" style="color:var(--brand-deep)">phase plan</a> for where each sits. <b>We would rather publish documentation that matches shipped behaviour</b> than a specification that gets corrected later.</p>
+    </div>
+  </section>
+
+  <section class="section vs">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="marker m-teal">Integration</p>
+        <h2>Connectors, not projects</h2>
+        <p>Each connector declares its own configuration schema, so onboarding one is a configuration exercise rather than an engineering programme.</p>
+      </div>
+      <div class="chips">
+        <span>FHIR R4</span><span>HL7 v2 ADT</span><span>ABDM · ABHA</span><span>DICOM / PACS</span>
+        <span>LIS / RIS</span><span>Analysers</span><span>ERP &amp; accounting</span><span>HRMS</span>
+        <span>Payment gateways</span><span>WhatsApp / SMS / email</span><span>Government portals</span>
+        <span>Medical devices &amp; IoT</span><span class="hot">Signed webhooks</span><span class="hot">OAuth-style client registry</span>
+        <span class="hot">Scoped API tokens</span>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section cta">
+    <div class="wrap cta-inner">
+      <div>
+        <p class="marker">Next step</p>
+        <h2>See your hospital <em>running</em> on Ospia</h2>
+        <p>An executive demonstration takes forty-five minutes. We seed a hospital with synthetic data shaped like yours, put the digital workforce on duty, and answer the hard questions with the architecture open.</p>
+      </div>
+      <div class="cta-panel">
+        <a class="btn btn-primary" href="mailto:hello@ospia.in?subject=Ospia%20—%20executive%20demonstration">Book an executive demonstration</a>
+        <a class="btn btn-ghost" href="mailto:hello@ospia.in?subject=Ospia%20—%20architecture%20deep-dive">Architecture deep-dive</a>
+        <p class="fine">
+          synthetic data · zero real patients<br>
+          self-hosted or managed cloud<br>
+          one database per hospital
+        </p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot-row">
+    <span class="foot-brand">
+      <svg class="mark" viewBox="0 0 512 512" aria-hidden="true" focusable="false">
+        <circle cx="256" cy="256" r="168" fill="none" stroke="url(#ospia-ring)" stroke-width="54"/>
+        <path d="M 66 256 L 170 256 L 212 168 L 288 344 L 330 256 L 446 256"
+              fill="none" stroke="currentColor" stroke-width="30"
+              stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <strong>Ospia</strong> — the Hospital Operating System.
+    </span>
+    <span class="mono">business value · operational excellence · technical proof</span>
+  </div>
+</footer>
+
+</body>
+</html>

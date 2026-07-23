@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Why we built Ospia, the engineering charter it is built under, the published phase plan, and how to reach us.">
+<link rel="canonical" href="https://ospia.in/company.html">
+<meta property="og:title" content="Company — mission, charter and phase plan | Ospia">
+<meta property="og:description" content="Why we built Ospia, the engineering charter it is built under, the published phase plan, and how to reach us.">
+<meta property="og:url" content="https://ospia.in/company.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ospia">
+<meta property="og:locale" content="en_IN">
+<meta property="og:image" content="https://ospia.in/og.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Company — mission, charter and phase plan | Ospia">
+<meta name="twitter:description" content="Why we built Ospia, the engineering charter it is built under, the published phase plan, and how to reach us.">
+<meta name="twitter:image" content="https://ospia.in/og.png">
+<meta name="theme-color" content="#0E8C6D">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/favicon.svg">
+<link rel="stylesheet" href="/assets/site.css">
+<title>Company — mission, charter and phase plan | Ospia</title>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="ospia-ring" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#12B886"/><stop offset="100%" stop-color="#0B6E52"/>
+    </linearGradient>
+  </defs>
+</svg>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="/" aria-label="Ospia home">
+      <svg class="mark" viewBox="0 0 512 512" aria-hidden="true" focusable="false">
+        <circle cx="256" cy="256" r="168" fill="none" stroke="url(#ospia-ring)" stroke-width="54"/>
+        <path d="M 66 256 L 170 256 L 212 168 L 288 344 L 330 256 L 446 256"
+              fill="none" stroke="currentColor" stroke-width="30"
+              stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span class="word">Ospia</span><span class="tag">HOS</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="/platform.html">Platform</a>
+      <a href="/ai-workforce.html">AI Workforce</a>
+      <a href="/industries.html">Industries</a>
+      <a href="/implementation.html">Implementation</a>
+      <a href="/customers.html">Customers</a>
+      <a href="/resources.html">Resources</a>
+      <a href="/company.html">Company</a>
+      <a class="btn btn-primary" href="/#demo">Book a demo</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="crumb"><a href="/">Home</a> / Company</p>
+      <h1>Why we built Ospia</h1>
+      <p class="lede">Healthcare runs on people doing careful work under pressure. <b>Software should absorb the pressure, not add to it</b> — and the software hospitals have was not designed for the decade they are now in.</p>
+      <div class="page-ctas"><a class="btn btn-primary" href="/#demo">Book an executive demonstration</a><a class="btn btn-ghost" href="/platform.html">Explore the platform</a></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="vision-split">
+        <p class="vision-lead">We are not building a better system of record. We are building the layer a hospital actually runs on.</p>
+        <div class="vision-points">
+          <div class="vision-point" style="--accent-c:var(--brand)">
+            <h3>The old contract expired</h3>
+            <p>Hospital software was built when digitizing the paper record was the ambition, and it achieved that. But a system that only records cannot help with what hospitals are actually short of — capacity, attention and time. Meeting the next decade needs a different starting assumption.</p>
+          </div>
+          <div class="vision-point" style="--accent-c:var(--teal)">
+            <h3>Intelligence has to be accountable to be useful</h3>
+            <p>We are unwilling to put AI into clinical and financial operations on the basis of trust alone. So the platform was designed the harder way: every decision replayable, every autonomy level configured by the hospital, every action produced through the same permission-checked path a person would use. Governance first, capability second — because the reverse does not survive contact with a real hospital.</p>
+          </div>
+          <div class="vision-point" style="--accent-c:var(--plum)">
+            <h3>This is a long commitment, not a product cycle</h3>
+            <p>We publish our engineering charter, our phase plan and our architectural gates because a hospital is making a fifteen-year decision. You should be able to check whether we are building something durable, hold us to the sequence, and see plainly what is finished and what is not.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section vs">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="marker ">The plan</p>
+        <h2>Built in the open, so you can hold us to it</h2>
+        <p>Ospia is built under a written engineering charter in numbered, gated phases. Nothing merges without passing the full gate ladder.</p>
+      </div>
+      <div class="phases">
+        <div class="phase done"><span class="ph-n">P0</span><span class="ph-t">Foundations</span><span class="ph-body">Kernel, module manifests, versioned API contract, observability, data layer with per-module schemas, durable event backbone.</span></div>
+        <div class="phase done"><span class="ph-n">P1</span><span class="ph-t">Platform spine</span><span class="ph-body">Authentication and passkeys, RBAC + ABAC policy engine, audit chain and field encryption, secrets and security events, the rules &amp; policy engine.</span></div>
+        <div class="phase"><span class="ph-n">P2</span><span class="ph-t">Clinical core</span><span class="ph-body">Patient as the golden module, design system, app shell and task bar, appointments, EMR, orders, nursing, beds, ICU and theatre.</span></div>
+        <div class="phase"><span class="ph-n">P3</span><span class="ph-t">Diagnostics &amp; revenue</span><span class="ph-body">Lab, imaging, pharmacy, supply chain, billing and revenue cycle, insurance, finance and operations.</span></div>
+        <div class="phase"><span class="ph-n">P4</span><span class="ph-t">Intelligence</span><span class="ph-body">Agent runtime with the autonomy ladder, memory and learning, the explainability envelope, workflow engine, conversational layer, trust layer.</span></div>
+        <div class="phase"><span class="ph-n">P5</span><span class="ph-t">Experience</span><span class="ph-body">Operations centre, digital twin and knowledge graph surfaces, predictive UI, accessibility and language hardening, performance.</span></div>
+        <div class="phase"><span class="ph-n">P6</span><span class="ph-t">Onboarding &amp; cutover</span><span class="ph-body">Migration tooling with checksum verification, parallel running, per-hospital cutover runbook with a rollback path.</span></div>
+        <div class="phase"><span class="ph-n">P7</span><span class="ph-t">Platform expansion</span><span class="ph-body">Marketplace, AI Studio, low-code studio, data lake and research export, population health, mobile and kiosk front door, ambient clinical intelligence, connector catalog.</span></div>
+      </div>
+      <p class="lead-note"><b>Ask us where any capability on this site sits</b> — the answer is a phase number, not a shrug. We would rather show you the sequence than imply everything already exists.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="marker m-teal">Contact</p>
+        <h2>Talk to us</h2>
+        <p></p>
+      </div>
+      <div class="eco-grid">
+        <a class="eco-link" href="mailto:hello@ospia.in?subject=Ospia%20—%20executive%20demonstration"><h3>Executive demonstration</h3><p>Forty-five minutes, on your numbers, with the architecture open.</p></a>
+        <a class="eco-link" href="mailto:hello@ospia.in?subject=Ospia%20—%20architecture%20deep-dive"><h3>Architecture deep-dive</h3><p>For CIOs, architects and security teams.</p></a>
+        <a class="eco-link" href="mailto:hello@ospia.in?subject=Ospia%20—%20partnership"><h3>Partnerships</h3><p>Implementation, technology, specialty and academic.</p></a>
+        <a class="eco-link" href="mailto:hello@ospia.in?subject=Ospia%20—%20general%20enquiry"><h3>General enquiries</h3><p>hello@ospia.in — we answer properly, not with a form response.</p></a>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section cta">
+    <div class="wrap cta-inner">
+      <div>
+        <p class="marker">Next step</p>
+        <h2>See your hospital <em>running</em> on Ospia</h2>
+        <p>An executive demonstration takes forty-five minutes. We seed a hospital with synthetic data shaped like yours, put the digital workforce on duty, and answer the hard questions with the architecture open.</p>
+      </div>
+      <div class="cta-panel">
+        <a class="btn btn-primary" href="mailto:hello@ospia.in?subject=Ospia%20—%20executive%20demonstration">Book an executive demonstration</a>
+        <a class="btn btn-ghost" href="mailto:hello@ospia.in?subject=Ospia%20—%20architecture%20deep-dive">Architecture deep-dive</a>
+        <p class="fine">
+          synthetic data · zero real patients<br>
+          self-hosted or managed cloud<br>
+          one database per hospital
+        </p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot-row">
+    <span class="foot-brand">
+      <svg class="mark" viewBox="0 0 512 512" aria-hidden="true" focusable="false">
+        <circle cx="256" cy="256" r="168" fill="none" stroke="url(#ospia-ring)" stroke-width="54"/>
+        <path d="M 66 256 L 170 256 L 212 168 L 288 344 L 330 256 L 446 256"
+              fill="none" stroke="currentColor" stroke-width="30"
+              stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <strong>Ospia</strong> — the Hospital Operating System.
+    </span>
+    <span class="mono">business value · operational excellence · technical proof</span>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="How an Ospia implementation runs: assessment, configuration, data migration, parallel run, verification, training, go-live and hypercare — with rollback at every checkpoint.">
+<link rel="canonical" href="https://ospia.in/implementation.html">
+<meta property="og:title" content="Implementation — how a hospital goes live on Ospia">
+<meta property="og:description" content="How an Ospia implementation runs: assessment, configuration, data migration, parallel run, verification, training, go-live and hypercare — with rollback at every checkpoint.">
+<meta property="og:url" content="https://ospia.in/implementation.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ospia">
+<meta property="og:locale" content="en_IN">
+<meta property="og:image" content="https://ospia.in/og.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Implementation — how a hospital goes live on Ospia">
+<meta name="twitter:description" content="How an Ospia implementation runs: assessment, configuration, data migration, parallel run, verification, training, go-live and hypercare — with rollback at every checkpoint.">
+<meta name="twitter:image" content="https://ospia.in/og.png">
+<meta name="theme-color" content="#0E8C6D">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/favicon.svg">
+<link rel="stylesheet" href="/assets/site.css">
+<title>Implementation — how a hospital goes live on Ospia</title>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="ospia-ring" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#12B886"/><stop offset="100%" stop-color="#0B6E52"/>
+    </linearGradient>
+  </defs>
+</svg>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="/" aria-label="Ospia home">
+      <svg class="mark" viewBox="0 0 512 512" aria-hidden="true" focusable="false">
+        <circle cx="256" cy="256" r="168" fill="none" stroke="url(#ospia-ring)" stroke-width="54"/>
+        <path d="M 66 256 L 170 256 L 212 168 L 288 344 L 330 256 L 446 256"
+              fill="none" stroke="currentColor" stroke-width="30"
+              stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span class="word">Ospia</span><span class="tag">HOS</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="/platform.html">Platform</a>
+      <a href="/ai-workforce.html">AI Workforce</a>
+      <a href="/industries.html">Industries</a>
+      <a href="/implementation.html">Implementation</a>
+      <a href="/customers.html">Customers</a>
+      <a href="/resources.html">Resources</a>
+      <a href="/company.html">Company</a>
+      <a class="btn btn-primary" href="/#demo">Book a demo</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="crumb"><a href="/">Home</a> / Implementation</p>
+      <h1>Predictable, measurable, low-risk</h1>
+      <p class="lede">The biggest risk in replacing a hospital system is not the software — it is the fortnight around cutover. <b>This is the sequence we run, and the rollback path underneath all of it.</b></p>
+      <div class="page-ctas"><a class="btn btn-primary" href="/#demo">Book an executive demonstration</a><a class="btn btn-ghost" href="/platform.html">Explore the platform</a></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="marker ">The method</p>
+        <h2>Eight phases, each with an exit criterion</h2>
+        <p>Nobody moves to the next phase because the calendar says so. Each one has an output that has to be signed before it closes.</p>
+      </div>
+      <div class="mig">
+        <div class="mig-step"><span class="n">01</span><h3>Assessment</h3><p>Current data, integrations, customizations and workflows inventoried and scored for migration complexity.</p><p class="out">Exit: a complexity map and a realistic timeline</p></div>
+        <div class="mig-step"><span class="n">02</span><h3>Planning</h3><p>Configuration drafted against your actual rules — numbering, tariffs, approval matrices, pathways — and signed off before build.</p><p class="out">Exit: an agreed configuration baseline</p></div>
+        <div class="mig-step"><span class="n">03</span><h3>Data migration</h3><p>Historical data moved with checksum verification at every stage and reconciled against source counts and balances.</p><p class="out">Exit: a signed reconciliation report</p></div>
+        <div class="mig-step"><span class="n">04</span><h3>Parallel run</h3><p>Both systems process the same days. Differences reconciled every morning until the delta is consistently zero.</p><p class="out">Exit: daily variance at nil, sustained</p></div>
+        <div class="mig-step"><span class="n">05</span><h3>Verification</h3><p>Financial balances, clinical records and statutory reports checked against the legacy system line by line.</p><p class="out">Exit: sign-off from finance and clinical leads</p></div>
+        <div class="mig-step"><span class="n">06</span><h3>Training</h3><p>Role-based training on the task bar rather than on screens — which is why it takes days rather than weeks.</p><p class="out">Exit: competency confirmed per role</p></div>
+        <div class="mig-step"><span class="n">07</span><h3>Go-live</h3><p>Cutover to a written runbook with named owners, defined checkpoints and a rollback decision at each one.</p><p class="out">Exit: runbook executed, not improvised</p></div>
+        <div class="mig-step"><span class="n">08</span><h3>Hypercare</h3><p>On-site and on-call support at elevated intensity until agreed stability metrics hold for a defined period.</p><p class="out">Exit: stability criteria met before we stand down</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section vs">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="marker m-amber">What we need from you</p>
+        <h2>Implementations fail on the hospital side too</h2>
+        <p>Being straight about this before contract is worth more than optimism after it.</p>
+      </div>
+      <div class="split-2">
+        <div class="split-cell" style="--accent-c:var(--brand)">
+          <h3>What we bring</h3>
+          <ul>
+            <li>A named implementation lead accountable for the whole programme, not a rotating account manager.</li>
+            <li>Migration tooling with verification built in, rather than scripts written per customer.</li>
+            <li>Configuration of your rules by people who understand hospital operations, not just software.</li>
+            <li>An honest status every week, including when we are behind.</li>
+          </ul>
+        </div>
+        <div class="split-cell" style="--accent-c:var(--amber)">
+          <h3>What we need from you</h3>
+          <ul>
+            <li>An executive sponsor with authority to decide, not just to escalate.</li>
+            <li>Access to the people who actually know your rules — usually not the people in the meetings.</li>
+            <li>Time from clinical and finance leads for verification, protected in advance.</li>
+            <li>A willingness to change a process where your current one exists only because the old software required it.</li>
+          </ul>
+        </div>
+      </div>
+      <p class="lead-note"><b>We will tell you plainly when a hospital is not ready</b> — including when that is inconvenient for us. A delayed go-live is recoverable; a failed one damages a hospital and takes years to repair. <a href="/migration.html" style="color:var(--brand-deep)">See the migration detail →</a></p>
+    </div>
+  </section>
+
+
+  <section class="section cta">
+    <div class="wrap cta-inner">
+      <div>
+        <p class="marker">Next step</p>
+        <h2>See your hospital <em>running</em> on Ospia</h2>
+        <p>An executive demonstration takes forty-five minutes. We seed a hospital with synthetic data shaped like yours, put the digital workforce on duty, and answer the hard questions with the architecture open.</p>
+      </div>
+      <div class="cta-panel">
+        <a class="btn btn-primary" href="mailto:hello@ospia.in?subject=Ospia%20—%20executive%20demonstration">Book an executive demonstration</a>
+        <a class="btn btn-ghost" href="mailto:hello@ospia.in?subject=Ospia%20—%20architecture%20deep-dive">Architecture deep-dive</a>
+        <p class="fine">
+          synthetic data · zero real patients<br>
+          self-hosted or managed cloud<br>
+          one database per hospital
+        </p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot-row">
+    <span class="foot-brand">
+      <svg class="mark" viewBox="0 0 512 512" aria-hidden="true" focusable="false">
+        <circle cx="256" cy="256" r="168" fill="none" stroke="url(#ospia-ring)" stroke-width="54"/>
+        <path d="M 66 256 L 170 256 L 212 168 L 288 344 L 330 256 L 446 256"
+              fill="none" stroke="currentColor" stroke-width="30"
+              stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <strong>Ospia</strong> — the Hospital Operating System.
+    </span>
+    <span class="mono">business value · operational excellence · technical proof</span>
+  </div>
+</footer>
+
+</body>
+</html>

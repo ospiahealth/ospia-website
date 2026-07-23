@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Ospia security: one physical database per hospital, row-level security, field-level encryption, hash-chained audit, RBAC plus ABAC, and a security programme built into CI.">
+<link rel="canonical" href="https://ospia.in/security.html">
+<meta property="og:title" content="Security — Ospia Hospital Operating System">
+<meta property="og:description" content="Ospia security: one physical database per hospital, row-level security, field-level encryption, hash-chained audit, RBAC plus ABAC, and a security programme built into CI.">
+<meta property="og:url" content="https://ospia.in/security.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ospia">
+<meta property="og:locale" content="en_IN">
+<meta property="og:image" content="https://ospia.in/og.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Security — Ospia Hospital Operating System">
+<meta name="twitter:description" content="Ospia security: one physical database per hospital, row-level security, field-level encryption, hash-chained audit, RBAC plus ABAC, and a security programme built into CI.">
+<meta name="twitter:image" content="https://ospia.in/og.png">
+<meta name="theme-color" content="#0E8C6D">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/favicon.svg">
+<link rel="stylesheet" href="/assets/site.css">
+<title>Security — Ospia Hospital Operating System</title>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="ospia-ring" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#12B886"/><stop offset="100%" stop-color="#0B6E52"/>
+    </linearGradient>
+  </defs>
+</svg>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="/" aria-label="Ospia home">
+      <svg class="mark" viewBox="0 0 512 512" aria-hidden="true" focusable="false">
+        <circle cx="256" cy="256" r="168" fill="none" stroke="url(#ospia-ring)" stroke-width="54"/>
+        <path d="M 66 256 L 170 256 L 212 168 L 288 344 L 330 256 L 446 256"
+              fill="none" stroke="currentColor" stroke-width="30"
+              stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span class="word">Ospia</span><span class="tag">HOS</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="/platform.html">Platform</a>
+      <a href="/ai-workforce.html">AI Workforce</a>
+      <a href="/industries.html">Industries</a>
+      <a href="/implementation.html">Implementation</a>
+      <a href="/customers.html">Customers</a>
+      <a href="/resources.html">Resources</a>
+      <a href="/company.html">Company</a>
+      <a class="btn btn-primary" href="/#demo">Book a demo</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="crumb"><a href="/">Home</a> / <a href="/platform.html">Platform</a> / Security</p>
+      <h1>Security enforced by the platform, not by user discipline</h1>
+      <p class="lede">Security that depends on people remembering to be careful is not security. In Ospia the controls are structural — <b>enforced by the architecture and checked by the build pipeline.</b></p>
+      <div class="page-ctas"><a class="btn btn-primary" href="/#demo">Book an executive demonstration</a><a class="btn btn-ghost" href="/platform.html">Explore the platform</a></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="marker ">Isolation</p>
+        <h2>Your data is not in a shared table</h2>
+        <p>Multi-tenancy is physical, not logical. There is no query that could return another hospital's data, because another hospital's data is not in your database.</p>
+      </div>
+      <div class="fgrid">
+        <article class="fcell" style="--accent-c:var(--brand-deep)">
+          <span class="hook">Tenant isolation</span>
+          <h3>One physical database per hospital</h3>
+          <p>Not a tenant column, not a schema flag — a separate database. Self-hosted or managed cloud, your choice, and the choice is reversible.</p>
+          <div class="spec">physical isolation · self-host or managed · portable</div>
+        </article>
+        <article class="fcell" style="--accent-c:var(--teal)">
+          <span class="hook">Row-level security</span>
+          <h3>Scoped at the database</h3>
+          <p>Postgres row-level security applies hospital and user context to every query, beneath the application layer, so an application bug cannot bypass it.</p>
+          <div class="spec">enforced below the code that could get it wrong</div>
+        </article>
+        <article class="fcell" style="--accent-c:var(--indigo)">
+          <span class="hook">Field encryption</span>
+          <h3>Personal data encrypted at rest</h3>
+          <p>AES-256-GCM on personal data with separate keys for audit and PII, and a secrets provider abstraction with rotation hooks.</p>
+          <div class="spec">no secrets in the repository, ever</div>
+        </article>
+        <article class="fcell" style="--accent-c:var(--plum)">
+          <span class="hook">Access control</span>
+          <h3>RBAC plus ABAC</h3>
+          <p>Permissions evaluated with context — assignment, admission state, ward, shift, time — so "a doctor may edit only admitted patients assigned to them today" is a policy expression, not code.</p>
+          <div class="spec">context-aware authorization, matrix-tested in CI</div>
+        </article>
+        <article class="fcell" style="--accent-c:var(--amber)">
+          <span class="hook">Audit chain</span>
+          <h3>Tamper-evident by construction</h3>
+          <p>Every mutation is hash-chained. Edit one historical entry and the whole chain fails verification — which is the point.</p>
+          <div class="spec">re-verifiable end to end, on demand</div>
+        </article>
+        <article class="fcell" style="--accent-c:var(--rose)">
+          <span class="hook">Patient plane</span>
+          <h3>Separate identity plane</h3>
+          <p>Patients authenticate on a cryptographically separate plane; a portal token is useless against staff APIs.</p>
+          <div class="spec">no shared session surface between patients and staff</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section vs">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="marker m-teal">Programme</p>
+        <h2>Security as a pipeline, not a policy</h2>
+        <p>Controls that are not tested are aspirations. These run on every change.</p>
+      </div>
+      <div class="gates">
+        <div class="gate" style="--accent-c:var(--brand)"><h4>Dependency scanning</h4><p>Every dependency checked for known vulnerabilities on each build; failures block the merge.</p></div>
+        <div class="gate" style="--accent-c:var(--teal)"><h4>Secret scanning</h4><p>Credentials committed to the repository fail the build. Secrets live in a vault provider with rotation.</p></div>
+        <div class="gate" style="--accent-c:var(--indigo)"><h4>Authorization matrix</h4><p>Every endpoint tested against every role, so a permission regression cannot ship silently.</p></div>
+        <div class="gate" style="--accent-c:var(--plum)"><h4>Security event pipeline</h4><p>Auth failures, permission denials, unmasked-PII reads and behavioural anomalies emitted in SIEM-consumable form.</p></div>
+        <div class="gate" style="--accent-c:var(--amber)"><h4>Backup &amp; recovery</h4><p>Documented recovery objectives with restoration rehearsed rather than assumed.</p></div>
+        <div class="gate" style="--accent-c:var(--rose)"><h4>Disclosure</h4><p>A published route for reporting vulnerabilities, and a commitment to tell affected hospitals promptly.</p></div>
+      </div>
+      <p class="lead-note">Formal certification status is stated plainly on our <a href="/compliance.html" style="color:var(--brand-deep)">compliance page</a> — including what we have, what is in progress, and what we have not started. <b>We will not describe a roadmap item as a certification.</b></p>
+    </div>
+  </section>
+
+
+  <section class="section cta">
+    <div class="wrap cta-inner">
+      <div>
+        <p class="marker">Next step</p>
+        <h2>See your hospital <em>running</em> on Ospia</h2>
+        <p>An executive demonstration takes forty-five minutes. We seed a hospital with synthetic data shaped like yours, put the digital workforce on duty, and answer the hard questions with the architecture open.</p>
+      </div>
+      <div class="cta-panel">
+        <a class="btn btn-primary" href="mailto:hello@ospia.in?subject=Ospia%20—%20executive%20demonstration">Book an executive demonstration</a>
+        <a class="btn btn-ghost" href="mailto:hello@ospia.in?subject=Ospia%20—%20architecture%20deep-dive">Architecture deep-dive</a>
+        <p class="fine">
+          synthetic data · zero real patients<br>
+          self-hosted or managed cloud<br>
+          one database per hospital
+        </p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot-row">
+    <span class="foot-brand">
+      <svg class="mark" viewBox="0 0 512 512" aria-hidden="true" focusable="false">
+        <circle cx="256" cy="256" r="168" fill="none" stroke="url(#ospia-ring)" stroke-width="54"/>
+        <path d="M 66 256 L 170 256 L 212 168 L 288 344 L 330 256 L 446 256"
+              fill="none" stroke="currentColor" stroke-width="30"
+              stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <strong>Ospia</strong> — the Hospital Operating System.
+    </span>
+    <span class="mono">business value · operational excellence · technical proof</span>
+  </div>
+</footer>
+
+</body>
+</html>
