@@ -677,8 +677,14 @@
   .sla-row:first-child > div{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
   .sla-row .sev{font-weight:650;color:var(--ink)}
   @media (max-width:760px){
-    .sla-row{grid-template-columns:1fr 1fr}
+    .sla-row{grid-template-columns:1fr;padding:6px 0}
     .sla-row:first-child{display:none}
+    .sla-row > div{padding:3px 18px}
+    .sla-row > div:first-child{padding-top:14px}
+    .sla-row > div:last-child{padding-bottom:14px}
+    .sla-row .sev{font-size:15px}
+    .sla-row > div:nth-child(2){color:var(--brand-deep);font-family:var(--mono);font-size:12px;
+      letter-spacing:.08em;text-transform:uppercase}
   }
 
   /* ═════════════════ product shots ═════════════════ */

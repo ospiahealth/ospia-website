@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Ospia security: one physical database per hospital, row-level security, field-level encryption, hash-chained audit, RBAC plus ABAC, and a security programme built into CI.">
+<meta name="description" content="Ospia security in detail: zero trust, multi-tenancy and data isolation, encryption, key management, hash-chained audit, backup and disaster recovery, secure SDLC, penetration testing and the compliance roadmap.">
 <link rel="canonical" href="https://ospia.in/security.html">
 <meta property="og:title" content="Security — Ospia Hospital Operating System">
-<meta property="og:description" content="Ospia security: one physical database per hospital, row-level security, field-level encryption, hash-chained audit, RBAC plus ABAC, and a security programme built into CI.">
+<meta property="og:description" content="Ospia security in detail: zero trust, multi-tenancy and data isolation, encryption, key management, hash-chained audit, backup and disaster recovery, secure SDLC, penetration testing and the compliance roadmap.">
 <meta property="og:url" content="https://ospia.in/security.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Ospia">
@@ -17,7 +17,7 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Security — Ospia Hospital Operating System">
-<meta name="twitter:description" content="Ospia security: one physical database per hospital, row-level security, field-level encryption, hash-chained audit, RBAC plus ABAC, and a security programme built into CI.">
+<meta name="twitter:description" content="Ospia security in detail: zero trust, multi-tenancy and data isolation, encryption, key management, hash-chained audit, backup and disaster recovery, secure SDLC, penetration testing and the compliance roadmap.">
 <meta name="twitter:image" content="https://ospia.in/og.png">
 <meta name="theme-color" content="#0E8C6D">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -64,75 +64,342 @@
     <div class="wrap">
       <p class="crumb"><a href="/">Home</a> / <a href="/platform.html">Platform</a> / Security</p>
       <h1>Security enforced by the platform, not by user discipline</h1>
-      <p class="lede">Security that depends on people remembering to be careful is not security. In Ospia the controls are structural — <b>enforced by the architecture and checked by the build pipeline.</b></p>
-      <div class="page-ctas"><a class="btn btn-primary" href="/#demo">Book an executive demonstration</a><a class="btn btn-ghost" href="/platform.html">Explore the platform</a></div>
+      <p class="lede">Security that depends on people remembering to be careful is not security. Every control here is structural — <b>enforced by the architecture and checked by the build pipeline</b> — and where something is a target or a roadmap item rather than a shipped control, this page says so.</p>
+      <div class="page-ctas"><a class="btn btn-primary" href="mailto:security@ospia.in?subject=Ospia%20—%20security%20review">Request a security review</a><a class="btn btn-ghost" href="/architecture.html">See the architecture</a></div>
     </div>
   </section>
 
   <section class="section">
     <div class="wrap">
       <div class="section-head">
-        <p class="marker ">Isolation</p>
-        <h2>Your data is not in a shared table</h2>
-        <p>Multi-tenancy is physical, not logical. There is no query that could return another hospital's data, because another hospital's data is not in your database.</p>
+        <p class="marker">Principle</p>
+        <h2>Security you can verify, not security you are asked to trust</h2>
+        <p>Every control below resolves to a mechanism in the platform, and most resolve to a test that runs on every commit. Where something is a target rather than a shipped control, it says so.</p>
+      </div>
+      <div class="eco-grid">
+        <a class="eco-link" href="#zero-trust"><h3>Zero trust</h3><p>Every request authenticated, authorized and tenant-scoped. No implicit trust from network position.</p></a>
+        <a class="eco-link" href="#tenancy"><h3>Multi-tenancy</h3><p>One physical database per hospital, plus token scoping and RLS as defence in depth.</p></a>
+        <a class="eco-link" href="#encryption"><h3>Encryption</h3><p>AES-256-GCM field encryption, separate key families, TLS in transit.</p></a>
+        <a class="eco-link" href="#keys"><h3>Key management</h3><p>Secrets provider chain, versioned rotation, production boot that refuses weak configuration.</p></a>
+        <a class="eco-link" href="#audit"><h3>Audit</h3><p>Hash-chained, append-only, re-verifiable end to end — including after a restore.</p></a>
+        <a class="eco-link" href="#backup"><h3>Backup &amp; DR</h3><p>Encrypted archives, a rehearsed restore drill, published RPO and RTO targets.</p></a>
+        <a class="eco-link" href="#sdlc"><h3>Secure SDLC</h3><p>Threat model, gate ladder, dependency and secret scanning on every change.</p></a>
+        <a class="eco-link" href="#assurance"><h3>Testing &amp; assurance</h3><p>Penetration testing, disclosure policy and the assurance roadmap, stated honestly.</p></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section vs" id="zero-trust">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="marker m-indigo">01</p>
+        <h2>Zero trust</h2>
+        <p>Being inside the network grants nothing. Every request carries its own proof, and every check runs again at the point of use rather than at the perimeter.</p>
       </div>
       <div class="fgrid">
         <article class="fcell" style="--accent-c:var(--brand-deep)">
-          <span class="hook">Tenant isolation</span>
-          <h3>One physical database per hospital</h3>
-          <p>Not a tenant column, not a schema flag — a separate database. Self-hosted or managed cloud, your choice, and the choice is reversible.</p>
-          <div class="spec">physical isolation · self-host or managed · portable</div>
-        </article>
-        <article class="fcell" style="--accent-c:var(--teal)">
-          <span class="hook">Row-level security</span>
-          <h3>Scoped at the database</h3>
-          <p>Postgres row-level security applies hospital and user context to every query, beneath the application layer, so an application bug cannot bypass it.</p>
-          <div class="spec">enforced below the code that could get it wrong</div>
+          <span class="hook">Identity first</span>
+          <h3>Every request proves who it is</h3>
+          <p>No endpoint infers authority from network location, VPN membership or an internal hostname. Tokens carry the tenant claim, and services scope every query by it, so a valid token from one deployment returns nothing in another.</p>
+          <div class="spec">token tenant claim · re-checked per query · cross-deployment replay answers empty</div>
         </article>
         <article class="fcell" style="--accent-c:var(--indigo)">
-          <span class="hook">Field encryption</span>
-          <h3>Personal data encrypted at rest</h3>
-          <p>AES-256-GCM on personal data with separate keys for audit and PII, and a secrets provider abstraction with rotation hooks.</p>
-          <div class="spec">no secrets in the repository, ever</div>
+          <span class="hook">Context-aware authorization</span>
+          <h3>RBAC, then ABAC on top</h3>
+          <p>Permissions are evaluated with context — assignment, admission state, ward, shift, time of day. "A doctor may edit only admitted patients assigned to them today" is a policy expression, not code someone has to remember to write.</p>
+          <div class="spec">policy engine · authorization matrix tested endpoint × role in CI</div>
         </article>
         <article class="fcell" style="--accent-c:var(--plum)">
-          <span class="hook">Access control</span>
-          <h3>RBAC plus ABAC</h3>
-          <p>Permissions evaluated with context — assignment, admission state, ward, shift, time — so "a doctor may edit only admitted patients assigned to them today" is a policy expression, not code.</p>
-          <div class="spec">context-aware authorization, matrix-tested in CI</div>
+          <span class="hook">Separate planes</span>
+          <h3>Patients cannot reach staff APIs</h3>
+          <p>Patients authenticate on a cryptographically separate identity plane. A portal token is not merely unauthorized against a staff endpoint — it is unusable, because it is not the same kind of credential.</p>
+          <div class="spec">separate token plane · no shared session surface</div>
+        </article>
+        <article class="fcell" style="--accent-c:var(--teal)">
+          <span class="hook">Strong authentication</span>
+          <h3>Passwordless first</h3>
+          <p>Passkeys and WebAuthn as the flagship staff login, with TOTP and one-time codes as fallbacks and SSO where you already have an identity provider. Passkey cloning is detected by counter regression and flags the credential permanently.</p>
+          <div class="spec">passkeys · TOTP · OTP · OIDC SSO · lockout and rate limiting</div>
         </article>
         <article class="fcell" style="--accent-c:var(--amber)">
-          <span class="hook">Audit chain</span>
-          <h3>Tamper-evident by construction</h3>
-          <p>Every mutation is hash-chained. Edit one historical entry and the whole chain fails verification — which is the point.</p>
-          <div class="spec">re-verifiable end to end, on demand</div>
+          <span class="hook">No enumeration</span>
+          <h3>The system does not leak who exists</h3>
+          <p>One-time-code requests, password resets and method lookups answer identically whether or not the account exists, so an attacker cannot harvest valid usernames before attempting anything else.</p>
+          <div class="spec">uniform responses · single-use expiring codes · purpose isolation</div>
         </article>
         <article class="fcell" style="--accent-c:var(--rose)">
-          <span class="hook">Patient plane</span>
-          <h3>Separate identity plane</h3>
-          <p>Patients authenticate on a cryptographically separate plane; a portal token is useless against staff APIs.</p>
-          <div class="spec">no shared session surface between patients and staff</div>
+          <span class="hook">Never auto-provision</span>
+          <h3>SSO cannot create staff</h3>
+          <p>A federated login matches an existing staff record or it fails. An identity provider — or anyone who compromises one — cannot mint a new user in your hospital, and a locked account stays locked through SSO.</p>
+          <div class="spec">signed short-lived state · nonce · match existing staff only</div>
         </article>
       </div>
     </div>
   </section>
 
-  <section class="section vs">
+  <section class="section" id="tenancy">
     <div class="wrap">
       <div class="section-head">
-        <p class="marker m-teal">Programme</p>
-        <h2>Security as a pipeline, not a policy</h2>
-        <p>Controls that are not tested are aspirations. These run on every change.</p>
+        <p class="marker m-teal">02</p>
+        <h2>Multi-tenancy &amp; data isolation</h2>
+        <p>The strongest isolation guarantee is the one where the data is not there to be returned. Three independent layers, so a failure in any one does not expose anything.</p>
+      </div>
+      <div class="mig three">
+        <div class="mig-step">
+          <span class="n">LAYER 1</span><h3>One database per hospital</h3>
+          <p>Physical separation, not a tenant column. There is no query that could return another hospital's rows, because those rows are in a different database — self-hosted on your infrastructure if you prefer.</p>
+          <p class="out">isolation by topology, not by filter</p>
+        </div>
+        <div class="mig-step">
+          <span class="n">LAYER 2</span><h3>Token-scoped services</h3>
+          <p>Every service scopes each query by the tenant claim carried in the token. Co-resident lookups and cross-deployment token replay both return nothing rather than an error that confirms existence.</p>
+          <p class="out">verified by cross-tenant integration tests</p>
+        </div>
+        <div class="mig-step">
+          <span class="n">LAYER 3</span><h3>Row-level security</h3>
+          <p>Postgres RLS keyed to the hospital context set per transaction, beneath the application entirely — so an application defect cannot bypass it.</p>
+          <p class="out">defence in depth at the database</p>
+        </div>
+      </div>
+      <p class="lead-note">
+        Tenant administration is bounded too: a hospital administrator can edit only the policies their
+        own tenant owns, and platform-wide policies are invisible to them. A suspended tenant stops
+        serving at the gate, before routing. <b>Each of these is proven by a test that runs on every
+        commit</b>, not by a paragraph in a document.
+      </p>
+    </div>
+  </section>
+
+  <section class="section vs" id="encryption">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="marker m-plum">03</p>
+        <h2>Encryption</h2>
+        <p>Encryption is only as good as what it covers and who holds the keys. Both are stated here precisely, including one thing we have deliberately not done yet.</p>
+      </div>
+      <div class="split-2">
+        <div class="split-cell" style="--accent-c:var(--brand)">
+          <h3>What is encrypted</h3>
+          <ul>
+            <li><b>Personal data at rest</b> — AES-256-GCM on identifying fields, held in dedicated encrypted columns rather than encrypting whole tables indiscriminately.</li>
+            <li><b>Backup archives</b> — encrypted with a dedicated key family, separate from the data-encryption key, so backup theft does not yield live data.</li>
+            <li><b>Credentials and second factors</b> — passwords, TOTP secrets and passkey material held under the same protection as clinical PII.</li>
+            <li><b>In transit</b> — TLS to the platform and between platform components; teleconsult media is peer-to-peer and never traverses the server at all.</li>
+          </ul>
+        </div>
+        <div class="split-cell" style="--accent-c:var(--amber)">
+          <h3>What we do not claim</h3>
+          <ul>
+            <li><b>Log storage is not encrypted at the application layer.</b> Logs are protected by redaction at the point of emission — personal data never enters a log line — with storage-level encryption treated as a deployment concern.</li>
+            <li>This is a recorded, revisitable decision in our threat model rather than an oversight, and it is scheduled for review at the operations-hardening phase.</li>
+            <li>We would rather tell you this than let you discover it during your own security review.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="keys">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="marker m-amber">04</p>
+        <h2>Key management</h2>
+        <p>Three independent key families — data encryption, audit integrity and backup — never shared, never in the repository, and rotated as versions rather than as a risky cutover.</p>
+      </div>
+      <div class="fgrid">
+        <article class="fcell" style="--accent-c:var(--brand-deep)">
+          <span class="hook">Provider chain</span>
+          <h3>Keys never live in code</h3>
+          <p>Secrets resolve through a provider abstraction: environment values in development, mounted files or a vault or cloud KMS in production. No vendor is hard-wired — the provider is deployment configuration behind a stable port.</p>
+          <div class="spec">env (dev) · mounted file · vault / KMS (production)</div>
+        </article>
+        <article class="fcell" style="--accent-c:var(--rose)">
+          <span class="hook">Production refuses to start</span>
+          <h3>Weak configuration fails closed</h3>
+          <p>A production boot refuses to run unless the token-signing, data-encryption and audit keys arrive as real secret references from a non-environment provider. There is no development default that can accidentally reach production.</p>
+          <div class="spec">boot assertion · secret-scan gate blocks committed credentials</div>
+        </article>
+        <article class="fcell" style="--accent-c:var(--teal)">
+          <span class="hook">Rotation</span>
+          <h3>Versions, not cutovers</h3>
+          <p>The active key version signs and encrypts; retired versions inside an overlap window continue to verify and decrypt. Rotation is therefore a rolling change with no window where existing data becomes unreadable.</p>
+          <div class="spec">key ids on tokens, ciphertexts and audit records</div>
+        </article>
+        <article class="fcell" style="--accent-c:var(--indigo)">
+          <span class="hook">Rehearsed</span>
+          <h3>The rotation drill runs in CI</h3>
+          <p>A drill rehearses rotation across all three key families on every gate run. Rotation is exercised continuously rather than attempted for the first time during an incident.</p>
+          <div class="spec">rotation drill on every build</div>
+        </article>
+        <article class="fcell" style="--accent-c:var(--plum)">
+          <span class="hook">Escrow</span>
+          <h3>The backup key is the one to guard</h3>
+          <p>A lost backup key makes every archive permanently unreadable. It is generated separately, stored with the same care as the data-encryption key, and belongs in your key-escrow procedure — we say so in the runbook rather than leaving you to find out.</p>
+          <div class="spec">separate key family · documented escrow obligation</div>
+        </article>
+        <article class="fcell" style="--accent-c:var(--amber)">
+          <span class="hook">Self-hosted</span>
+          <h3>You can hold your own keys</h3>
+          <p>On a self-hosted deployment the secrets provider is yours: your vault, your KMS, your rotation policy. We do not require custody of your keys in order for the platform to function.</p>
+          <div class="spec">bring your own vault / KMS</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section vs" id="audit">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="marker m-indigo">05</p>
+        <h2>Audit</h2>
+        <p>An audit log that can be edited is a record of what someone was willing to leave behind. Ospia's is hash-chained, so tampering is detectable rather than merely discouraged.</p>
+      </div>
+      <div class="split-2">
+        <div class="split-cell" style="--accent-c:var(--brand)">
+          <h3>How it works</h3>
+          <ul>
+            <li>Every mutation is written to an append-only audit log, each entry cryptographically chained to the one before it.</li>
+            <li>Alter a historical entry and every subsequent link fails verification — you cannot quietly rewrite one row.</li>
+            <li>The chain is re-verifiable end to end on demand, and verification is part of the restore procedure, so a restored database proves its own integrity.</li>
+            <li>Entries carry the key version that signed them, so verification survives key rotation.</li>
+          </ul>
+        </div>
+        <div class="split-cell" style="--accent-c:var(--teal)">
+          <h3>What it covers</h3>
+          <ul>
+            <li>Clinical and financial mutations, with the actor, the time and the task that produced them.</li>
+            <li>Every AI action, via the decision ledger — model, prompt version, inputs, output, approver, and what executed.</li>
+            <li>Security events: authentication failures, permission denials, unmasked-PII reads and anomaly detections, emitted in a SIEM-consumable format.</li>
+            <li>Configuration changes, including autonomy-level promotions, which are audited decisions with a name attached.</li>
+          </ul>
+        </div>
+      </div>
+      <p class="lead-note">
+        The permanent event store sits alongside the audit chain: every action is an event, and events are
+        retained rather than rotated away. <b>That is what makes "replay what happened in March" a query
+        instead of an archaeology project</b> — and it is the same mechanism your assessors and insurers
+        will ask about.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="backup">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="marker m-teal">06</p>
+        <h2>Backup &amp; disaster recovery</h2>
+        <p>Backups that have never been restored are a hypothesis. Ours are exercised automatically, and the targets below are the ones we plan around rather than aspire to.</p>
+      </div>
+      <div class="mig three">
+        <div class="mig-step">
+          <span class="n">RPO</span><h3>24 hours, tightenable</h3>
+          <p>The starting target for a single-node deployment, with at least daily backups. Where a hospital's risk tolerance requires closer, write-ahead-log archiving or managed-Postgres point-in-time recovery tightens it.</p>
+          <p class="out">target — contracted per deployment</p>
+        </div>
+        <div class="mig-step">
+          <span class="n">RTO</span><h3>Under 1 hour per tenant</h3>
+          <p>Decrypt, restore and verify is I/O-bound; the remaining budget covers provisioning a fresh database or host. Per tenant, because tenants are separate databases and recover independently.</p>
+          <p class="out">target — contracted per deployment</p>
+        </div>
+        <div class="mig-step">
+          <span class="n">DRILL</span><h3>Rehearsed on every build</h3>
+          <p>Back up, wipe, restore, verify the audit chain, compare row counts — run automatically as part of the gate ladder, not annually by hand.</p>
+          <p class="out">a restore proves data <em>and</em> chain integrity</p>
+        </div>
+      </div>
+      <p class="lead-note">
+        Archives are encrypted with a dedicated key family separate from live data, so a stolen backup is
+        not a breach of the database. Restores are performed into a freshly migrated database with audit
+        triggers quiesced, so <b>the hash chain restores byte-identical rather than being re-signed</b> —
+        a restored system can still prove nobody altered its history.
+        <a href="/migration.html" style="color:var(--brand-deep)">See also: migration &amp; cutover →</a>
+      </p>
+    </div>
+  </section>
+
+  <section class="section vs" id="sdlc">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="marker m-rose">07</p>
+        <h2>Secure development lifecycle</h2>
+        <p>Security controls that are not tested are intentions. These run on every change, and a failure blocks the merge rather than raising a ticket.</p>
       </div>
       <div class="gates">
-        <div class="gate" style="--accent-c:var(--brand)"><h4>Dependency scanning</h4><p>Every dependency checked for known vulnerabilities on each build; failures block the merge.</p></div>
-        <div class="gate" style="--accent-c:var(--teal)"><h4>Secret scanning</h4><p>Credentials committed to the repository fail the build. Secrets live in a vault provider with rotation.</p></div>
-        <div class="gate" style="--accent-c:var(--indigo)"><h4>Authorization matrix</h4><p>Every endpoint tested against every role, so a permission regression cannot ship silently.</p></div>
-        <div class="gate" style="--accent-c:var(--plum)"><h4>Security event pipeline</h4><p>Auth failures, permission denials, unmasked-PII reads and behavioural anomalies emitted in SIEM-consumable form.</p></div>
-        <div class="gate" style="--accent-c:var(--amber)"><h4>Backup &amp; recovery</h4><p>Documented recovery objectives with restoration rehearsed rather than assumed.</p></div>
-        <div class="gate" style="--accent-c:var(--rose)"><h4>Disclosure</h4><p>A published route for reporting vulnerabilities, and a commitment to tell affected hospitals promptly.</p></div>
+        <div class="gate" style="--accent-c:var(--brand)"><h4>Threat model</h4><p>STRIDE per surface. Every threat resolves to a mitigation in code with its reference, or to an explicitly accepted risk with an owner and a revisit milestone.</p></div>
+        <div class="gate" style="--accent-c:var(--teal)"><h4>Proof required</h4><p>A mitigation without a verification hook is treated as unproven. Where a test proves a control, the threat model names that test.</p></div>
+        <div class="gate" style="--accent-c:var(--indigo)"><h4>Authorization matrix</h4><p>Endpoints tested against roles, so a permission regression cannot ship silently.</p></div>
+        <div class="gate" style="--accent-c:var(--plum)"><h4>Secret scanning</h4><p>Credentials committed to the repository fail the build. Production additionally refuses to boot on environment-supplied keys.</p></div>
+        <div class="gate" style="--accent-c:var(--amber)"><h4>Dependency audit</h4><p>Known-vulnerable dependencies fail the build rather than appearing in a report nobody reads.</p></div>
+        <div class="gate" style="--accent-c:var(--rose)"><h4>Boundary gates</h4><p>Module isolation and SQL ownership are enforced by CI, which is what keeps the blast radius of any single defect inside one module.</p></div>
       </div>
-      <p class="lead-note">Formal certification status is stated plainly on our <a href="/compliance.html" style="color:var(--brand-deep)">compliance page</a> — including what we have, what is in progress, and what we have not started. <b>We will not describe a roadmap item as a certification.</b></p>
+      <p class="lead-note">
+        Anomaly detection is deliberately deterministic and threshold-configured — <b>no machine-learning
+        pretences in the security pipeline.</b> Each firing is itself an auditable security event. In this
+        phase it is detection-only: we do not yet trigger automated lockout or step-up from the pipeline,
+        and we would rather say so than imply a response capability we have not shipped.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="assurance">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="marker m-amber">08</p>
+        <h2>Testing, assurance &amp; compliance roadmap</h2>
+        <p>This is the section most vendors write optimistically. Here is the actual status of each item, with nothing described as complete that is not.</p>
+      </div>
+      <div class="sla-table">
+        <div class="sla-row">
+          <div>Item</div><div>Status</div><div>Cadence</div><div>Notes</div>
+        </div>
+        <div class="sla-row">
+          <div class="sev">Threat model (STRIDE)</div><div>In place</div><div>Per phase</div>
+          <div>Maintained per surface; modules extend it for module-specific threats.</div>
+        </div>
+        <div class="sla-row">
+          <div class="sev">Automated security gates</div><div>In place</div><div>Every commit</div>
+          <div>Secret scan, dependency audit, authorization matrix, boundary and SQL-ownership gates.</div>
+        </div>
+        <div class="sla-row">
+          <div class="sev">Backup / restore drill</div><div>In place</div><div>Every build</div>
+          <div>Backup, wipe, restore, chain verification and row-count comparison.</div>
+        </div>
+        <div class="sla-row">
+          <div class="sev">Key rotation drill</div><div>In place</div><div>Every build</div>
+          <div>Rehearsed across all three key families.</div>
+        </div>
+        <div class="sla-row">
+          <div class="sev">Independent penetration test</div><div>Not yet conducted</div><div>Before first production go-live</div>
+          <div>Scheduled ahead of the first production deployment, then at least annually and after significant architectural change. Reports shared with customers under NDA.</div>
+        </div>
+        <div class="sla-row">
+          <div class="sev">Responsible disclosure</div><div>Open now</div><div>Continuous</div>
+          <div>Report anything to security@ospia.in. We will acknowledge, keep you updated, and credit you if you wish.</div>
+        </div>
+        <div class="sla-row">
+          <div class="sev">ISO 27001</div><div>Roadmap</div><div>—</div>
+          <div>Not certified. Controls are being built to align, and we will not describe alignment as certification.</div>
+        </div>
+        <div class="sla-row">
+          <div class="sev">HIPAA</div><div>Readiness</div><div>—</div>
+          <div>Architecture supports the safeguards; formal readiness assessment not yet completed.</div>
+        </div>
+        <div class="sla-row">
+          <div class="sev">DPDP Act 2023</div><div>By design</div><div>Continuous</div>
+          <div>Consent ledger consulted before use; personal data minimised and encrypted at rest.</div>
+        </div>
+        <div class="sla-row">
+          <div class="sev">ABDM · NABH · NMC · GST</div><div>Supported / enforced</div><div>Continuous</div>
+          <div>See the <a href="/compliance.html" style="color:var(--brand-deep)">compliance page</a> for how each is met by mechanism.</div>
+        </div>
+      </div>
+      <p class="slot-note">Status labels are used strictly. "In place" means shipped and exercised by automation. "Roadmap" and "readiness" mean not yet achieved. If a status here ever reads better than reality, that is a defect and we want to be told.</p>
+      <p class="lead-note">
+        Security questionnaires, architecture review sessions and the threat model itself are available to
+        prospective customers — <b>including the accepted-risk register</b>, which is usually the part that
+        tells you most about how a vendor actually works.
+        <a href="mailto:security@ospia.in?subject=Ospia%20—%20security%20review" style="color:var(--brand-deep)">Request a security review →</a>
+      </p>
     </div>
   </section>
 
