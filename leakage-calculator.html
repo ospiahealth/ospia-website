@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Estimate what uncaptured charges and rejected claims cost your hospital each year. Enter your own figures — every assumption is visible and adjustable. Built for Indian hospital CFOs by Ospia.">
+<link rel="canonical" href="https://ospia.in/leakage-calculator.html">
+<meta property="og:title" content="Revenue leakage calculator for hospitals | Ospia">
+<meta property="og:description" content="What are uncaptured charges and rejected claims costing your hospital a year? Enter your numbers, see the figure.">
+<meta property="og:url" content="https://ospia.in/leakage-calculator.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ospia">
+<meta property="og:locale" content="en_IN">
+<meta property="og:image" content="https://ospia.in/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Revenue leakage calculator for hospitals | Ospia">
+<meta name="twitter:description" content="What are uncaptured charges and rejected claims costing your hospital a year?">
+<meta name="twitter:image" content="https://ospia.in/og.png">
+<meta name="theme-color" content="#0E8C6D">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/favicon.svg">
+<link rel="stylesheet" href="/assets/site.css">
+<title>Revenue leakage calculator for hospitals | Ospia</title>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Hospital Revenue Leakage Calculator","url":"https://ospia.in/leakage-calculator.html","applicationCategory":"FinanceApplication","operatingSystem":"Web-based","description":"Estimate annual revenue lost to uncaptured charges and rejected insurance claims, using your hospital's own figures and fully adjustable assumptions.","offers":{"@type":"Offer","price":"0","priceCurrency":"INR"},"publisher":{"@type":"Organization","name":"Ospia","url":"https://ospia.in"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ospia.in/"},{"@type":"ListItem","position":2,"name":"Revenue leakage calculator","item":"https://ospia.in/leakage-calculator.html"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"How do you calculate hospital revenue leakage?","acceptedAnswer":{"@type":"Answer","text":"Estimate annual gross revenue from beds, occupancy and average revenue per occupied bed-day. Apply your charge-capture leakage rate to that revenue to estimate charges delivered but never billed. Separately, apply your claim rejection rate to the share of revenue billed to insurers and schemes, then apply the proportion of rejections never recovered. The two figures together are your annual leakage."}},
+{"@type":"Question","name":"What is charge capture leakage in a hospital?","acceptedAnswer":{"@type":"Answer","text":"Charge capture leakage is care that was delivered but never made it onto the bill: a consumable used in theatre, a test performed, a drug administered. The system recorded that the care happened but did not insist the charge follow, so the revenue is lost silently."}},
+{"@type":"Question","name":"How can a hospital reduce claim rejections?","acceptedAnswer":{"@type":"Answer","text":"By screening each claim against payer rules, documentation and coding before submission rather than reworking it after rejection. Flagging the claims likely to be rejected so they can be corrected first shifts denial management from chasing rejections to preventing them."}}
+]}
+</script>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="ospia-ring" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#12B886"/><stop offset="100%" stop-color="#0B6E52"/>
+    </linearGradient>
+  </defs>
+</svg>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="/" aria-label="Ospia home">
+      <svg class="mark" viewBox="0 0 512 512" aria-hidden="true" focusable="false">
+        <circle cx="256" cy="256" r="168" fill="none" stroke="url(#ospia-ring)" stroke-width="54"/>
+        <path d="M 66 256 L 170 256 L 212 168 L 288 344 L 330 256 L 446 256"
+              fill="none" stroke="currentColor" stroke-width="30"
+              stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span class="word">Ospia</span><span class="tag">HOS</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="/platform.html">Platform</a>
+      <a href="/ai-workforce.html">AI Workforce</a>
+      <a href="/industries.html">Industries</a>
+      <a href="/implementation.html">Implementation</a>
+      <a href="/customers.html">Customers</a>
+      <a href="/resources.html">Resources</a>
+      <a href="/insights.html">Insights</a>
+      <a href="/company.html">Company</a>
+      <a class="btn btn-primary" href="/demo.html">Book a demo</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="crumb"><a href="/">Home</a> / Revenue leakage calculator</p>
+      <h1>What is leakage costing<br>your hospital a year?</h1>
+      <p class="lede">Two leaks account for most of it: charges delivered but never billed, and claims rejected after submission. Put your own numbers in. Every assumption below is yours to change — we have not buried a single one.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="calc">
+
+        <div class="calc-panel">
+          <h3>Your hospital</h3>
+          <p class="sub">Start with what you know. If a figure is unfamiliar, leave the default and change it later with your finance team.</p>
+          <div class="calc-fields">
+            <div class="fld">
+              <label for="beds">Operational beds</label>
+              <input type="number" id="beds" value="200" min="1" step="1" oninput="calc()">
+            </div>
+            <div class="fld">
+              <label for="occ">Average occupancy (%)</label>
+              <input type="number" id="occ" value="70" min="1" max="100" step="0.5" oninput="calc()">
+            </div>
+            <div class="fld full">
+              <label for="rev">Average revenue per occupied bed-day (₹)</label>
+              <input type="number" id="rev" value="12000" min="0" step="500" oninput="calc()">
+              <span class="hint">All-in: room, procedures, pharmacy, diagnostics — total revenue divided by occupied bed-days.</span>
+            </div>
+          </div>
+
+          <h3 style="margin-top:30px">The two leaks</h3>
+          <p class="sub">These are the assumptions. They are set to illustrative starting values, not benchmarks we are claiming — override them with your actuals.</p>
+          <div class="calc-fields">
+            <div class="fld full">
+              <label for="leak">Charge-capture leakage (%)</label>
+              <input type="number" id="leak" value="1.5" min="0" max="100" step="0.1" oninput="calc()">
+              <span class="hint">Share of delivered care that never reaches a bill. If you have never measured it, that is itself worth knowing.</span>
+            </div>
+            <div class="fld">
+              <label for="payer">Revenue via insurer / TPA / scheme (%)</label>
+              <input type="number" id="payer" value="55" min="0" max="100" step="1" oninput="calc()">
+            </div>
+            <div class="fld">
+              <label for="rej">Claim rejection rate (%)</label>
+              <input type="number" id="rej" value="10" min="0" max="100" step="0.5" oninput="calc()">
+            </div>
+            <div class="fld full">
+              <label for="norec">Of rejected claims, share never recovered (%)</label>
+              <input type="number" id="norec" value="30" min="0" max="100" step="1" oninput="calc()">
+              <span class="hint">Rework has a limit — some rejections are simply written off. This is that share.</span>
+            </div>
+            <div class="fld full">
+              <label for="prev">If prevention caught this share of it (%)</label>
+              <input type="number" id="prev" value="50" min="0" max="100" step="5" oninput="calc()">
+              <span class="hint">Flagging the charge at the point of care and screening the claim before submission. Set this as conservatively as you like.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="calc-out">
+          <h3>Estimated annual leakage</h3>
+          <p class="calc-big" id="out-total">—</p>
+          <p class="calc-big-cap">lost every year, on the figures you entered</p>
+
+          <div class="calc-row">
+            <span class="k">Annual gross revenue</span>
+            <span class="v" id="out-gross">—</span>
+          </div>
+          <div class="calc-row">
+            <span class="k">Lost to uncaptured charges</span>
+            <span class="v" id="out-charges">—</span>
+          </div>
+          <div class="calc-row">
+            <span class="k">Lost to unrecovered rejections</span>
+            <span class="v" id="out-rej">—</span>
+          </div>
+          <div class="calc-row tot">
+            <span class="k">Recoverable by prevention</span>
+            <span class="v" id="out-recover">—</span>
+          </div>
+
+          <div class="calc-assum">
+            <h4>How this is worked out</h4>
+            <p>Gross revenue is beds × occupancy × 365 × revenue per occupied bed-day. Uncaptured charges apply your leakage rate to gross revenue. Rejection losses apply your rejection rate to the payer-billed share, then the proportion never recovered. Nothing else is hidden in the arithmetic.</p>
+          </div>
+
+          <a class="btn btn-primary" href="/demo.html" style="width:100%;margin-top:6px">See this caught, on your numbers</a>
+
+          <p class="calc-disc">
+            <b>A note on honesty.</b> These are <em>your</em> figures against <em>your</em> assumptions — not benchmarks Ospia is asserting about Indian hospitals. We publish what we can prove. Use this to frame the question with your finance team, then let us show you the mechanism.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="marker ">Questions buyers ask</p>
+        <h2>Straight answers</h2>
+        <p></p>
+      </div>
+      <div class="faq-list">
+        <details><summary>How is hospital revenue leakage calculated?</summary>
+          <p class="a">Estimate gross revenue from beds, occupancy and revenue per occupied bed-day. Apply your charge-capture leakage rate to that. Separately apply your rejection rate to the payer-billed share, then the proportion never recovered. The two together are your annual leakage.</p></details>
+        <details><summary>What exactly is charge-capture leakage?</summary>
+          <p class="a">Care that was delivered but never made it onto the bill — a consumable used in theatre, a test performed, a drug administered. The system recorded that the care happened; it just didn't insist the charge follow.</p></details>
+        <details><summary>How do you actually reduce claim rejections?</summary>
+          <p class="a">Screen each claim against payer rules, documentation and coding <em>before</em> submission, and flag the ones likely to be rejected so they're fixed first. That shifts denial management from chasing rejections to preventing them.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="section cta">
+    <div class="wrap cta-inner">
+      <div>
+        <p class="marker">Next step</p>
+        <h2>See the leakage caught in <em>real time</em></h2>
+        <p>Forty-five minutes, on your numbers, with the architecture open. Synthetic data, zero real patients.</p>
+      </div>
+      <div class="cta-panel">
+        <a class="btn btn-primary" href="/demo.html">Book an executive demonstration</a>
+        <a class="btn btn-ghost" href="/insights/stop-the-leakage.html">Read the argument</a>
+        <p class="fine">
+          synthetic data &middot; zero real patients<br>
+          self-hosted or managed cloud<br>
+          one database per hospital
+        </p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot-row">
+    <span class="foot-brand">
+      <svg class="mark" viewBox="0 0 512 512" aria-hidden="true" focusable="false">
+        <circle cx="256" cy="256" r="168" fill="none" stroke="url(#ospia-ring)" stroke-width="54"/>
+        <path d="M 66 256 L 170 256 L 212 168 L 288 344 L 330 256 L 446 256"
+              fill="none" stroke="currentColor" stroke-width="30"
+              stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <strong>Ospia</strong> &mdash; the Hospital Operating System.
+    </span>
+    <span class="mono">business value &middot; operational excellence &middot; technical proof</span>
+  </div>
+</footer>
+
+<script>
+  function num(id){ var v = parseFloat(document.getElementById(id).value); return isFinite(v) ? v : 0; }
+  function inr(n){
+    n = Math.max(0, Math.round(n));
+    if (n >= 10000000) return "₹" + (n/10000000).toFixed(2) + " Cr";
+    if (n >= 100000)   return "₹" + (n/100000).toFixed(2) + " L";
+    return "₹" + n.toLocaleString("en-IN");
+  }
+  function calc(){
+    var beds = num("beds"), occ = num("occ"), rev = num("rev");
+    var leak = num("leak"), payer = num("payer"), rej = num("rej"),
+        norec = num("norec"), prev = num("prev");
+
+    var occupiedBedDays = beds * (occ/100) * 365;
+    var gross = occupiedBedDays * rev;
+    var lostCharges = gross * (leak/100);
+    var payerRevenue = gross * (payer/100);
+    var lostRejections = payerRevenue * (rej/100) * (norec/100);
+    var total = lostCharges + lostRejections;
+    var recoverable = total * (prev/100);
+
+    document.getElementById("out-gross").textContent    = inr(gross);
+    document.getElementById("out-charges").textContent  = inr(lostCharges);
+    document.getElementById("out-rej").textContent      = inr(lostRejections);
+    document.getElementById("out-total").textContent    = inr(total);
+    document.getElementById("out-recover").textContent  = inr(recoverable);
+  }
+  calc();
+</script>
+
+<!-- Cloudflare Web Analytics (cookieless, no consent banner required).
+     Replace 5ffa986356bb44e5bd0ab029bc900053 with the token from Cloudflare dashboard > Web Analytics. -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "5ffa986356bb44e5bd0ab029bc900053"}'></script>
+</body>
+</html>
