@@ -83,20 +83,93 @@
     <div class="wrap">
       <div class="section-head">
         <p class="marker ">The capability model</p>
-        <h2>Ten platforms every capability lands in</h2>
-        <p>Modules are how work is organised. Platforms are what the work compounds into.</p>
+        <h2>Ten platforms, four layers</h2>
+        <p>Modules are how work is organised. Platforms are what the work compounds into. Read it as a stack: the surfaces you touch at the top, the kernel everything stands on at the bottom.</p>
       </div>
-      <div class="pillar-grid">
-        <div class="pil w-brand"><span class="n">01</span><h3>Core</h3><p>Identity, authorization, tenancy, configuration, crypto, observability — a deliberately tiny kernel with zero business rules.</p></div>
-        <div class="pil w-teal"><span class="n">02</span><h3>Clinical</h3><p>Patient, EMR, orders, nursing, ICU, theatre, beds, emergency, lab, imaging, blood bank — one record, one timeline.</p></div>
-        <div class="pil w-amber"><span class="n">03</span><h3>Financial</h3><p>Billing and revenue cycle, insurance and claims, and a real general ledger — statutory accounting, not an export.</p></div>
-        <div class="pil w-indigo"><span class="n">04</span><h3>AI</h3><p>Agent runtime, memory, model router, decision ledger, governance — intelligence, governed like staff.</p></div>
-        <div class="pil w-teal"><span class="n">05</span><h3>Integration</h3><p>FHIR, HL7, ABDM, DICOM, LIS/RIS, ERP, payments, messaging, devices — a connector catalog, configured not coded.</p></div>
-        <div class="pil w-plum"><span class="n">06</span><h3>Analytics</h3><p>Read-models built from events, a live digital twin, a prediction service, and an export path to a data lake.</p></div>
-        <div class="pil w-indigo"><span class="n">07</span><h3>Automation</h3><p>Workflow engine with timers, SLAs, escalation and compensation — plus the rules engine everything routes through.</p></div>
-        <div class="pil w-brand"><span class="n">08</span><h3>Developer</h3><p>Typed contracts, generated OpenAPI and SDK, a published event catalog, documented extension points.</p></div>
-        <div class="pil w-plum"><span class="n">09</span><h3>Marketplace</h3><p>Every module is an installable package with a manifest — a store is a storefront over a mechanism that already exists.</p></div>
-        <div class="pil w-amber"><span class="n">10</span><h3>Experience</h3><p>Design system, role workspaces, the command bar, the operations wall — thin surfaces over a headless core.</p></div>
+      <div class="capstack">
+
+        <div class="captier c4 w-plum">
+          <div class="tier-rail">
+            <span class="tier-n">Layer 04</span>
+            <span class="tier-k">Boundary</span>
+            <span class="tier-d">Everything that faces outward — people, systems, partners.</span>
+          </div>
+          <article class="pil">
+            <div class="pil-h"><span class="n">05</span><h3>Integration</h3></div>
+            <p>A connector catalog — configured, not coded.</p>
+            <div class="spec">FHIR · HL7 · ABDM · DICOM · LIS/RIS · ERP · payments · messaging · devices</div>
+          </article>
+          <article class="pil">
+            <div class="pil-h"><span class="n">08</span><h3>Developer</h3></div>
+            <p>Extension points that are documented rather than reverse-engineered.</p>
+            <div class="spec">typed contracts · generated OpenAPI · SDK · published event catalog</div>
+          </article>
+          <article class="pil">
+            <div class="pil-h"><span class="n">09</span><h3>Marketplace</h3></div>
+            <p>Every module is an installable package with a manifest.</p>
+            <div class="spec">a store is a storefront over a mechanism that already exists</div>
+          </article>
+          <article class="pil">
+            <div class="pil-h"><span class="n">10</span><h3>Experience</h3></div>
+            <p>Thin surfaces over a headless core.</p>
+            <div class="spec">design system · role workspaces · command bar · operations wall</div>
+          </article>
+        </div>
+
+        <div class="captier c3 w-indigo">
+          <div class="tier-rail">
+            <span class="tier-n">Layer 03</span>
+            <span class="tier-k">Intelligence</span>
+            <span class="tier-d">Everything that observes, decides and acts on its own.</span>
+          </div>
+          <article class="pil">
+            <div class="pil-h"><span class="n">04</span><h3>AI</h3></div>
+            <p>Intelligence, governed like staff.</p>
+            <div class="spec">agent runtime · memory · model router · decision ledger · governance</div>
+          </article>
+          <article class="pil">
+            <div class="pil-h"><span class="n">06</span><h3>Analytics</h3></div>
+            <p>Read-models built from events, and a live digital twin of the hospital.</p>
+            <div class="spec">read-models · digital twin · prediction service · data-lake export</div>
+          </article>
+          <article class="pil">
+            <div class="pil-h"><span class="n">07</span><h3>Automation</h3></div>
+            <p>A workflow engine — plus the rules engine everything routes through.</p>
+            <div class="spec">timers · SLAs · escalation · compensation · rules engine</div>
+          </article>
+        </div>
+
+        <div class="captier c2 w-teal">
+          <div class="tier-rail">
+            <span class="tier-n">Layer 02</span>
+            <span class="tier-k">Domain</span>
+            <span class="tier-d">Everything a hospital actually does, and what it is owed for it.</span>
+          </div>
+          <article class="pil">
+            <div class="pil-h"><span class="n">02</span><h3>Clinical</h3></div>
+            <p>One record, one timeline — every point of care writing into the same chronology.</p>
+            <div class="spec">patient · EMR · orders · nursing · ICU · theatre · beds · emergency · lab · imaging · blood bank</div>
+          </article>
+          <article class="pil">
+            <div class="pil-h"><span class="n">03</span><h3>Financial</h3></div>
+            <p>A real general ledger underneath the revenue cycle — statutory accounting, not an export.</p>
+            <div class="spec">billing · revenue cycle · insurance · claims · general ledger</div>
+          </article>
+        </div>
+
+        <div class="captier c1 w-brand">
+          <div class="tier-rail">
+            <span class="tier-n">Layer 01</span>
+            <span class="tier-k">Kernel</span>
+            <span class="tier-d">What all nine of the above stand on.</span>
+          </div>
+          <article class="pil wide">
+            <div class="pil-h"><span class="n">01</span><h3>Core</h3></div>
+            <p>A deliberately tiny kernel with zero business rules.</p>
+            <div class="spec">identity · authorization · tenancy · configuration · crypto · observability</div>
+          </article>
+        </div>
+
       </div>
       <p class="lead-note">The rule that keeps this honest: <b>platform before features.</b> Before anything is built we answer eight questions — can another feature reuse it, can AI use it, can automation use it, can workflows orchestrate it, can external systems integrate with it, can hospitals configure it, does it add to institutional knowledge, will it still make sense in ten years. Any "no" sends the design back.</p>
     </div>
