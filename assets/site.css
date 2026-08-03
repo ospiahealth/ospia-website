@@ -585,6 +585,8 @@
   .tool .soon{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--amber)}
   .tool a.req{font-family:var(--mono);font-size:12px;color:var(--brand-deep);text-decoration:none}
   .tool a.req:hover{text-decoration:underline}
+  .tool.live{border-style:solid;border-color:var(--brand)}
+  .tool .soon.now{color:var(--brand-deep)}
 
   /* ═════════════════ roadmap ═════════════════ */
   .phases{border-top:1px solid var(--line)}
