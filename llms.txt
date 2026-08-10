@@ -1,0 +1,36 @@
+# Ospia
+
+> Ospia is an AI-native Hospital Operating System for Indian hospitals: a digital
+> workforce of AI agents that runs admissions, billing, claims, pharmacy and
+> inventory alongside hospital staff, under an autonomy level the hospital sets
+> per task, with every decision explainable and replayable.
+
+Ospia is early. We work with design-partner hospitals and do not publish customer
+counts or outcome figures we have not earned.
+
+## Start here
+
+- [What is an AI Hospital Operating System? | Ospia](https://ospia.in/ai-hospital-operating-system.html): An AI-native Hospital Operating System runs a hospital's clinical, financial and operational work through governed AI agents on one unified database. What it is, how it differs from a legacy HIS/HMS, and why Indian hospitals need one.
+- [Platform — Ospia Hospital Operating System](https://ospia.in/platform.html): The Ospia platform: ten capability pillars, the task and intent registry, the rules and policy engine, permanent event history and the insight surface.
+- [AI Workforce — twelve digital employees | Ospia](https://ospia.in/ai-workforce.html): Ospia's AI workforce: twelve digital employees with defined responsibilities, permissions, KPIs and escalation rules — each at an autonomy level the hospital configures from L0 to L4.
+- [Architecture — Ospia Hospital Operating System](https://ospia.in/architecture.html): Ospia's architecture: a modular monolith with fully isolated domains, per-module schemas, a durable event backbone, and six CI-enforced architectural gates.
+- [Compliance — ABDM, DPDP, NMC, NABH, GST | Ospia](https://ospia.in/compliance.html): How Ospia meets Indian healthcare regulation: ABDM and ABHA, DPDP consent ledger, NMC prescribing rules enforced at write time, NABH evidence, GST e-invoicing, plus HIPAA readiness and ISO roadmap.
+- [Security — Ospia Hospital Operating System](https://ospia.in/security.html): Ospia security in detail: zero trust, multi-tenancy and data isolation, encryption, key management, hash-chained audit, backup and disaster recovery, secure SDLC, penetration testing and the compliance roadmap.
+
+## Comparisons
+
+- [Ospia vs Epic — an honest evaluation guide](https://ospia.in/compare/epic.html)
+- [Comparisons — evaluating Ospia against other hospital platforms](https://ospia.in/compare/index.html)
+- [Ospia vs MedMantra — an honest evaluation guide](https://ospia.in/compare/medmantra.html)
+- [Ospia vs Napier Healthcare — an honest evaluation guide](https://ospia.in/compare/napier.html)
+- [Ospia vs Oracle Health — an honest evaluation guide](https://ospia.in/compare/oracle-health.html)
+- [Ospia vs Practo Ray — an honest evaluation guide](https://ospia.in/compare/practo-ray.html)
+
+## Insights
+
+- [Compliant by design: ABDM, DPDP, NMC and GST, enforced at write-time | Ospia](https://ospia.in/insights/compliant-by-design.html)
+- [Migrating off your old HMS without the horror story | Ospia](https://ospia.in/insights/migration-without-the-horror.html)
+- [You don't need a new HMS. You need to stop buying HMS. | Ospia](https://ospia.in/insights/stop-buying-hms.html)
+- [The revenue your hospital is quietly losing — and how to stop it | Ospia](https://ospia.in/insights/stop-the-leakage.html)
+- [Every vendor says 'AI-powered.' Three questions that end the conversation. | Ospia](https://ospia.in/insights/three-questions.html)
+- [Weeks, not years: why implementation stops being a five-year project | Ospia](https://ospia.in/insights/weeks-not-years.html)
