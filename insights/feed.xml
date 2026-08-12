@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Ospia Insights</title>
+  <subtitle>On running hospitals, and the software that gets in the way.</subtitle>
+  <link href="https://ospia.in/insights/feed.xml" rel="self"/>
+  <link href="https://ospia.in/insights.html"/>
+  <id>https://ospia.in/insights.html</id>
+  <updated>2026-08-10T06:57:15.283Z</updated>
+  <author><name>Ospia</name></author>
+  <entry>
+    <title>Compliant by design: ABDM, DPDP, NMC and GST, enforced at write-time | Ospia</title>
+    <link href="https://ospia.in/insights/compliant-by-design.html"/>
+    <id>https://ospia.in/insights/compliant-by-design.html</id>
+    <updated>2026-08-10T06:57:15.283Z</updated>
+    <summary>ABDM, DPDP, NMC and GST shouldn&apos;t be a document you produce at audit time. Compliant-by-design means the regulation is built into the data model and enforced at write-time — so an Indian hospital stays audit-ready continuously.</summary>
+  </entry>
+  <entry>
+    <title>Migrating off your old HMS without the horror story | Ospia</title>
+    <link href="https://ospia.in/insights/migration-without-the-horror.html"/>
+    <id>https://ospia.in/insights/migration-without-the-horror.html</id>
+    <updated>2026-08-10T06:57:15.283Z</updated>
+    <summary>The fear of migrating off an old hospital system keeps hospitals stuck on software they have outgrown. Parallel running, verification and a real rollback path turn migration from a leap of faith into a controlled cutover.</summary>
+  </entry>
+  <entry>
+    <title>You don&apos;t need a new HMS. You need to stop buying HMS. | Ospia</title>
+    <link href="https://ospia.in/insights/stop-buying-hms.html"/>
+    <id>https://ospia.in/insights/stop-buying-hms.html</id>
+    <updated>2026-08-10T06:57:15.283Z</updated>
+    <summary>Why hospitals keep buying the wrong thing: the replacement, integration and coordination taxes baked into the HMS model — and why an AI Hospital Operating System ends the replace-every-five-years ritual.</summary>
+  </entry>
+  <entry>
+    <title>The revenue your hospital is quietly losing — and how to stop it | Ospia</title>
+    <link href="https://ospia.in/insights/stop-the-leakage.html"/>
+    <id>https://ospia.in/insights/stop-the-leakage.html</id>
+    <updated>2026-08-10T06:57:15.283Z</updated>
+    <summary>Hospitals lose real revenue to charges that were delivered but never captured and to claims rejected after submission. An AI Hospital Operating System catches leakage before it happens — the digital workforce reconciles the day.</summary>
+  </entry>
+  <entry>
+    <title>Every vendor says &apos;AI-powered.&apos; Three questions that end the conversation. | Ospia</title>
+    <link href="https://ospia.in/insights/three-questions.html"/>
+    <id>https://ospia.in/insights/three-questions.html</id>
+    <updated>2026-08-10T06:57:15.283Z</updated>
+    <summary>Every hospital software vendor claims to be AI-powered. Three questions — decision replay, configurable autonomy, and provider-independence — separate a governed AI operating system from an AI feature stapled onto old architecture.</summary>
+  </entry>
+  <entry>
+    <title>Weeks, not years: why implementation stops being a five-year project | Ospia</title>
+    <link href="https://ospia.in/insights/weeks-not-years.html"/>
+    <id>https://ospia.in/insights/weeks-not-years.html</id>
+    <updated>2026-08-10T06:57:15.283Z</updated>
+    <summary>Traditional hospital software takes years to implement because it is customised, not configured. An AI Hospital Operating System goes live in weeks because the capabilities already exist and you configure them to your hospital.</summary>
+  </entry>
+</feed>
