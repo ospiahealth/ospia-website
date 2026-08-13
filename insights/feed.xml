@@ -5,8 +5,22 @@
   <link href="https://ospia.in/insights/feed.xml" rel="self"/>
   <link href="https://ospia.in/insights.html"/>
   <id>https://ospia.in/insights.html</id>
-  <updated>2026-08-12T09:11:48Z</updated>
+  <updated>2026-08-13T14:44:49Z</updated>
   <author><name>Ospia</name></author>
+  <entry>
+    <title>What is a Hospital Operating System? The short version | Ospia</title>
+    <link href="https://ospia.in/insights/what-is-a-hospital-operating-system-the-short-version.html"/>
+    <id>https://ospia.in/insights/what-is-a-hospital-operating-system-the-short-version.html</id>
+    <updated>2026-08-13T14:44:49Z</updated>
+    <summary>Why hospitals keep replacing HMS, what a Hospital Operating System is, and how the autonomy and governance model changes what you control.</summary>
+  </entry>
+  <entry>
+    <title>HMS timelines: why they stretch into years — and how to shorten them | Ospia</title>
+    <link href="https://ospia.in/insights/hms-timelines-why-they-stretch-into-years-and-how-to-shorten-them.html"/>
+    <id>https://ospia.in/insights/hms-timelines-why-they-stretch-into-years-and-how-to-shorten-them.html</id>
+    <updated>2026-08-13T14:44:26Z</updated>
+    <summary>The mechanism behind HMS overruns, what to do before you buy, and the gated implementation model that keeps time and scope honest.</summary>
+  </entry>
   <entry>
     <title>What NABH actually requires from your software, clause by clause | Ospia</title>
     <link href="https://ospia.in/insights/what-nabh-actually-requires-from-your-software-clause-by-clause.html"/>
