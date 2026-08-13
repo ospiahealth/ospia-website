@@ -5,8 +5,29 @@
   <link href="https://ospia.in/insights/feed.xml" rel="self"/>
   <link href="https://ospia.in/insights.html"/>
   <id>https://ospia.in/insights.html</id>
-  <updated>2026-08-10T06:57:15.283Z</updated>
+  <updated>2026-08-12T09:11:48Z</updated>
   <author><name>Ospia</name></author>
+  <entry>
+    <title>What NABH actually requires from your software, clause by clause | Ospia</title>
+    <link href="https://ospia.in/insights/what-nabh-actually-requires-from-your-software-clause-by-clause.html"/>
+    <id>https://ospia.in/insights/what-nabh-actually-requires-from-your-software-clause-by-clause.html</id>
+    <updated>2026-08-12T09:11:48Z</updated>
+    <summary>NABH does not test your software directly — it tests whether your processes leave a trace. Clause by clause, what an assessor actually asks for, and where hospital systems built to transact rather than to prove fall short.</summary>
+  </entry>
+  <entry>
+    <title>The real cost components of hospital software in India | Ospia</title>
+    <link href="https://ospia.in/insights/the-real-cost-components-of-hospital-software-in-india.html"/>
+    <id>https://ospia.in/insights/the-real-cost-components-of-hospital-software-in-india.html</id>
+    <updated>2026-08-12T08:04:55Z</updated>
+    <summary>Licence is not your biggest line item. How Indian hospitals can model true TCO of their HMS over seven years—and what changes if you choose an operating system.</summary>
+  </entry>
+  <entry>
+    <title>The nine reasons Indian TPAs reject claims, ranked by how often | Ospia</title>
+    <link href="https://ospia.in/insights/tpa-claim-rejection-reasons.html"/>
+    <id>https://ospia.in/insights/tpa-claim-rejection-reasons.html</id>
+    <updated>2026-08-10T12:14:07Z</updated>
+    <summary>Nine common, preventable reasons TPAs reject or short-pay a claim — ordered as a checklist to run before submission, not after the remittance arrives light.</summary>
+  </entry>
   <entry>
     <title>Compliant by design: ABDM, DPDP, NMC and GST, enforced at write-time | Ospia</title>
     <link href="https://ospia.in/insights/compliant-by-design.html"/>
