@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NABH software requirements — a plain‑language explainer for medical directors — Ospia</title>
+<meta name="description" content="What NABH actually needs from your systems, why audits feel like fire drills, what to fix without buying anything, and where Ospia fits.">
+<link rel="canonical" href="https://ospia.in/insights/nabh-software-requirements-a-plain-language-explainer-for-medical-dire.html">
+<link rel="alternate" type="application/atom+xml" title="Ospia Insights" href="https://ospia.in/insights/feed.xml">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_IN">
+<meta property="og:site_name" content="Ospia">
+<meta property="og:title" content="NABH software requirements — a plain‑language explainer for medical directors">
+<meta property="og:description" content="What NABH actually needs from your systems, why audits feel like fire drills, what to fix without buying anything, and where Ospia fits.">
+<meta property="og:url" content="https://ospia.in/insights/nabh-software-requirements-a-plain-language-explainer-for-medical-dire.html">
+<meta property="og:image" content="https://ospia.in/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="NABH software requirements — a plain‑language explainer for medical directors">
+<meta name="twitter:description" content="What NABH actually needs from your systems, why audits feel like fire drills, what to fix without buying anything, and where Ospia fits.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/site.css">
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "NABH software requirements — a plain‑language explainer for medical directors",
+  "description": "What NABH actually needs from your systems, why audits feel like fire drills, what to fix without buying anything, and where Ospia fits.",
+  "datePublished": "2026-08-12",
+  "dateModified": "2026-08-12",
+  "author": {
+    "@type": "Organization",
+    "name": "Ospia",
+    "url": "https://ospia.in"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Ospia",
+    "url": "https://ospia.in"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://ospia.in/insights/nabh-software-requirements-a-plain-language-explainer-for-medical-dire.html"
+  },
+  "inLanguage": "en-IN"
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Ospia",
+      "item": "https://ospia.in"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Insights",
+      "item": "https://ospia.in/insights.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "NABH software requirements — a plain‑language explainer for medical directors",
+      "item": "https://ospia.in/insights/nabh-software-requirements-a-plain-language-explainer-for-medical-dire.html"
+    }
+  ]
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does NABH require a specific software product?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No single package is mandated. What matters is whether your systems can produce required evidence on demand. At Ospia, “supported” means implemented and demonstrable, and “by design” means the platform produces the behaviour or evidence as a by-product of normal operation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do ABDM and ABHA help with NABH readiness?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ABDM and ABHA support reliable patient identity and exchange where applicable. Ospia lists ABDM and ABHA as supported, so data can be consistently tied to the right patient and retrieved when needed."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which data standards should our IT team check for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "FHIR R4 for clinical data reads, HL7 v2 for ADT events, and DICOM/PACS for imaging. Ospia supports these. Specifically, Ospia provides a FHIR R4 read surface (Patient, Encounter, Condition, Observation, MedicationRequest and DiagnosticReport) behind a DPDP consent check, and an HL7 v2 ADT feed (A04/A01/A02/A03) with re-send from a message log."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is DPDP addressed in day-to-day operations?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Every use of personal data should trace to recorded consent. In Ospia, registration is ABHA‑ready and each access is checked against a consent ledger before use; the FHIR read surface is gated by a DPDP consent check."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can Ospia keep us continuously ‘audit‑ready’?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "That is the design intent: produce NABH evidence as a by‑product of daily work through CAPA, a live risk register, HAI surveillance and antimicrobial stewardship, with standards‑based retrieval. We do not publish guarantees; the goal is to make audit prep a review, not a rescue."
+      }
+    }
+  ]
+}</script>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="/">Ospia</a>
+  <nav>
+    <a href="/platform.html">Platform</a>
+    <a href="/ai-workforce.html">AI Workforce</a>
+    <a href="/industries.html">Industries</a>
+    <a href="/customers.html">Customers</a>
+    <a href="/insights.html">Insights</a>
+    <a class="cta" href="/demo.html">Book a demonstration</a>
+  </nav>
+</header>
+
+<main class="article">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/">Ospia</a> · <a href="/insights.html">Insights</a>
+  </nav>
+
+  <article>
+    <h1>NABH software requirements — a plain‑language explainer for medical directors</h1>
+    <p class="standfirst">What NABH actually needs from your systems, why audits feel like fire drills, what to fix without buying anything, and where Ospia fits.</p>
+<p>Ask any medical director in India what NABH season feels like and you will hear the same story: a month of spreadsheets, screenshots, and night shifts pulling records for assessors. The work is real; the pain is avoidable. Most of the scramble comes from treating NABH as an event rather than a by-product of how the hospital already runs.</p><h2>The mechanism: why audits feel like a rescue mission</h2><ul><li>Evidence is recreated, not produced as you go. CAPA actions, risk controls, and infection metrics are tracked in ad hoc tools rather than captured in the system of record.</li><li>Data is scattered. Different departments keep their own trackers; IT exports reports from multiple systems and tries to reconcile them.</li><li>Consent and access are unclear. When a record is pulled, teams are unsure what can be shared and under what patient consent, slowing everything down and creating risk.</li><li>Standards are inconsistent. Without common formats, it is hard to retrieve, share or validate data quickly when an assessor asks for it.</li></ul><h2>What to do now, without buying anything</h2><ul><li>Map evidence to workflow. For each NABH chapter you care about, list the specific artefacts you must show and the moment in your daily workflow when each artefact should be generated. If there is no natural moment, fix the workflow first.</li><li>Make CAPA your system of record. Close the loop in one tool and link every corrective and preventive action to the originating incident, audit finding or risk entry. No parallel trackers.</li><li>Keep a live risk register. One list, owned by quality, with status, owners and dates. Review it weekly; don’t build a special “audit version”.</li><li>Run HAI and antimicrobial stewardship as surveillance, not as one-off reports. Decide the indicators, define who enters them and when, and automate the roll-up where possible.</li><li>Standardise identifiers and consent. Use ABHA where applicable for patient identity, and record consent every time personal data is accessed or shared. Make the consent check part of the workflow, not a side step.</li><li>Adopt open standards. Ask your vendors for FHIR R4 read surfaces for clinical data, HL7 v2 for ADT events, and DICOM for imaging. Your goal is simple retrieval under pressure.</li><li>Prove access governance. Keep an audit trail of who viewed or exported which records and under what consent or legal basis. This protects patients and your team.</li></ul><h2>Where Ospia fits</h2><p>Ospia treats compliance as part of the operating model, not a reporting add-on. On our compliance pages, “supported” means implemented and demonstrable, and “by design” means the platform produces the required behaviour or evidence as a by-product of normal operation.</p><ul><li>NABH by design: CAPA as a first-class module, a live risk register, HAI surveillance and antimicrobial stewardship built into daily work — so evidence is created at source, not recreated later.</li><li>ABDM/ABHA supported: identity and health-exchange readiness where applicable, so data is reliably tied to the right patient.</li><li>DPDP by design: every use of personal data traces to recorded consent held in a consent ledger that is consulted before use.</li><li>Standards implemented: FHIR R4, HL7 v2 and DICOM/PACS are supported, so clinical data can be retrieved and shared in common formats when assessors ask.</li><li>Interop with guardrails: a FHIR R4 read surface for Patient, Encounter, Condition, Observation, MedicationRequest and DiagnosticReport is gated behind a DPDP data-sharing consent check; an HL7 v2 ADT outbound feed emits A04, A01, A02 and A03 events and can re-send from the message log.</li><li>Governed automation: Ospia runs a fleet of hospital agents, including quality_watch and infection_control, focused on readiness and exception handling rather than bulk reporting.</li></ul><blockquote>Outcome to aim for: when an assessor asks for evidence, you retrieve what was created in the normal course of care and operations — with timestamps, owners and consent — instead of compiling it under pressure.</blockquote><h2>If you change nothing else</h2><ul><li>Appoint one owner for CAPA and the risk register, and stop using parallel trackers.</li><li>Make consent checks part of standard workflows for data access and sharing.</li><li>Ask IT to verify FHIR R4 read surfaces and HL7 v2 ADT feeds with a dry run; document how to retrieve specific artefacts on demand.</li></ul><p>If you want to see how Ospia operationalises this, ask for the executive demonstration. We walk through evidence capture, consent checks and retrieval in the same flow you use daily.</p>
+
+      <section class="faq">
+        <h2>Questions we get asked</h2>
+        <details>
+          <summary>Does NABH require a specific software product?</summary>
+          <p>No single package is mandated. What matters is whether your systems can produce required evidence on demand. At Ospia, “supported” means implemented and demonstrable, and “by design” means the platform produces the behaviour or evidence as a by-product of normal operation.</p>
+        </details>
+        <details>
+          <summary>How do ABDM and ABHA help with NABH readiness?</summary>
+          <p>ABDM and ABHA support reliable patient identity and exchange where applicable. Ospia lists ABDM and ABHA as supported, so data can be consistently tied to the right patient and retrieved when needed.</p>
+        </details>
+        <details>
+          <summary>Which data standards should our IT team check for?</summary>
+          <p>FHIR R4 for clinical data reads, HL7 v2 for ADT events, and DICOM/PACS for imaging. Ospia supports these. Specifically, Ospia provides a FHIR R4 read surface (Patient, Encounter, Condition, Observation, MedicationRequest and DiagnosticReport) behind a DPDP consent check, and an HL7 v2 ADT feed (A04/A01/A02/A03) with re-send from a message log.</p>
+        </details>
+        <details>
+          <summary>How is DPDP addressed in day-to-day operations?</summary>
+          <p>Every use of personal data should trace to recorded consent. In Ospia, registration is ABHA‑ready and each access is checked against a consent ledger before use; the FHIR read surface is gated by a DPDP consent check.</p>
+        </details>
+        <details>
+          <summary>Can Ospia keep us continuously ‘audit‑ready’?</summary>
+          <p>That is the design intent: produce NABH evidence as a by‑product of daily work through CAPA, a live risk register, HAI surveillance and antimicrobial stewardship, with standards‑based retrieval. We do not publish guarantees; the goal is to make audit prep a review, not a rescue.</p>
+        </details>
+      </section>
+    <aside class="cta-block">
+      <h2>See it against your own numbers</h2>
+      <p>A 45-minute executive demonstration, using your figures rather than a canned dataset.</p>
+      <a class="cta" href="/demo.html">Book an executive demonstration</a>
+    </aside>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <p>Ospia — the AI-native Hospital Operating System.</p>
+  <nav>
+    <a href="/compliance.html">Compliance</a>
+    <a href="/security.html">Security</a>
+    <a href="/company.html">Company</a>
+  </nav>
+</footer>
+</body>
+</html>
