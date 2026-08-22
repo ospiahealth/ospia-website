@@ -5,83 +5,104 @@
   <link href="https://ospia.in/insights/feed.xml" rel="self"/>
   <link href="https://ospia.in/insights.html"/>
   <id>https://ospia.in/insights.html</id>
-  <updated>2026-08-13T14:44:49Z</updated>
+  <updated>2026-08-22T00:00:00+05:30</updated>
   <author><name>Ospia</name></author>
   <entry>
-    <title>What is a Hospital Operating System? The short version | Ospia</title>
-    <link href="https://ospia.in/insights/what-is-a-hospital-operating-system-the-short-version.html"/>
-    <id>https://ospia.in/insights/what-is-a-hospital-operating-system-the-short-version.html</id>
-    <updated>2026-08-13T14:44:49Z</updated>
-    <summary>Why hospitals keep replacing HMS, what a Hospital Operating System is, and how the autonomy and governance model changes what you control.</summary>
-  </entry>
-  <entry>
-    <title>HMS timelines: why they stretch into years — and how to shorten them | Ospia</title>
-    <link href="https://ospia.in/insights/hms-timelines-why-they-stretch-into-years-and-how-to-shorten-them.html"/>
-    <id>https://ospia.in/insights/hms-timelines-why-they-stretch-into-years-and-how-to-shorten-them.html</id>
-    <updated>2026-08-13T14:44:26Z</updated>
-    <summary>The mechanism behind HMS overruns, what to do before you buy, and the gated implementation model that keeps time and scope honest.</summary>
-  </entry>
-  <entry>
-    <title>What NABH actually requires from your software, clause by clause | Ospia</title>
-    <link href="https://ospia.in/insights/what-nabh-actually-requires-from-your-software-clause-by-clause.html"/>
-    <id>https://ospia.in/insights/what-nabh-actually-requires-from-your-software-clause-by-clause.html</id>
-    <updated>2026-08-12T09:11:48Z</updated>
-    <summary>NABH does not test your software directly — it tests whether your processes leave a trace. Clause by clause, what an assessor actually asks for, and where hospital systems built to transact rather than to prove fall short.</summary>
-  </entry>
-  <entry>
-    <title>The real cost components of hospital software in India | Ospia</title>
-    <link href="https://ospia.in/insights/the-real-cost-components-of-hospital-software-in-india.html"/>
-    <id>https://ospia.in/insights/the-real-cost-components-of-hospital-software-in-india.html</id>
-    <updated>2026-08-12T08:04:55Z</updated>
-    <summary>Licence is not your biggest line item. How Indian hospitals can model true TCO of their HMS over seven years—and what changes if you choose an operating system.</summary>
-  </entry>
-  <entry>
-    <title>The nine reasons Indian TPAs reject claims, ranked by how often | Ospia</title>
-    <link href="https://ospia.in/insights/tpa-claim-rejection-reasons.html"/>
-    <id>https://ospia.in/insights/tpa-claim-rejection-reasons.html</id>
-    <updated>2026-08-10T12:14:07Z</updated>
-    <summary>Nine common, preventable reasons TPAs reject or short-pay a claim — ordered as a checklist to run before submission, not after the remittance arrives light.</summary>
-  </entry>
-  <entry>
-    <title>Compliant by design: ABDM, DPDP, NMC and GST, enforced at write-time | Ospia</title>
+    <title>Compliant by design: ABDM, DPDP, NMC and GST, enforced at write-time</title>
     <link href="https://ospia.in/insights/compliant-by-design.html"/>
     <id>https://ospia.in/insights/compliant-by-design.html</id>
-    <updated>2026-08-10T06:57:15.283Z</updated>
+    <updated>2026-08-22T00:00:00+05:30</updated>
     <summary>ABDM, DPDP, NMC and GST shouldn&apos;t be a document you produce at audit time. Compliant-by-design means the regulation is built into the data model and enforced at write-time — so an Indian hospital stays audit-ready continuously.</summary>
   </entry>
   <entry>
-    <title>Migrating off your old HMS without the horror story | Ospia</title>
+    <title>Credit note reconciliation: where hospital finance quietly leaks</title>
+    <link href="https://ospia.in/insights/credit-note-reconciliation-where-hospital-finance-quietly-leaks.html"/>
+    <id>https://ospia.in/insights/credit-note-reconciliation-where-hospital-finance-quietly-leaks.html</id>
+    <updated>2026-08-22T00:00:00+05:30</updated>
+    <summary>A CFO’s guide to closing the loop on hospital credit notes—without new software—and how Ospia fits when you’re ready.</summary>
+  </entry>
+  <entry>
+    <title>HMS timelines: why they stretch into years — and how to shorten them</title>
+    <link href="https://ospia.in/insights/hms-timelines-why-they-stretch-into-years-and-how-to-shorten-them.html"/>
+    <id>https://ospia.in/insights/hms-timelines-why-they-stretch-into-years-and-how-to-shorten-them.html</id>
+    <updated>2026-08-22T00:00:00+05:30</updated>
+    <summary>The mechanism behind HMS overruns, what to do before you buy, and the gated implementation model Ospia uses to keep time and scope honest.</summary>
+  </entry>
+  <entry>
+    <title>How to govern AI agents in a hospital like new hires</title>
+    <link href="https://ospia.in/insights/how-to-govern-ai-agents-in-a-hospital-like-new-hires.html"/>
+    <id>https://ospia.in/insights/how-to-govern-ai-agents-in-a-hospital-like-new-hires.html</id>
+    <updated>2026-08-22T00:00:00+05:30</updated>
+    <summary>A practical governance model for AI in Indian hospitals: scope, permissions, KPIs, escalation and audit — and where Ospia fits.</summary>
+  </entry>
+  <entry>
+    <title>Migrating off your old HMS without the horror story</title>
     <link href="https://ospia.in/insights/migration-without-the-horror.html"/>
     <id>https://ospia.in/insights/migration-without-the-horror.html</id>
-    <updated>2026-08-10T06:57:15.283Z</updated>
+    <updated>2026-08-22T00:00:00+05:30</updated>
     <summary>The fear of migrating off an old hospital system keeps hospitals stuck on software they have outgrown. Parallel running, verification and a real rollback path turn migration from a leap of faith into a controlled cutover.</summary>
   </entry>
   <entry>
-    <title>You don&apos;t need a new HMS. You need to stop buying HMS. | Ospia</title>
+    <title>NABH software requirements — a plain‑language explainer for medical directors</title>
+    <link href="https://ospia.in/insights/nabh-software-requirements-a-plain-language-explainer-for-medical-dire.html"/>
+    <id>https://ospia.in/insights/nabh-software-requirements-a-plain-language-explainer-for-medical-dire.html</id>
+    <updated>2026-08-22T00:00:00+05:30</updated>
+    <summary>What NABH actually needs from your systems, why audits feel like fire drills, what to fix without buying anything, and where Ospia fits.</summary>
+  </entry>
+  <entry>
+    <title>You don&apos;t need a new HMS. You need to stop buying HMS.</title>
     <link href="https://ospia.in/insights/stop-buying-hms.html"/>
     <id>https://ospia.in/insights/stop-buying-hms.html</id>
-    <updated>2026-08-10T06:57:15.283Z</updated>
+    <updated>2026-08-22T00:00:00+05:30</updated>
     <summary>Why hospitals keep buying the wrong thing: the replacement, integration and coordination taxes baked into the HMS model — and why an AI Hospital Operating System ends the replace-every-five-years ritual.</summary>
   </entry>
   <entry>
-    <title>The revenue your hospital is quietly losing — and how to stop it | Ospia</title>
+    <title>The revenue your hospital is quietly losing — and how to stop it</title>
     <link href="https://ospia.in/insights/stop-the-leakage.html"/>
     <id>https://ospia.in/insights/stop-the-leakage.html</id>
-    <updated>2026-08-10T06:57:15.283Z</updated>
+    <updated>2026-08-22T00:00:00+05:30</updated>
     <summary>Hospitals lose real revenue to charges that were delivered but never captured and to claims rejected after submission. An AI Hospital Operating System catches leakage before it happens — the digital workforce reconciles the day.</summary>
   </entry>
   <entry>
-    <title>Every vendor says &apos;AI-powered.&apos; Three questions that end the conversation. | Ospia</title>
+    <title>The real cost components of hospital software in India</title>
+    <link href="https://ospia.in/insights/the-real-cost-components-of-hospital-software-in-india.html"/>
+    <id>https://ospia.in/insights/the-real-cost-components-of-hospital-software-in-india.html</id>
+    <updated>2026-08-22T00:00:00+05:30</updated>
+    <summary>Licence is not your biggest line item. How Indian hospitals can model true TCO of their HMS over seven years—and what changes if you choose an operating system.</summary>
+  </entry>
+  <entry>
+    <title>Every vendor says &apos;AI-powered.&apos; Three questions that end the conversation.</title>
     <link href="https://ospia.in/insights/three-questions.html"/>
     <id>https://ospia.in/insights/three-questions.html</id>
-    <updated>2026-08-10T06:57:15.283Z</updated>
+    <updated>2026-08-22T00:00:00+05:30</updated>
     <summary>Every hospital software vendor claims to be AI-powered. Three questions — decision replay, configurable autonomy, and provider-independence — separate a governed AI operating system from an AI feature stapled onto old architecture.</summary>
   </entry>
   <entry>
-    <title>Weeks, not years: why implementation stops being a five-year project | Ospia</title>
+    <title>The nine reasons Indian TPAs reject claims, ranked by how often</title>
+    <link href="https://ospia.in/insights/tpa-claim-rejection-reasons.html"/>
+    <id>https://ospia.in/insights/tpa-claim-rejection-reasons.html</id>
+    <updated>2026-08-22T00:00:00+05:30</updated>
+    <summary>Nine common, preventable reasons TPAs reject or short-pay hospital claims in India, ordered as a practical pre-submission checklist.</summary>
+  </entry>
+  <entry>
+    <title>Weeks, not years: why implementation stops being a five-year project</title>
     <link href="https://ospia.in/insights/weeks-not-years.html"/>
     <id>https://ospia.in/insights/weeks-not-years.html</id>
-    <updated>2026-08-10T06:57:15.283Z</updated>
+    <updated>2026-08-22T00:00:00+05:30</updated>
     <summary>Traditional hospital software takes years to implement because it is customised, not configured. An AI Hospital Operating System goes live in weeks because the capabilities already exist and you configure them to your hospital.</summary>
+  </entry>
+  <entry>
+    <title>What is a Hospital Operating System? The short version</title>
+    <link href="https://ospia.in/insights/what-is-a-hospital-operating-system-the-short-version.html"/>
+    <id>https://ospia.in/insights/what-is-a-hospital-operating-system-the-short-version.html</id>
+    <updated>2026-08-22T00:00:00+05:30</updated>
+    <summary>Why hospitals keep replacing HMS, what a Hospital Operating System is, and how Ospia’s autonomy and governance model changes what you control.</summary>
+  </entry>
+  <entry>
+    <title>What NABH actually requires from your software, clause by clause</title>
+    <link href="https://ospia.in/insights/what-nabh-actually-requires-from-your-software-clause-by-clause.html"/>
+    <id>https://ospia.in/insights/what-nabh-actually-requires-from-your-software-clause-by-clause.html</id>
+    <updated>2026-08-22T00:00:00+05:30</updated>
+    <summary>NABH does not test your software directly — it tests whether your processes leave a trace. Clause by clause, what an assessor actually asks for, and where hospital systems built to transact rather than to prove fall short.</summary>
   </entry>
 </feed>
